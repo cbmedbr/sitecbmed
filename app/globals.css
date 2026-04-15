@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base ─────────────────────────────────────────────────────────────────── */
+@layer base {
+  html  { scroll-behavior: smooth; }
+  body  { @apply font-sans text-ink antialiased bg-white; }
+  h1,h2,h3,h4,h5 { @apply tracking-tight; }
+  p { @apply text-ink-light leading-relaxed; }
+}
+
+/* ─── Components ────────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Botões */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2.5
+           font-semibold rounded-xl
+           transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn
+           bg-brand-500 hover:bg-brand-600
+           text-white
+           shadow-brand hover:shadow-lg hover:-translate-y-0.5
+           px-6 py-3.5;
+  }
+  .btn-secondary {
+    @apply btn
+           border-2 border-brand-500 text-brand-600
+           hover:bg-brand-50
+           px-6 py-3.5;
+  }
+  .btn-ghost {
+    @apply btn text-brand-600 hover:text-brand-700 hover:bg-brand-50 px-4 py-2;
+  }
+  .btn-white {
+    @apply btn bg-white text-brand-600 hover:bg-brand-50 shadow-card-md px-6 py-3.5;
+  }
+  /* Alias WhatsApp */
+  .btn-whatsapp { @apply btn-primary; }
+
+  /* Cards */
+  .card        { @apply bg-white rounded-3xl shadow-card border border-slate-100; }
+  .card-hover  { @apply card hover:shadow-card-md hover:-translate-y-1 transition-all duration-200; }
+
+  /* Seção */
+  .section-label {
+    @apply text-xs font-bold uppercase tracking-widest text-brand-500;
+  }
+  .section-title {
+    @apply text-display-md font-bold text-ink;
+  }
+  .section-subtitle {
+    @apply text-base md:text-lg text-ink-light leading-relaxed;
+  }
+  .section-divider {
+    @apply w-10 h-1 bg-brand-500 rounded-full;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1.5
+           text-xs font-semibold
+           px-3 py-1.5 rounded-full
+           bg-brand-50 text-brand-600 border border-brand-100;
+  }
+  .badge-white {
+    @apply badge bg-white/90 text-brand-600 border-white/50;
+  }
+
+  /* Form inputs */
+  .input {
+    @apply w-full px-4 py-3 rounded-xl
+           border border-slate-200
+           text-ink text-sm placeholder-ink-muted
+           bg-white
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           transition-shadow;
+  }
+  .label {
+    @apply block text-sm font-medium text-ink mb-1.5;
+  }
+
+  /* Chip upload */
+  .upload-zone {
+    @apply flex flex-col items-center justify-center gap-2
+           border-2 border-dashed border-slate-200
+           rounded-2xl p-6 text-center
+           hover:border-brand-300 hover:bg-brand-50/30
+           transition-colors cursor-pointer;
+  }
+}
