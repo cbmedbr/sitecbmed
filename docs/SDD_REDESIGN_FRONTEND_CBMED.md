@@ -1,392 +1,432 @@
-# SDD — Redesign Front-end CBMed
+# SDD v2 — Redesign Front-end CBMed
 
-**Solution Design Document**
+**Solution Design Document — Versão 2 (substitui v1)**
 **Projeto:** sitecbmed (cbmed.com.br)
 **Repositório:** github.com/cbmedbr/sitecbmed
-**Stack:** Next.js + Tailwind CSS + TypeScript
+**Stack:** Next.js 15.3 + Tailwind CSS 3.4 + JavaScript (sem TypeScript)
 **Hospedagem:** Vercel (deploy automático via GitHub)
-**Versão:** 1.0
+**Versão:** 2.0
 **Data:** 11/05/2026
-**Responsável técnico:** Vinicius (validação) + Claude Code (execução)
+**Substitui:** SDD v1 (motivo: redirecionamento estético para "boticário científico de luxo")
 
 ---
 
-## 1. Objetivo
+## 1. Conceito Visual
 
-Repaginar **exclusivamente o front-end visual** do site cbmed.com.br, elevando-o a padrão estético premium compatível com o posicionamento da CB CannaBio Medicinal como referência em assessoria de cannabis medicinal no Brasil.
+**"Boticário científico de luxo."**
 
-**Modo de execução:** incremental, **uma seção por vez**, com merge na `main` após aprovação de cada seção via preview deploy.
+Pensar como uma farmácia de manipulação europeia centenária que fez um site digital impecável. Não é tech genérico, não é wellness pop, não é farmácia de bairro. É **autoridade clínica com peso editorial e refinamento tátil**, com inspiração direta em sites como seed.com e ritual.com.
+
+**Pilares conceituais:**
+- **Editorial científico** — tipografia serif para headlines, textura de revista médica premium
+- **Acolhimento sóbrio** — fundo creme tátil em vez de branco hospitalar
+- **Movimento generativo** — animações que reagem ao usuário e contam história no scroll
+- **Detalhe artesanal** — micro-interações nos elementos da marca (pipeta, gota, frasco)
 
 ---
 
 ## 2. Princípios e Restrições Inegociáveis
 
-### 2.1 O que NÃO será alterado em hipótese alguma
+### 2.1 O que NÃO será alterado
 
-- ❌ **Lógica de negócio** — nada em `lib/`, `app/api/`, rotas server-side
-- ❌ **Funcionalidades** — formulários, WhatsApp links, calculadora de doses, navegação
-- ❌ **Conteúdo textual** — copy médica, números (3.800+ pacientes, 1.600+ médicos), CIDs, dosagens, menções a RDC 660/ANVISA
-- ❌ **Estrutura de rotas** — `/sobre`, `/contato`, `/produtos`, `/ciencia`, `/artigos`, `/acolhimento`, `/para-medicos`
-- ❌ **SEO** — meta tags, OG tags, structured data, slugs
-- ❌ **Integrações** — WhatsApp Business, Unsplash, APIs externas
-- ❌ **Variáveis de ambiente** — `.env*` não tocadas
-- ❌ **Build config** — `next.config.js` preservado; `package.json` só com adição de libs de animação
+- ❌ Lógica de negócio, APIs, rotas server-side
+- ❌ Funcionalidades (formulários, WhatsApp, calculadora de doses)
+- ❌ Conteúdo textual (copy médica, números, CIDs, dosagens, RDC 660/ANVISA)
+- ❌ Estrutura de rotas (`/sobre`, `/contato`, `/produtos`, `/ciencia`, `/artigos`, `/acolhimento`, `/para-medicos`)
+- ❌ SEO (meta tags, OG tags, structured data, slugs)
+- ❌ Integrações externas (WhatsApp Business, Unsplash, APIs)
+- ❌ Variáveis de ambiente
+- ❌ `next.config.js`
 
 ### 2.2 O que SERÁ alterado
 
 - ✅ Componentes visuais em `components/`
 - ✅ Estilos globais em `app/globals.css`
-- ✅ Tokens Tailwind em `tailwind.config.js` (extensão, não substituição)
-- ✅ Layouts JSX em `app/` (apenas estrutura visual, sem mexer em data)
-- ✅ Assets em `public/` (adição, sem remoção)
-- ✅ Adição de Framer Motion ao `package.json`
+- ✅ Tokens em `tailwind.config.js`
+- ✅ Layouts JSX em `app/` (estrutura visual)
+- ✅ Assets em `public/` (adições)
+- ✅ `package.json` para adicionar Framer Motion (e possivelmente Lenis)
 
 ---
 
-## 3. Direção Estética
+## 3. Sistema de Design
 
 ### 3.1 Paleta de Cores
 
-**Preservar identidade atual.** Extrair valores exatos no Passo 1 e formalizá-los em tokens semânticos:
+**Mantém identidade da marca (turquesa + dourado), mas reformula o fundo de branco puro para creme sóbrio.**
 
-```
---brand-primary       Verde escuro principal (atual)
---brand-accent        Âmbar/dourado (do frasco de óleo)
---surface-base        Off-white de fundo
---surface-elevated    Branco puro para cards
---text-primary        Preto suave
---text-secondary      Cinza tipográfico
---text-on-brand       Texto sobre fundo verde
---border-subtle       Divisores
---state-success       Verde claro (badges ANVISA)
---state-info          Azul informativo (badges científicos)
-```
+| Token | Valor | Função |
+|---|---|---|
+| `--brand-primary` | `#1BA883` | Verde turquesa principal (CTAs, badges, divisores) |
+| `--brand-primary-hover` | `#148F6E` | Hover do primário |
+| `--brand-deep` | `#0D5A46` | Verde escuro para contrastes premium e blocos de destaque |
+| `--brand-accent` | `#C9A84C` | Dourado/âmbar (acentos, "Mais prescrito") |
+| `--brand-accent-light` | `#D4B96A` | Dourado claro (gradientes sutis) |
+| `--surface-base` | `#F5F2EC` | **Creme sóbrio — fundo principal de toda página** |
+| `--surface-elevated` | `#FFFFFF` | Branco puro para cards (flutuam sobre o creme) |
+| `--surface-brand-subtle` | `#EDFAF6` | Tint verde suave para badges e hovers |
+| `--surface-dark` | `#0F1A14` | Quase-preto verde para seções dark estratégicas |
+| `--text-primary` | `#1E293B` | Títulos e texto principal |
+| `--text-secondary` | `#475569` | Parágrafos, subtítulos |
+| `--text-muted` | `#94A3B8` | Placeholders, metadados, captions |
+| `--text-on-brand` | `#FFFFFF` | Texto branco sobre fundo verde |
+| `--text-on-dark` | `#F5F2EC` | Texto creme sobre fundo escuro |
+| `--border-subtle` | `#EAE5DA` | Divisores e bordas suaves (tom creme) |
+| `--border-default` | `#D8D2C4` | Bordas de inputs (tom creme mais firme) |
+| `--state-success` | `#A3E7D6` | Badges ANVISA/confirmação |
+| `--state-info` | `#BFDBFE` | Provisório — revisar na Seção 06 |
+
+**Justificativa para mudança de fundo branco → creme:**
+
+O creme `#F5F2EC` tem 4 efeitos visuais imediatos:
+1. Tira o "ar de hospital frio" do branco puro
+2. Dá textura tátil de papel premium (sensação de revista científica)
+3. Faz o turquesa parecer mais sofisticado por contraste
+4. Cards brancos ganham profundidade sem precisar de sombra pesada
 
 ### 3.2 Tipografia
 
-| Função | Fonte | Uso |
-|---|---|---|
-| Sans | **Geist Sans** | Headlines, body, navegação |
-| Mono | **JetBrains Mono** | Dosagens, CIDs, números técnicos, COA |
+| Função | Fonte | Uso | Justificativa |
+|---|---|---|---|
+| **Serif (display)** | **Fraunces** | Headlines, títulos de seção, citações editoriais | Variable font; charme científico; alternativa gratuita à Recoleta (Seed) |
+| **Sans (body)** | **Inter** | Parágrafos, navegação, botões, labels | Mantida do site atual para evitar mudança brusca em textos longos |
+| **Mono (técnico)** | **JetBrains Mono** | Dosagens, CIDs, números técnicos, COA, timestamps | Reforça autoridade científica |
 
-**Hierarquia:**
+**Decisão sobre Inter vs Geist:**
+Mantém Inter (já em uso) ao invés de migrar para Geist. Motivo: a personalidade tipográfica do site v2 vem da **Fraunces nos headlines**, não da sans do body. Inter é neutra e legível em textos médicos longos — exatamente o que precisamos.
+
+### 3.3 Hierarquia Tipográfica
 
 ```
-Display    72px / 80px / -2% / 600
-H1         56px / 64px / -1.5% / 600
-H2         40px / 48px / -1% / 600
-H3         28px / 36px / -0.5% / 500
-H4         20px / 28px / 0 / 500
-Body L     18px / 28px / 0 / 400
-Body M     16px / 24px / 0 / 400
-Body S     14px / 20px / 0 / 400
-Mono       Variável, tabular-nums
+Display      Fraunces  | clamp(3.5rem→5rem)   | 1.0  | -3% | 600 | opsz 144 | softness 50
+H1           Fraunces  | clamp(2.5rem→3.75rem)| 1.1  | -2% | 600 | opsz 120
+H2           Fraunces  | clamp(2rem→2.75rem)  | 1.15 | -1.5%| 500 | opsz 96
+H3           Inter     | 1.75rem              | 1.3  | -0.5%| 600
+H4           Inter     | 1.25rem              | 1.4  |  0   | 600
+Body L       Inter     | 1.125rem             | 1.6  |  0   | 400
+Body M       Inter     | 1rem                 | 1.5  |  0   | 400
+Body S       Inter     | 0.875rem             | 1.5  |  0   | 400
+Mono         JetBrains | variável             | 1.4  | tabular-nums
+Caption      Inter     | 0.75rem              | 1.4  | +5% (tracked) | 600 uppercase
 ```
 
-### 3.3 Espaçamento
+**Detalhes Fraunces:**
+- Usar **optical size** (`opsz`) maior em headlines maiores — torna a serif mais elegante
+- `softness` controla quão "calorosa" a fonte fica (50 = balanceado)
+- Variable font: peso ajustável de 400-900 sem trocar arquivo
 
-Escala base-4: `4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192px`.
+### 3.4 Espaçamento
 
-### 3.4 Animações (Intensidade Média)
+Escala Tailwind padrão (base-4): `4, 8, 12, 16, 24, 32, 48, 64, 96, 128, 192px`.
 
-| Padrão | Aplicação |
-|---|---|
-| Fade + slide up (40px, 600ms, ease-out) | Entrada de seções no viewport |
-| Parallax sutil (factor 0.2-0.4) | Imagens hero, frascos |
-| Hover lift (-4px, shadow expansion) | Cards de produto/artigo |
-| Stagger reveal (delay 80-120ms) | Listas de benefícios, etapas |
-| Number count-up (1.5s) | Stats (3.800+ pacientes) |
-| Magnetic CTA (raio 12px sutil) | Botões principais |
-| Scroll progress | Indicador em artigos |
-| Smooth scroll | Navegação âncora |
+Apenas documentado em `DESIGN_SYSTEM.md`, sem alterações no Tailwind.
 
-**Biblioteca:** Framer Motion.
+### 3.5 Sombras e Profundidade
 
-**Performance obrigatória:**
-- `prefers-reduced-motion: reduce` respeitado sempre
-- Animações via `transform` e `opacity` apenas
-- `IntersectionObserver` para lazy reveal
+```
+shadow-card       Sutil, para cards sobre o creme
+shadow-card-md    Hover de cards
+shadow-card-lg    Modais, elementos elevados
+shadow-brand      Tinta turquesa em CTAs primários
+shadow-warm       Tinta creme/dourada em elementos premium
+```
+
+### 3.6 Border Radius
+
+```
+sm   8px   — chips, badges pequenas
+md   12px  — botões, inputs
+lg   16px  — botões grandes, badges grandes
+xl   20px  — cards padrão
+2xl  24px  — cards de produto
+3xl  32px  — blocos hero
+4xl  40px  — seções editoriais grandes
+```
 
 ---
 
-## 4. Workflow por Seção
+## 4. Animações (Intensidade Alta)
 
-### 4.1 Estrutura de Branches
+### 4.1 Bibliotecas
+
+- **Framer Motion** — animações React, scroll reveals, hover, layout animations
+- **Lenis** (opcional) — smooth scroll global (avaliar na Seção 02)
+- **GSAP** (avaliar caso a caso) — apenas se precisar de timeline SVG complexa (gota animada)
+
+### 4.2 Padrões Reutilizáveis
+
+| Padrão | Aplicação |
+|---|---|
+| **Fade + slide up** (40px, 700ms, ease-out) | Entrada de seções no viewport |
+| **Stagger reveal** (delay 80-120ms) | Listas, etapas, benefícios |
+| **Parallax** (factor 0.2-0.5) | Imagens, frascos, blocos de texto editorial |
+| **Hover lift** (-6px + shadow expansion) | Cards de produto e artigos |
+| **Magnetic CTA** (raio 16px) | Botões principais (Sou Médico / Sou Paciente) |
+| **Number count-up** (1.8s, ease-out) | Estatísticas (3.800+ pacientes) |
+| **Smooth scroll global** | Via Lenis (opcional) |
+| **Scroll progress bar** | Indicador de leitura em artigos |
+| **Cursor magnético** | Frascos no hero e no catálogo |
+
+### 4.3 Animações Assinatura (Únicas do CBMed)
+
+**1. Pipeta com gota animada (no Hero ou Catálogo)**
+- SVG do conta-gotas com líquido dourado
+- Ao carregar a seção: uma gota se forma na ponta, cai, e desaparece com leve ondulação
+- Loop sutil a cada 4-6 segundos
+- Em hover: ritmo acelera ligeiramente
+
+**2. Frasco reativo ao cursor**
+- O frasco principal do hero inclina suavemente em direção ao cursor (max 8° de inclinação)
+- Efeito magnético com easing suave
+- O líquido dentro do frasco mantém movimento sutil de ondulação
+
+**3. Headlines destilando**
+- Headlines principais aparecem letra por letra com fade-in de baixo pra cima
+- Duração curta (~600ms total), efeito sutil
+- Aplicada uma vez por visita, não a cada scroll
+
+**4. Linha do tempo "desenhada"**
+- No Fluxo RDC 660, a linha conectora entre as 4 etapas é desenhada com `stroke-dashoffset` enquanto o usuário scrolla
+- Sensação de "tinta caindo no papel"
+
+**5. Número que "pinga"**
+- Stats (3.800+ / 1.600+) aparecem com bounce sutil simulando gota d'água
+- Sincronizado com count-up
+
+### 4.4 Performance e Acessibilidade
+
+- `prefers-reduced-motion: reduce` respeitado em **todas** as animações (fade simples como fallback)
+- Animações sempre via `transform` e `opacity` (nunca `width`, `height`, `top`)
+- `IntersectionObserver` para lazy reveal
+- Animações pesadas (gota SVG, frasco reativo) apenas em desktop ≥1024px
+- Mobile recebe versões simplificadas (parallax desabilitado, hover-lift virou tap-feedback)
+
+---
+
+## 5. Workflow por Seção (mantido da v1)
+
+### 5.1 Estrutura de Branches
 
 ```
 main                              ← Produção
 ├── pre-redesign-v1 (tag)         ← Backup absoluto
-├── refresh/01-design-tokens      ← Seção 1
-├── refresh/02-header             ← Seção 2 (criada após merge da 1)
-├── refresh/03-hero               ← Seção 3
+├── refresh/01-design-tokens      ← Seção 1 (em andamento)
+├── refresh/02-header             ← Seção 2 (próxima)
 └── ...
 ```
 
-Cada seção vive em uma branch própria. Nasce a partir da `main` **atualizada** (já com as seções anteriores aprovadas).
-
-### 4.2 Ciclo de Vida de Cada Seção
+### 5.2 Ciclo de Vida
 
 ```
 1. git checkout main && git pull
 2. git checkout -b refresh/XX-nome-secao
-3. Claude Code executa a seção
-4. Checkpoints obrigatórios (ver 5.3)
+3. Claude Code executa, commit por commit
+4. Checkpoints (npm run dev, console, build em commits finais)
 5. git push origin refresh/XX-nome-secao
 6. Vercel gera preview automático
-7. Vinicius valida no preview (desktop + mobile)
-8. Se aprovado:
-   - Abrir PR no GitHub: refresh/XX → main
-   - Merge (squash recomendado)
-   - git push origin main
-   - Vercel publica em produção
-9. Próxima seção começa do passo 1
+7. Vinicius valida desktop + mobile
+8. PR no GitHub → merge (squash) → produção
+9. Próxima seção
 ```
 
-### 4.3 Roadmap por Seção (Ordem de Execução)
+### 5.3 Roadmap Atualizado
 
-| # | Seção | Branch | Esforço | Bloqueia? |
+| # | Seção | Branch | Esforço | Mudou na v2? |
 |---|---|---|---|---|
-| 01 | **Design tokens + tipografia** | `refresh/01-design-tokens` | Médio | Sim — base de tudo |
-| 02 | **Header / Navegação** | `refresh/02-header` | Pequeno | Não |
-| 03 | **Hero (primeira dobra)** | `refresh/03-hero` | Grande | Não |
-| 04 | **Stats (3.800+/1.600+)** | `refresh/04-stats` | Pequeno | Não |
-| 05 | **Catálogo de produtos** | `refresh/05-catalog` | Grande | Não |
-| 06 | **Base Científica** (COA/Calculadora/Estudos) | `refresh/06-science` | Médio | Não |
-| 07 | **Canal do Médico** | `refresh/07-doctor` | Médio | Não |
-| 08 | **Fluxo RDC 660** (timeline) | `refresh/08-rdc-flow` | Médio | Não |
-| 09 | **Base de Conhecimento** (artigos) | `refresh/09-articles` | Pequeno | Não |
-| 10 | **CTA Final + Footer** | `refresh/10-cta-footer` | Pequeno | Não |
-| 11 | **Páginas internas** (aplicar sistema) | `refresh/11-internal-pages` | Grande | Depende de 01 |
-
-**Importante:** seção 01 (design tokens) é a única bloqueante. Todas as demais a partir da 02 podem ser feitas em qualquer ordem, mas sugiro seguir a numeração para fluxo lógico de validação.
+| 01 | Design tokens + tipografia | `refresh/01-design-tokens` | Médio | **Sim** (Fraunces + creme) |
+| 02 | Header / Navegação | `refresh/02-header` | Pequeno | Não |
+| 03 | Hero (primeira dobra) | `refresh/03-hero` | **Grande** (frasco reativo) | **Sim** (animação assinatura) |
+| 04 | Stats | `refresh/04-stats` | Pequeno | Pequeno (bounce/drip) |
+| 05 | Catálogo de produtos | `refresh/05-catalog` | Grande | **Sim** (cards editoriais) |
+| 06 | Base Científica | `refresh/06-science` | Médio | Não |
+| 07 | Canal do Médico | `refresh/07-doctor` | Médio | Não |
+| 08 | Fluxo RDC 660 | `refresh/08-rdc-flow` | **Grande** (timeline desenhada) | **Sim** |
+| 09 | Base de Conhecimento | `refresh/09-articles` | Pequeno | Não |
+| 10 | CTA Final + Footer | `refresh/10-cta-footer` | Pequeno | Não |
+| 11 | Páginas internas | `refresh/11-internal-pages` | Grande | Não |
 
 ---
 
-## 5. Salvaguardas Técnicas
+## 6. Salvaguardas Técnicas (mantidas e reforçadas da v1)
 
-### 5.1 Backup Absoluto (única vez, antes de começar)
+### 6.1 Backup Absoluto
 
-```bash
-git checkout main
-git pull
-git tag pre-redesign-v1
-git push origin pre-redesign-v1
-```
+Tag `pre-redesign-v1` já criada antes do início da Seção 01.
 
-Ponto de retorno nomeado, imutável. Em caso de catástrofe:
+### 6.2 Por Seção
 
 ```bash
-git reset --hard pre-redesign-v1
-git push --force origin main
-```
-
-### 5.2 Por Seção — Antes de Começar
-
-```bash
-git checkout main
-git pull origin main
+git checkout main && git pull
 git checkout -b refresh/XX-nome-secao
 ```
 
-Garante que cada nova seção parte do código mais atualizado.
+### 6.3 Checkpoints Obrigatórios
 
-### 5.3 Checkpoints Obrigatórios (Antes de Cada Commit)
+Antes de cada commit:
+1. `npm run dev` sobe sem erros
+2. Site carrega em `localhost:3000`
+3. Console do navegador: zero erros vermelhos
+4. Em commits finais: `npm run build` passa
+5. Links e WhatsApp funcionando
 
-Claude Code DEVE validar:
+### 6.4 Regra de Visibilidade (NOVA, adicionada na v2)
 
-1. ✅ `npm run dev` — sobe sem erros
-2. ✅ Site carrega em `localhost:3000` — verificação manual
-3. ✅ Console do navegador: **zero erros vermelhos**
-4. ✅ Em commits finais da seção: `npm run build` deve passar
-5. ✅ Links e WhatsApp ainda funcionam (clique de teste)
+Antes de mexer em **qualquer** componente ou arquivo visual, Claude Code deve informar:
+1. Arquivo a ser editado (caminho completo)
+2. URLs locais afetadas (ex: `localhost:3000/`, `/sobre`)
+3. Descrição visual: como o usuário identifica o elemento na tela
+4. O que muda visualmente
+5. Diff antes/depois
+6. Plano de rollback específico do commit
+7. Aguardar aprovação explícita
 
-**Se qualquer item falhar:** não commitar. Reportar antes.
+### 6.5 Preview Deploy
 
-### 5.4 Commits Atômicos Dentro da Seção
-
-Mesmo sendo PR único por seção, **commits internos granulares**. Padrão Conventional Commits:
-
-```
-feat(tokens): adiciona paleta semântica em CSS variables
-feat(tokens): configura Geist e JetBrains Mono no Tailwind
-feat(tokens): define escala tipográfica e espaçamento base-4
-docs(tokens): atualiza README com sistema de design
-```
-
-Permite rollback cirúrgico dentro da própria seção se algo específico não convencer.
-
-### 5.5 Preview Deploy (Validação Antes do Merge)
-
-Após push da branch, Vercel cria URL automaticamente:
-
+Após push, Vercel gera URL:
 ```
 sitecbmed-git-refresh-XX-nome-cbmedbr.vercel.app
 ```
 
-**Validação obrigatória do Vinicius antes do merge:**
+Validação obrigatória:
+- ✅ Desktop
+- ✅ Mobile (celular real)
+- ✅ Todos CTAs da seção
+- ✅ WhatsApp funcional
+- ✅ Comparação lado a lado com produção
+- ✅ Aprovação explícita por escrito
 
-- ✅ Abrir preview no desktop
-- ✅ Abrir preview no mobile (usar próprio celular)
-- ✅ Clicar em todos os CTAs da seção alterada
-- ✅ Verificar que WhatsApp abre corretamente
-- ✅ Comparar com produção atual (cbmed.com.br) lado a lado
-- ✅ Aprovação explícita por escrito antes do merge
+### 6.6 Rollback
 
-### 5.6 Rollback Pós-Merge
-
-Se algo crítico passar pelo preview e aparecer em produção:
-
-**Opção 1 — Revert do PR (preserva histórico):**
 ```bash
-git checkout main
+# Reverter o último PR (preserva histórico)
 git revert -m 1 <hash-do-merge>
 git push origin main
-```
 
-**Opção 2 — Voltar para a seção anterior (descarta a última):**
-```bash
-git reset --hard <hash-antes-do-merge>
-git push --force origin main
-```
-
-**Opção 3 — Reset total (volta ao estado pré-redesign):**
-```bash
+# Voltar à tag de backup (catástrofe)
 git reset --hard pre-redesign-v1
 git push --force origin main
 ```
 
-Vercel reage ao push em ~60 segundos e republica.
-
 ---
 
-## 6. Detalhamento das Seções
+## 7. Detalhamento das Seções
 
-### Seção 01 — Design Tokens + Tipografia
+### Seção 01 — Design Tokens + Tipografia (v2)
 
 **Branch:** `refresh/01-design-tokens`
-**Objetivo:** Criar fundação visual que todas as outras seções consumirão.
 
-**Entregáveis:**
-- Extração da paleta atual e formalização em CSS variables (`app/globals.css`)
-- Configuração do Geist Sans + JetBrains Mono via `next/font` (sem CDN externo)
-- Extensão do `tailwind.config.js` com tokens semânticos
-- Sistema de espaçamento base-4 documentado
-- Escala tipográfica documentada
-- **Visualmente: site deve continuar idêntico** (mudança é estrutural, não visual)
+**Entregáveis (revisados para v2):**
 
-**Critério de aprovação:** site renderiza igual ou melhor que antes, sem mudanças visuais perceptíveis. Base pronta para próximas seções.
+1. CSS variables em `app/globals.css` com **paleta v2** (inclui `--surface-base` creme)
+2. Configurar **Fraunces + Inter + JetBrains Mono** via `next/font/google` em `app/layout.js`
+   - Fraunces com axes `opsz` e `wght` variáveis
+3. Estender `tailwind.config.js` com:
+   - Tokens semânticos de cor (incluindo creme como surface)
+   - 3 famílias de fonte (`font-serif`, `font-sans`, `font-mono`)
+   - Escala tipográfica completa
+4. **Trocar `bg-white` por `bg-surface-base` no `body`** em `app/layout.js`
+5. Documentar em `docs/DESIGN_SYSTEM.md`
+
+**Critério de aprovação:**
+- ✅ Site renderiza com **fundo creme** (mudança visual esperada e desejada)
+- ✅ Headlines existentes continuam em sans (Fraunces será aplicada nas seções posteriores, quando recriarmos os componentes)
+- ✅ Cards continuam brancos sobre o creme (efeito de profundidade)
+- ✅ Sem erros no console
+- ✅ Build passa
+
+**Mudança visual esperada:**
+Fundo da página deixa de ser branco e passa a ser creme sutil. Cards e blocos brancos ganham leve destaque. **Tipografia ainda não muda** — Fraunces só entra em jogo quando os componentes forem refeitos a partir da Seção 02.
 
 ---
 
 ### Seção 02 — Header / Navegação
 
-**Branch:** `refresh/02-header`
-
 **Entregáveis:**
-- Sticky header com glassmorphism sutil (backdrop-blur)
-- Logo + nav central + duplo CTA ("Sou Médico" / "Sou Paciente")
-- Transição suave de fundo on scroll (transparente → glass)
-- Mobile: menu hamburguer com slide-in animado
-- Hover states refinados nos links
+- Sticky com glassmorphism (backdrop-blur sobre creme)
+- Logo + nav central + duplo CTA
+- Hover states refinados
+- Menu mobile hamburguer com slide-in
+- **Headlines do logo/marca em Fraunces** (primeira aparição da serif)
 
 ---
 
 ### Seção 03 — Hero (Primeira Dobra)
 
-**Branch:** `refresh/03-hero`
-
 **Entregáveis:**
-- Headline em tipografia display
+- Headline em Fraunces, tamanho display, com efeito **"destilação"**
 - Badge "Aprovado ANVISA · RDC 660 · Importação Uruguai" repaginada como pill editorial
-- Subtítulo com hierarquia clara, mantendo "3.800+ pacientes" e "1.600+ médicos prescritores"
-- CTAs com magnetic hover sutil
-- Composição lateral com imagem do frasco em parallax leve
-- Quatro selos de credibilidade no rodapé do hero refinados
+- Subtítulo refinado
+- CTAs com **magnetic hover**
+- **Animação assinatura:** frasco principal + pipeta com gota animada
+- Composição lateral com parallax
 
 ---
 
-### Seção 04 — Stats (3.800+ / 1.600+)
-
-**Branch:** `refresh/04-stats`
+### Seção 04 — Stats
 
 **Entregáveis:**
-- Bloco de credibilidade dedicado
-- Number count-up animado ao entrar no viewport
-- Tipografia mono tabular para números
-- Layout em grid 4 colunas (desktop) / 2 colunas (mobile)
+- Number count-up com **bounce simulando gota**
+- Tipografia mono tabular
+- Grid 4 colunas (desktop) / 2 colunas (mobile)
 
 ---
 
-### Seção 05 — Catálogo de Produtos
-
-**Branch:** `refresh/05-catalog`
+### Seção 05 — Catálogo
 
 **Entregáveis:**
-- 4 cards premium (1500mg, 3000mg, 6000mg, CBD+CBG)
-- Imagem do frasco em primeiro plano
-- Hierarquia de info: concentração (mono grande) → categoria → descrição → tags clínicas → CTA
-- Badge "Mais prescrito" reposicionada
-- Hover lift + shadow expansion
-- Grid responsivo refinado
+- 4 cards premium editoriais
+- Frasco em primeiro plano, **inclinação suave ao hover**
+- Hierarquia: concentração (Fraunces grande) → categoria → descrição → tags → CTA
+- Badge "Mais prescrito" repaginada
+- Hover-lift + shadow expansion
 
 ---
 
 ### Seção 06 — Base Científica
 
-**Branch:** `refresh/06-science`
-
 **Entregáveis:**
-- Layout assimétrico editorial (3 blocos: COA, Calculadora, Estudos)
+- Layout assimétrico editorial (3 blocos)
 - Calculadora interativa com slider repaginado (preservar lógica)
-- Cards com citação de fonte (NEJM, Lancet, JAMA) em destaque tipográfico
+- Citações de fonte (NEJM, Lancet, JAMA) em destaque tipográfico Fraunces
 - Iconografia médica refinada
 
 ---
 
-### Seção 07 — Canal do Médico Prescritor
-
-**Branch:** `refresh/07-doctor`
+### Seção 07 — Canal do Médico
 
 **Entregáveis:**
-- Split-screen (imagem + conteúdo) com parallax
-- Check-list dos 4 benefícios em stagger reveal
+- Split-screen com parallax
+- Check-list em stagger reveal
 - Badge "1.600+ médicos parceiros" reforçada
-- CTA WhatsApp Médico destacado
+- CTA WhatsApp destacado
 
 ---
 
-### Seção 08 — Fluxo RDC 660 (Timeline)
-
-**Branch:** `refresh/08-rdc-flow`
+### Seção 08 — Fluxo RDC 660
 
 **Entregáveis:**
 - Timeline horizontal (desktop) / vertical (mobile)
-- 4 etapas com ícones SVG customizados
-- Conectores animados entre etapas
-- Scroll-reveal progressivo
+- **Linha conectora desenhada via stroke-dashoffset no scroll** (animação assinatura)
+- Ícones SVG customizados por etapa
 - Numeração mono (01, 02, 03, 04)
 
 ---
 
-### Seção 09 — Base de Conhecimento (Artigos)
-
-**Branch:** `refresh/09-articles`
+### Seção 09 — Artigos
 
 **Entregáveis:**
 - Cards editoriais com tag de categoria
 - Tempo de leitura em mono ("11 min")
-- Hover lift sutil
-- Layout em 3 colunas (desktop)
+- Hover-lift sutil
+- Layout em 3 colunas
 
 ---
 
 ### Seção 10 — CTA Final + Footer
 
-**Branch:** `refresh/10-cta-footer`
-
 **Entregáveis:**
 - Bloco de fechamento com gradiente sutil verde→âmbar
-- Footer com hierarquia tipográfica clara
+- Footer com hierarquia tipográfica (Fraunces nos títulos de coluna)
 - Badges de certificação refinadas
 - Contato com ícones inline
 
@@ -394,62 +434,32 @@ Vercel reage ao push em ~60 segundos e republica.
 
 ### Seção 11 — Páginas Internas
 
-**Branch:** `refresh/11-internal-pages`
-
 **Entregáveis:**
-- Aplicar sistema de design em `/sobre`, `/contato`, `/produtos`, `/ciencia`, `/artigos`, `/acolhimento`, `/para-medicos`
-- Reaproveitar componentes criados nas seções 01-10
+- Aplicar sistema em `/sobre`, `/contato`, `/produtos`, `/ciencia`, `/artigos`, `/acolhimento`, `/para-medicos`
+- Reaproveitar componentes das seções anteriores
 - Refinamento de layout específico onde necessário
 
 ---
 
-## 7. Prompt Mestre para Claude Code
+## 8. Decisão sobre o Commit 1 (já aplicado)
 
-A cada nova seção, o prompt inicial para o Claude Code deve seguir este template:
+O Commit 1 da Seção 01 (CSS variables) foi aplicado com a paleta v1. **Ele precisa ser ajustado para incorporar os novos tokens da v2** (especialmente `--surface-base`, `--brand-deep`, `--surface-dark`, `--text-on-dark`, `--shadow-warm`).
 
-```
-Estou trabalhando no redesign do site cbmed.com.br (Next.js + Tailwind).
-SDD completo está em: [caminho/SDD_REDESIGN_FRONTEND_CBMED.md]
+**Decisão:** ao invés de criar um commit corretivo, o Claude Code substituirá o bloco `:root` no início do `app/globals.css` no contexto do próximo commit, e ajustará a mensagem para refletir a v2.
 
-Vou executar a Seção XX: [nome da seção].
-
-Regras inegociáveis:
-1. Não alterar lógica de negócio, conteúdo textual, rotas, ou integrações.
-2. Antes de qualquer mudança, confirme que está na branch correta:
-   git status deve mostrar refresh/XX-nome-secao
-3. Commits atômicos com Conventional Commits.
-4. Antes de cada commit: rodar npm run dev e verificar console.
-5. Ao final da seção: rodar npm run build e garantir que passa.
-6. NÃO mergeie para main. Apenas push da branch.
-
-Por favor, comece lendo o SDD e me confirme o entendimento antes de tocar em qualquer arquivo.
-```
-
----
-
-## 8. Critérios Gerais de Aceitação
-
-Para cada seção poder ser mergeada:
-
-- ✅ Build passa (`npm run build` sem erros)
-- ✅ Dev roda (`npm run dev` sem warnings críticos)
-- ✅ Preview Vercel renderiza corretamente
-- ✅ Desktop e mobile validados manualmente
-- ✅ Lighthouse Performance: não cair >10 pontos vs. baseline da `main` atual
-- ✅ Lighthouse Accessibility: ≥90
-- ✅ Sem mudanças em conteúdo textual ou estrutura de rotas
-- ✅ Aprovação explícita do Vinicius
+**Opção alternativa:** `git revert` do Commit 1 e recomeçar a Seção 01 do zero com o novo plano. Decisão do Vinicius (item de aprovação).
 
 ---
 
 ## 9. Próximos Passos Imediatos
 
-1. Vinicius lê e aprova este SDD
-2. Criar tag de backup: `git tag pre-redesign-v1 && git push origin pre-redesign-v1`
-3. Iniciar **Seção 01 — Design Tokens** com Claude Code
-4. Validar no preview
-5. Merge na main
-6. Avançar para Seção 02
+1. ✅ Vinicius lê e aprova este SDD v2
+2. Decidir entre:
+   - (a) Manter Commit 1 e ajustar no Commit 2 (mais rápido)
+   - (b) Reverter Commit 1 e reiniciar Seção 01 com a paleta v2 (mais limpo)
+3. Reescrever plano da Seção 01 conforme decisão
+4. Claude Code apresenta novo plano detalhado
+5. Aprovação e execução
 
 ---
 
