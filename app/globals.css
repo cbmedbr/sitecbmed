@@ -1,3 +1,31 @@
+/* ─── Design Tokens — CSS Custom Properties ────────────────────────────────── */
+:root {
+  /* Cores da marca */
+  --brand-primary:        #1ba883;
+  --brand-primary-hover:  #148f6e;
+  --brand-accent:         #c9a84c;
+  --brand-accent-light:   #d4b96a;
+
+  /* Superfícies */
+  --surface-base:         #ffffff;
+  --surface-elevated:     #ffffff;
+  --surface-brand-subtle: #edfaf6;
+
+  /* Texto */
+  --text-primary:         #1e293b;
+  --text-secondary:       #475569;
+  --text-muted:           #94a3b8;
+  --text-on-brand:        #ffffff;
+
+  /* Bordas */
+  --border-subtle:        #f1f5f9;
+  --border-default:       #e2e8f0;
+
+  /* Estados */
+  --state-success:        #a3e7d6;
+  --state-info:           #bfdbfe; /* provisório — revisar na Seção 06 */
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
