@@ -1,27 +1,32 @@
 'use client'
+import { useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import Image from 'next/image'
 import { WHATSAPP } from '../lib/constants'
 
-const STAGGER_DELAYS = [0, 0.4, 0.8, 1.2]
-
-export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, destaque, img, index }) {
+export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, destaque, img }) {
   const prefersReduced = useReducedMotion()
+  const [isHovered, setIsHovered] = useState(false)
+
+  const shouldFloat = !prefersReduced && (destaque || isHovered)
 
   return (
-    <div className={`relative card flex flex-col overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
-      destaque ? 'ring-2 ring-brand-400' : ''
-    }`}>
+    <div
+      className={`relative card flex flex-col overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
+        destaque ? 'ring-2 ring-brand-400' : ''
+      }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="relative h-96 bg-white overflow-hidden border-b border-slate-100">
         <motion.div
           className="absolute inset-0 flex items-end justify-center pb-4"
-          animate={prefersReduced ? {} : { y: [0, -6, 0] }}
-          transition={{
-            duration: 5,
+          animate={shouldFloat ? { y: [0, isHovered ? -12 : -6, 0] } : { y: 0 }}
+          transition={shouldFloat ? {
+            duration: isHovered ? 2.5 : 5,
             ease: 'easeInOut',
             repeat: Infinity,
-            delay: STAGGER_DELAYS[index] ?? 0,
-          }}
+          } : { duration: 0.4, ease: 'easeOut' }}
         >
           <Image
             src={img}
@@ -40,7 +45,7 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
             ★ Mais prescrito
           </span>
         )}
-        <div className={`font-serif font-semibold text-ink mb-1 ${mg.length > 10 ? 'text-xl' : 'text-3xl'}`}>{mg}</div>
+        <div className="font-serif text-2xl font-semibold text-ink mb-1">{mg}</div>
         <div className="text-[10px] font-semibold uppercase tracking-widest text-ink-muted mb-4">{tipo} · até 0,3% THC · Importação Uruguai</div>
         <p className="text-sm text-ink-light leading-relaxed mb-5 flex-1">{descricao}</p>
 
