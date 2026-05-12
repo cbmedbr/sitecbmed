@@ -37,7 +37,7 @@ function Dropdown({ label, links, icon, pathname }) {
       onMouseLeave={() => setOpen(false)}
     >
       <button className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-        hasActive ? 'bg-brand-50 text-brand-600 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+        hasActive ? 'bg-brand-50 text-brand-600 font-semibold' : 'text-slate-600 hover:text-brand-600 hover:bg-brand-50/60'
       }`}>
         {icon}
         {label}
@@ -56,7 +56,7 @@ function Dropdown({ label, links, icon, pathname }) {
               className={`flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors ${
                 pathname === link.href
                   ? 'text-brand-600 font-semibold bg-brand-50'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                  : 'text-slate-700 hover:text-brand-600 hover:bg-brand-50/60'
               }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500 opacity-60 shrink-0"/>
@@ -137,7 +137,7 @@ export default function Header() {
                 className={`px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === link.href
                     ? 'bg-brand-50 text-brand-600 font-semibold'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                    : 'text-slate-600 hover:text-brand-600 hover:bg-brand-50/60'
                 }`}>
                 {link.label}
               </Link>
@@ -178,12 +178,12 @@ export default function Header() {
             <p className="section-label px-4 mb-2">Pacientes</p>
             {pacienteLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 rounded-xl">{l.label}</Link>
+                className="block px-4 py-2.5 text-sm text-slate-700 hover:text-brand-600 hover:bg-brand-50/60 rounded-xl transition-colors">{l.label}</Link>
             ))}
             <p className="section-label px-4 mt-4 mb-2">Prescritores</p>
             {prescritoresLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 rounded-xl">{l.label}</Link>
+                className="block px-4 py-2.5 text-sm text-slate-700 hover:text-brand-600 hover:bg-brand-50/60 rounded-xl transition-colors">{l.label}</Link>
             ))}
             <div className="mt-4 px-4 flex flex-col gap-2">
               <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
