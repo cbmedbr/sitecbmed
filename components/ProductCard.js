@@ -20,7 +20,7 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
             ★ Mais prescrito
           </span>
         )}
-        <div className="font-serif text-3xl font-semibold text-ink mb-1">{mg}</div>
+        <div className={`font-serif font-semibold text-ink mb-1 ${mg.length > 10 ? 'text-xl' : 'text-3xl'}`}>{mg}</div>
         <div className="text-[10px] font-semibold uppercase tracking-widest text-ink-muted mb-4">{tipo} · até 0,3% THC · Importação Uruguai</div>
         <p className="text-sm text-ink-light leading-relaxed mb-5 flex-1">{descricao}</p>
 
