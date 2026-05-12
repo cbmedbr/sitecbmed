@@ -10,20 +10,21 @@ const lines = [
 
 export default function DistillHeadline() {
   const prefersReduced = useReducedMotion()
-  const [animate, setAnimate] = useState(false)
+  const [state, setState] = useState('hidden') // 'hidden' | 'animated' | 'instant'
 
   useEffect(() => {
-    if (sessionStorage.getItem('hero-distill-done') || prefersReduced) return
-
-    const start = () => {
-      setAnimate(true)
-      sessionStorage.setItem('hero-distill-done', '1')
+    if (sessionStorage.getItem('hero-distill-done') || prefersReduced) {
+      setState('instant')
+      return
     }
 
     Promise.race([
       document.fonts.ready,
       new Promise(r => setTimeout(r, 1500))
-    ]).then(start)
+    ]).then(() => {
+      setState('animated')
+      sessionStorage.setItem('hero-distill-done', '1')
+    })
   }, [prefersReduced])
 
   return (
@@ -32,9 +33,13 @@ export default function DistillHeadline() {
         <motion.span
           key={i}
           className={`block${line.colored ? ' text-brand-500' : ''}`}
-          initial={animate ? { opacity: 0, y: 24 } : false}
-          animate={animate ? { opacity: 1, y: 0 } : false}
-          transition={{ duration: 0.65, ease: 'easeOut', delay: i * 0.12 }}
+          initial={{ opacity: 0, y: 24 }}
+          animate={state === 'hidden' ? { opacity: 0, y: 24 } : { opacity: 1, y: 0 }}
+          transition={
+            state === 'animated'
+              ? { duration: 0.65, ease: 'easeOut', delay: i * 0.12 }
+              : { duration: 0 }
+          }
         >
           {line.text}
         </motion.span>
