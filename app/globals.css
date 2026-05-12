@@ -1,25 +1,28 @@
-/* ─── Design Tokens — CSS Custom Properties ────────────────────────────────── */
+/* ─── Design Tokens v2 — CSS Custom Properties ─────────────────────────────── */
 :root {
-  /* Cores da marca */
+  /* Marca */
   --brand-primary:        #1ba883;
   --brand-primary-hover:  #148f6e;
+  --brand-deep:           #0d5a46;
   --brand-accent:         #c9a84c;
   --brand-accent-light:   #d4b96a;
 
   /* Superfícies */
-  --surface-base:         #ffffff;
+  --surface-base:         #f5f2ec;
   --surface-elevated:     #ffffff;
   --surface-brand-subtle: #edfaf6;
+  --surface-dark:         #0f1a14;
 
   /* Texto */
   --text-primary:         #1e293b;
   --text-secondary:       #475569;
   --text-muted:           #94a3b8;
   --text-on-brand:        #ffffff;
+  --text-on-dark:         #f5f2ec;
 
   /* Bordas */
-  --border-subtle:        #f1f5f9;
-  --border-default:       #e2e8f0;
+  --border-subtle:        #eae5da;
+  --border-default:       #d8d2c4;
 
   /* Estados */
   --state-success:        #a3e7d6;
