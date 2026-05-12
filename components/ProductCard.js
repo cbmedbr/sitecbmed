@@ -5,12 +5,6 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
     <div className={`relative card flex flex-col overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
       destaque ? 'ring-2 ring-brand-400' : ''
     }`}>
-      {destaque && (
-        <span className="absolute top-4 right-4 z-10 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow">
-          Mais prescrito
-        </span>
-      )}
-
       <div className="h-48 bg-white flex items-center justify-center overflow-hidden border-b border-slate-100">
         <img
           src={img}
@@ -20,9 +14,14 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
       </div>
 
       <div className="p-7 flex flex-col flex-1">
-        <div className="text-xs font-bold uppercase tracking-widest text-brand-500 mb-2">{sub} · Importação Uruguai</div>
-        <div className="text-2xl font-extrabold text-ink mb-1">{mg}</div>
-        <div className="text-xs font-semibold uppercase tracking-widest text-ink-muted mb-4">{tipo} · até 0,3% THC</div>
+        <div className="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-1.5">{sub}</div>
+        {destaque && (
+          <span className="inline-flex self-start items-center gap-1.5 bg-gold-500/10 border border-gold-400/40 text-gold-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">
+            ★ Mais prescrito
+          </span>
+        )}
+        <div className="font-serif text-3xl font-semibold text-ink mb-1">{mg}</div>
+        <div className="text-[10px] font-semibold uppercase tracking-widest text-ink-muted mb-4">{tipo} · até 0,3% THC · Importação Uruguai</div>
         <p className="text-sm text-ink-light leading-relaxed mb-5 flex-1">{descricao}</p>
 
         <div className="flex flex-wrap gap-1.5 mb-5">
