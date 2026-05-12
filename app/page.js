@@ -72,7 +72,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO — Split layout Premium HealthTech
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-white border-b border-slate-100 overflow-hidden">
+      <section className="bg-surface-base border-b border-slate-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
 
@@ -177,7 +177,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           PRODUTOS — cards brancos com imagem âmbar
       ══════════════════════════════════════════════════════ */}
-      <section id="produtos" className="py-20 bg-white">
+      <section id="produtos" className="py-20 bg-surface-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-label block mb-3">Full Spectrum até 0,3% THC · Importação Uruguai</span>
@@ -269,7 +269,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           CIÊNCIA — COA · Calculadora · Estudos
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-surface-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-label block mb-3">Base Científica</span>
@@ -372,7 +372,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           PARA MÉDICOS — split layout
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Imagem */}
@@ -432,7 +432,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           FLUXO RDC 660 — linha do tempo
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-slate-50">
+      <section className="py-20 bg-surface-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-label block mb-3">Processo</span>
@@ -464,7 +464,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           ARTIGOS — prévia do blog
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-surface-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <div>
