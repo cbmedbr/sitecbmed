@@ -8,36 +8,34 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
   const prefersReduced = useReducedMotion()
   const [isHovered, setIsHovered] = useState(false)
 
-  const shouldFloat = !prefersReduced && (destaque || isHovered)
-
   return (
     <div
-      className={`relative card flex flex-col overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
+      className={`card flex flex-col md:flex-row overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
         destaque ? 'ring-2 ring-brand-400' : ''
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative h-96 bg-white overflow-hidden border-b border-slate-100">
+      {/* ── Frasco ── */}
+      <div className="relative h-64 md:h-auto md:w-[45%] shrink-0 bg-white border-b md:border-b-0 md:border-r border-slate-100">
         <motion.div
           className="absolute inset-0 flex items-end justify-center pb-4"
-          animate={shouldFloat ? { y: [0, isHovered ? -12 : -6, 0] } : { y: 0 }}
-          transition={shouldFloat ? {
-            duration: isHovered ? 2.5 : 5,
-            ease: 'easeInOut',
-            repeat: Infinity,
-          } : { duration: 0.4, ease: 'easeOut' }}
+          animate={!prefersReduced && isHovered ? { y: [0, -12, 0] } : { y: 0 }}
+          transition={!prefersReduced && isHovered
+            ? { duration: 2.5, ease: 'easeInOut', repeat: Infinity }
+            : { duration: 0.4, ease: 'easeOut' }}
         >
           <Image
             src={img}
             alt={`Óleo Full Spectrum CBD ${mg}`}
             fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            sizes="(max-width: 768px) 100vw, 25vw"
             className="object-contain p-6"
           />
         </motion.div>
       </div>
 
+      {/* ── Conteúdo ── */}
       <div className="p-7 flex flex-col flex-1">
         <div className="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-1.5">{sub}</div>
         {destaque && (
@@ -45,7 +43,7 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
             ★ Mais prescrito
           </span>
         )}
-        <div className="font-serif text-2xl font-semibold text-ink mb-1">{mg}</div>
+        <div className="font-serif text-3xl font-semibold text-ink mb-1 leading-tight">{mg}</div>
         <div className="text-[10px] font-semibold uppercase tracking-widest text-ink-muted mb-4">{tipo} · até 0,3% THC · Importação Uruguai</div>
         <p className="text-sm text-ink-light leading-relaxed mb-5 flex-1">{descricao}</p>
 
