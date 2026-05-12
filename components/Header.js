@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { WHATSAPP, WHATSAPP_DR } from '../lib/constants'
 import LogoCBMed from './LogoCBMed'
 
@@ -173,8 +174,15 @@ export default function Header() {
         </div>
 
         {/* ── Menu mobile ── */}
+        <AnimatePresence>
         {mobileOpen && (
-          <div className="lg:hidden pb-5 pt-3 border-t border-slate-100">
+          <motion.div
+            className="lg:hidden pb-5 pt-3 border-t border-slate-100"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
             <p className="section-label px-4 mb-2">Pacientes</p>
             {pacienteLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
@@ -195,8 +203,9 @@ export default function Header() {
                 Sou Médico Prescritor
               </a>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </header>
   )
