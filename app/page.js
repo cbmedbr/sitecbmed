@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import { getArtigosRecentes } from '../lib/artigos'
-import DistillHeadline from '../components/DistillHeadline'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -90,7 +89,11 @@ export default function Home() {
                 <span className="text-xs font-semibold text-brand-600">Importação Uruguai</span>
               </div>
 
-              <DistillHeadline />
+              <h1 className="font-serif text-display font-semibold text-ink mb-6">
+                Proporcionamos{' '}
+                <span className="text-brand-500">Qualidade de Vida</span>
+                {' '}através da Cannabis Medicinal
+              </h1>
 
               <p className="text-lg text-ink-light leading-relaxed max-w-lg mb-10">
                 Assessoria estratégica especializada, do primeiro contato ao recebimento em domicílio.
