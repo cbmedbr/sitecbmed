@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import { getArtigosRecentes } from '../lib/artigos'
+import MagneticButton from '../components/MagneticButton'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -103,15 +104,15 @@ export default function Home() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+                <MagneticButton href={WHATSAPP} target="_blank" rel="noopener noreferrer"
                   className="btn-primary text-base py-4 px-8">
                   <IconWA />
                   Sou Paciente
-                </a>
-                <a href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
+                </MagneticButton>
+                <MagneticButton href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
                   className="btn-secondary text-base py-4 px-8">
                   Sou Médico
-                </a>
+                </MagneticButton>
               </div>
 
               {/* Trust chips */}
