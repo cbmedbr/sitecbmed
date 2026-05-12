@@ -13,10 +13,17 @@ export default function DistillHeadline() {
   const [animate, setAnimate] = useState(false)
 
   useEffect(() => {
-    if (!sessionStorage.getItem('hero-distill-done') && !prefersReduced) {
+    if (sessionStorage.getItem('hero-distill-done') || prefersReduced) return
+
+    const start = () => {
       setAnimate(true)
       sessionStorage.setItem('hero-distill-done', '1')
     }
+
+    Promise.race([
+      document.fonts.ready,
+      new Promise(r => setTimeout(r, 1500))
+    ]).then(start)
   }, [prefersReduced])
 
   return (
