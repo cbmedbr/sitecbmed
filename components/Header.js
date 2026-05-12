@@ -2,7 +2,8 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import { WHATSAPP, WHATSAPP_DR } from '../lib/constants'
 import LogoCBMed from './LogoCBMed'
 
@@ -37,7 +38,7 @@ function Dropdown({ label, links, icon, pathname }) {
       onMouseLeave={() => setOpen(false)}
     >
       <button className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-        hasActive ? 'bg-brand-50 text-brand-600 font-semibold' : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+        hasActive ? 'bg-brand-50 text-brand-600 font-semibold' : 'text-slate-600 hover:text-brand-600 hover:bg-brand-50/60'
       }`}>
         {icon}
         {label}
@@ -56,7 +57,7 @@ function Dropdown({ label, links, icon, pathname }) {
               className={`flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors ${
                 pathname === link.href
                   ? 'text-brand-600 font-semibold bg-brand-50'
-                  : 'text-slate-700 hover:text-slate-900 hover:bg-slate-50'
+                  : 'text-slate-700 hover:text-brand-600 hover:bg-brand-50/60'
               }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500 opacity-60 shrink-0"/>
@@ -73,9 +74,18 @@ function Dropdown({ label, links, icon, pathname }) {
 export default function Header() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
+    <header className={`sticky top-0 z-50 transition-all duration-300 bg-white/70 backdrop-blur-lg border-b border-white/40 ${
+      scrolled ? 'shadow-md' : 'shadow-sm'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
 
@@ -126,7 +136,7 @@ export default function Header() {
                 className={`px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === link.href
                     ? 'bg-brand-50 text-brand-600 font-semibold'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                    : 'text-slate-600 hover:text-brand-600 hover:bg-brand-50/60'
                 }`}>
                 {link.label}
               </Link>
@@ -162,17 +172,24 @@ export default function Header() {
         </div>
 
         {/* ── Menu mobile ── */}
+        <AnimatePresence>
         {mobileOpen && (
-          <div className="lg:hidden pb-5 pt-3 border-t border-slate-100">
+          <motion.div
+            className="lg:hidden pb-5 pt-3 border-t border-slate-100"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
             <p className="section-label px-4 mb-2">Pacientes</p>
             {pacienteLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 rounded-xl">{l.label}</Link>
+                className="block px-4 py-2.5 text-sm text-slate-700 hover:text-brand-600 hover:bg-brand-50/60 rounded-xl transition-colors">{l.label}</Link>
             ))}
             <p className="section-label px-4 mt-4 mb-2">Prescritores</p>
             {prescritoresLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 hover:bg-slate-50 rounded-xl">{l.label}</Link>
+                className="block px-4 py-2.5 text-sm text-slate-700 hover:text-brand-600 hover:bg-brand-50/60 rounded-xl transition-colors">{l.label}</Link>
             ))}
             <div className="mt-4 px-4 flex flex-col gap-2">
               <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
@@ -184,8 +201,9 @@ export default function Header() {
                 Sou Médico Prescritor
               </a>
             </div>
-          </div>
+          </motion.div>
         )}
+        </AnimatePresence>
       </div>
     </header>
   )
