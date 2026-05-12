@@ -75,10 +75,10 @@ export default function Home() {
       ══════════════════════════════════════════════════════ */}
       <section className="bg-surface-base border-b border-slate-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
-          <div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             {/* ── Texto ── */}
-            <div className="max-w-3xl">
+            <div>
               <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 rounded-full px-4 py-2 mb-7">
                 <svg className="w-3.5 h-3.5 text-brand-500 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z"/>
@@ -123,6 +123,19 @@ export default function Home() {
                     {item}
                   </span>
                 ))}
+              </div>
+            </div>
+
+            {/* ── Placeholder visual (frasco entra aqui no C5) ── */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="w-full max-w-sm aspect-[3/4] rounded-3xl shadow-card-lg bg-gradient-to-br from-brand-50 to-surface-base flex flex-col items-center justify-center gap-4 border border-brand-100/60">
+                <svg className="w-20 h-20 text-brand-300" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 64 96">
+                  <rect x="20" y="0" width="24" height="12" rx="4"/>
+                  <path d="M24 12 L16 32 L16 80 Q16 92 32 92 Q48 92 48 80 L48 32 L40 12 Z"/>
+                  <line x1="32" y1="12" x2="32" y2="92" strokeDasharray="2 4" strokeOpacity="0.3"/>
+                  <ellipse cx="32" cy="68" rx="12" ry="16" fill="currentColor" fillOpacity="0.15" stroke="none"/>
+                </svg>
+                <span className="text-xs font-mono font-semibold text-brand-400 tracking-widest uppercase">Frasco CBMed</span>
               </div>
             </div>
 
