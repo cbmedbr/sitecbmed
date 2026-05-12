@@ -3,6 +3,7 @@ import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import { getArtigosRecentes } from '../lib/artigos'
 import MagneticButton from '../components/MagneticButton'
 import HeroFlask from '../components/HeroFlask'
+import StatItem from '../components/StatItem'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -150,10 +151,7 @@ export default function Home() {
               { valor: 'até 30d', label: 'Prazo de entrega'       },
               { valor: 'RDC 660', label: 'Conformidade ANVISA'    },
             ].map((item, i) => (
-              <div key={i} className="py-2">
-                <div className="text-2xl md:text-3xl font-extrabold">{item.valor}</div>
-                <div className="text-brand-100 text-sm mt-0.5">{item.label}</div>
-              </div>
+              <StatItem key={i} valor={item.valor} label={item.label} />
             ))}
           </div>
         </div>
