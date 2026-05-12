@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "clean:cache": "rd /s /q .next 2>nul & exit 0",
+    "clean": "rd /s /q .next 2>nul & rd /s /q node_modules 2>nul & npm cache clean --force",
+    "reinstall": "npm run clean && npm install"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
