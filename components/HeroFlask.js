@@ -10,8 +10,8 @@ export default function HeroFlask() {
       className="relative w-full max-w-xs mx-auto"
     >
       <Image
-        src="/produto-1500.png"
-        alt="Frasco CBMed Full Spectrum 1500mg"
+        src="/produto-hero.png"
+        alt="Frasco CBMed conta-gotas"
         width={465}
         height={514}
         className="w-full h-auto drop-shadow-[0_32px_48px_rgba(13,90,70,0.20)]"
