@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import { getArtigosRecentes } from '../lib/artigos'
 import MagneticButton from '../components/MagneticButton'
+import HeroFlask from '../components/HeroFlask'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -126,16 +127,10 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── Placeholder visual (frasco entra aqui no C5) ── */}
+            {/* ── Frasco premium SVG ── */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="w-full max-w-sm aspect-[3/4] rounded-3xl shadow-card-lg bg-gradient-to-br from-brand-50 to-surface-base flex flex-col items-center justify-center gap-4 border border-brand-100/60">
-                <svg className="w-20 h-20 text-brand-300" fill="none" stroke="currentColor" strokeWidth={1} viewBox="0 0 64 96">
-                  <rect x="20" y="0" width="24" height="12" rx="4"/>
-                  <path d="M24 12 L16 32 L16 80 Q16 92 32 92 Q48 92 48 80 L48 32 L40 12 Z"/>
-                  <line x1="32" y1="12" x2="32" y2="92" strokeDasharray="2 4" strokeOpacity="0.3"/>
-                  <ellipse cx="32" cy="68" rx="12" ry="16" fill="currentColor" fillOpacity="0.15" stroke="none"/>
-                </svg>
-                <span className="text-xs font-mono font-semibold text-brand-400 tracking-widest uppercase">Frasco CBMed</span>
+              <div className="w-full max-w-xs">
+                <HeroFlask />
               </div>
             </div>
 
