@@ -1,16 +1,36 @@
+'use client'
+import { motion, useReducedMotion } from 'framer-motion'
+import Image from 'next/image'
 import { WHATSAPP } from '../lib/constants'
 
-export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, destaque, img }) {
+const STAGGER_DELAYS = [0, 0.4, 0.8, 1.2]
+
+export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, destaque, img, index }) {
+  const prefersReduced = useReducedMotion()
+
   return (
     <div className={`relative card flex flex-col overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
       destaque ? 'ring-2 ring-brand-400' : ''
     }`}>
-      <div className="h-48 bg-white flex items-center justify-center overflow-hidden border-b border-slate-100">
-        <img
-          src={img}
-          alt={`Óleo Full Spectrum CBD ${mg}`}
-          className="h-full w-full object-contain p-4"
-        />
+      <div className="relative h-96 bg-white overflow-hidden border-b border-slate-100">
+        <motion.div
+          className="absolute inset-0 flex items-end justify-center pb-4"
+          animate={prefersReduced ? {} : { y: [0, -6, 0] }}
+          transition={{
+            duration: 5,
+            ease: 'easeInOut',
+            repeat: Infinity,
+            delay: STAGGER_DELAYS[index] ?? 0,
+          }}
+        >
+          <Image
+            src={img}
+            alt={`Óleo Full Spectrum CBD ${mg}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-contain p-6"
+          />
+        </motion.div>
       </div>
 
       <div className="p-7 flex flex-col flex-1">
