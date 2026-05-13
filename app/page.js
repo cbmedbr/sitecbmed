@@ -7,6 +7,7 @@ import StatItem from '../components/StatItem'
 import ProductCard from '../components/ProductCard'
 import ScienceSection from '../components/ScienceSection'
 import MedicalSection from '../components/MedicalSection'
+import RdcSection from '../components/RdcSection'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -47,12 +48,6 @@ const produtos = [
   },
 ]
 
-const fluxoRDC = [
-  { etapa: '01', titulo: 'Prescrição Médica',      texto: 'Médico emite receituário conforme a RDC 660 — CID, dosagem, via de administração e CRM.' },
-  { etapa: '02', titulo: 'Documentação ANVISA',    texto: 'CBMed organiza e submete toda a documentação para autorização de importação.' },
-  { etapa: '03', titulo: 'Importação do Uruguai',  texto: 'Produto despachado diretamente pelo laboratório no Uruguai com rastreamento completo.' },
-  { etapa: '04', titulo: 'Entrega em até 30 dias', texto: 'Recebimento em domicílio com documentação aduaneira regularizada.' },
-]
 
 // ─── Ícones inline reutilizáveis ─────────────────────────────────────────────
 const IconWA = () => (
@@ -221,36 +216,9 @@ export default function Home() {
       <MedicalSection />
 
       {/* ══════════════════════════════════════════════════════
-          FLUXO RDC 660 — linha do tempo
+          SEÇÃO 08 — Anatomia do Produto Regulado
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-surface-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="section-label block mb-3">Processo</span>
-            <h2 className="section-title mb-4">Fluxo de Acesso via RDC 660</h2>
-            <p className="section-subtitle max-w-xl mx-auto">
-              Do primeiro contato ao recebimento em domicílio — processo claro, legal e totalmente assistido.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {fluxoRDC.map((item, i) => (
-              <div key={i} className="relative">
-                {i < fluxoRDC.length - 1 && (
-                  <div className="hidden lg:block absolute top-6 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-px border-t-2 border-dashed border-brand-200"/>
-                )}
-                <div className="card p-7 text-center hover:shadow-card-md transition-shadow h-full">
-                  <div className="w-12 h-12 bg-brand-500 text-white rounded-2xl flex items-center justify-center mx-auto mb-4 text-sm font-extrabold">
-                    {item.etapa}
-                  </div>
-                  <h3 className="font-bold text-ink mb-2 text-sm">{item.titulo}</h3>
-                  <p className="text-ink-light text-sm leading-relaxed">{item.texto}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <RdcSection />
 
       {/* ══════════════════════════════════════════════════════
           ARTIGOS — prévia do blog
