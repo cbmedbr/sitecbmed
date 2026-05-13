@@ -3,17 +3,17 @@ import Link from 'next/link'
 const citacoes = [
   {
     num: '¹',
-    texto: 'Cannabidiol significantly reduced seizure frequency in patients with Dravet syndrome — median reduction of 38.9% vs 13.3% placebo.',
+    texto: 'O canabidiol reduziu significativamente a frequência de crises em pacientes com síndrome de Dravet — redução mediana de 38,9% vs 13,3% no placebo.',
     fonte: 'New England Journal of Medicine, 2021',
   },
   {
     num: '²',
-    texto: 'CBD adjunctive therapy resulted in greater reduction in drop-seizure frequency than placebo in patients with Lennox-Gastaut syndrome.',
+    texto: 'A terapia adjuvante com CBD resultou em maior redução na frequência de crises atônicas do que o placebo em pacientes com síndrome de Lennox-Gastaut.',
     fonte: 'Lancet Neurology, 2019',
   },
   {
     num: '³',
-    texto: 'Cannabidiol was associated with significantly reduced anxiety scores in patients with social anxiety disorder in a randomized controlled trial.',
+    texto: 'O canabidiol foi associado a redução significativa nos escores de ansiedade em pacientes com transtorno de ansiedade social em ensaio clínico randomizado.',
     fonte: 'JAMA, 2019',
   },
 ]
