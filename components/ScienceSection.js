@@ -92,6 +92,7 @@ export default function ScienceSection() {
               muted
               playsInline
               className="w-full max-w-md mx-auto"
+              style={{ mixBlendMode: 'multiply' }}
             >
               <source src="/molecula-cbd.webm" type="video/webm" />
             </video>
