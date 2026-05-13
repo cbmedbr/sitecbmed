@@ -2,6 +2,12 @@ import Link from 'next/link'
 import { FileCheck, Shield, Package, MessageCircle } from 'lucide-react'
 import { WHATSAPP_DR } from '../lib/constants'
 
+const stats = [
+  { valor: '1.600+', label: 'médicos parceiros' },
+  { valor: '30 dias', label: 'prazo de entrega' },
+  { valor: 'RDC 660', label: 'conformidade ANVISA' },
+]
+
 const beneficios = [
   {
     icon: FileCheck,
@@ -36,14 +42,14 @@ export default function MedicalSection() {
   return (
     <section className="py-20 bg-[#f0ede6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-16 items-start">
 
           {/* Coluna esquerda: headline + CTA */}
           <div>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-brand-500 block mb-4">
               CANAL DO PRESCRITOR
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-5 leading-tight">
+            <h2 className="font-serif text-3xl md:text-5xl font-semibold text-ink mb-5 leading-tight">
               Prescreva com segurança regulatória e suporte clínico completo
             </h2>
             <p className="text-ink-light leading-relaxed mb-8 max-w-lg">
@@ -63,12 +69,22 @@ export default function MedicalSection() {
                 Área do Prescritor →
               </Link>
             </div>
+
+            {/* Stat strip */}
+            <div className="mt-10 pt-8 border-t border-ink/10 grid grid-cols-3 gap-4">
+              {stats.map((s, i) => (
+                <div key={i}>
+                  <div className="text-2xl font-extrabold text-ink">{s.valor}</div>
+                  <div className="text-xs text-ink-muted mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Coluna direita: grid 2×2 de benefícios */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {beneficios.map(({ icon: Icon, titulo, texto }, i) => (
-              <div key={i} className="card p-5 hover:shadow-card-md transition-shadow">
+              <div key={i} className="card p-5 hover:shadow-card-md transition-shadow flex flex-col">
                 <div className="w-10 h-10 bg-brand-100 text-brand-600 rounded-xl flex items-center justify-center mb-4">
                   <Icon size={20} strokeWidth={1.5} />
                 </div>
