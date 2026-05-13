@@ -1,4 +1,7 @@
+'use client'
 import Link from 'next/link'
+import Lottie from 'lottie-react'
+import moleculaAnimation from '../public/molecula.json'
 
 const citacoes = [
   {
@@ -84,18 +87,14 @@ export default function ScienceSection() {
             </div>
           </div>
 
-          {/* Coluna direita: molécula */}
+          {/* Coluna direita: molécula Lottie */}
           <div className="flex items-center justify-center">
-            <video
-              autoPlay
+            <Lottie
+              animationData={moleculaAnimation}
               loop
-              muted
-              playsInline
-              className="w-full max-w-md mx-auto"
-              style={{ mixBlendMode: 'multiply' }}
-            >
-              <source src="/molecula-cbd.webm" type="video/webm" />
-            </video>
+              autoplay
+              className="w-full max-w-sm"
+            />
           </div>
 
         </div>
