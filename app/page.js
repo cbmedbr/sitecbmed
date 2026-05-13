@@ -5,6 +5,7 @@ import MagneticButton from '../components/MagneticButton'
 import HeroFlask from '../components/HeroFlask'
 import StatItem from '../components/StatItem'
 import ProductCard from '../components/ProductCard'
+import ScienceSection from '../components/ScienceSection'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -209,107 +210,9 @@ export default function Home() {
       </div>
 
       {/* ══════════════════════════════════════════════════════
-          CIÊNCIA — COA · Calculadora · Estudos
+          SEÇÃO 06 — Base Científica + molécula CBD
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-surface-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="section-label block mb-3">Base Científica</span>
-            <h2 className="section-title mb-4">Transparência e Evidência Clínica</h2>
-            <p className="section-subtitle max-w-xl mx-auto">
-              Cada produto é acompanhado de documentação técnica completa. Consulte laudos, calcule doses e acesse as referências científicas.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-            {/* Bloco COA */}
-            <div className="card p-7 hover:shadow-card-md transition-shadow">
-              <div className="w-12 h-12 bg-brand-100 text-brand-600 rounded-2xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-                </svg>
-              </div>
-              <h3 className="font-bold text-ink text-lg mb-2">Certificados de Análise (COA)</h3>
-              <p className="text-ink-light text-sm leading-relaxed mb-5">
-                Cada lote é acompanhado de um Certificate of Analysis emitido por laboratório independente acreditado, com perfil completo de canabinoides e ausência de contaminantes.
-              </p>
-              <div className="space-y-2">
-                {['Potência de CBD verificada', 'THC abaixo do limite legal', 'Metais pesados: não detectado', 'Pesticidas: não detectado'].map((item, i) => (
-                  <div key={i} className="flex items-center gap-2 text-xs text-ink-light">
-                    <IconCheck className="w-3.5 h-3.5 text-brand-500 shrink-0"/>
-                    {item}
-                  </div>
-                ))}
-              </div>
-              <Link href="/ciencia" className="btn-ghost mt-5 px-0 text-sm">
-                Ver Evidências Clínicas →
-              </Link>
-            </div>
-
-            {/* Bloco Calculadora de Doses */}
-            <div className="card p-7 hover:shadow-card-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-                </svg>
-              </div>
-              <h3 className="font-bold text-ink text-lg mb-2">Calculadora de Doses</h3>
-              <p className="text-ink-light text-sm leading-relaxed mb-5">
-                Ferramenta de referência para médicos prescritores. Calcule a titulação inicial e ajuste de dose conforme peso corporal e condição clínica.
-              </p>
-
-              {/* UI da calculadora (visual) */}
-              <div className="bg-slate-50 rounded-xl p-4 space-y-3 text-sm">
-                <div>
-                  <span className="text-xs font-semibold text-ink-muted uppercase tracking-wide block mb-1">Peso corporal (kg)</span>
-                  <div className="h-9 bg-white border border-slate-200 rounded-lg flex items-center px-3 text-ink-muted text-sm">70 kg</div>
-                </div>
-                <div>
-                  <span className="text-xs font-semibold text-ink-muted uppercase tracking-wide block mb-1">Dose inicial (mg/kg/dia)</span>
-                  <div className="h-9 bg-white border border-slate-200 rounded-lg flex items-center px-3 text-ink-muted text-sm">0,5 mg/kg</div>
-                </div>
-                <div className="bg-brand-50 rounded-lg px-3 py-2 text-center">
-                  <span className="text-xs text-brand-600 font-semibold">Dose estimada: </span>
-                  <span className="text-brand-700 font-bold">35 mg/dia</span>
-                </div>
-              </div>
-              <a href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
-                className="btn-ghost mt-4 px-0 text-sm">
-                Acessar guia completo →
-              </a>
-            </div>
-
-            {/* Bloco Estudos Científicos */}
-            <div className="card p-7 hover:shadow-card-md transition-shadow">
-              <div className="w-12 h-12 bg-violet-100 text-violet-600 rounded-2xl flex items-center justify-center mb-5">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                </svg>
-              </div>
-              <h3 className="font-bold text-ink text-lg mb-2">Estudos Científicos</h3>
-              <p className="text-ink-light text-sm leading-relaxed mb-5">
-                Curadoria semanal de publicações peer-reviewed sobre cannabinoides. Evidências para epilepsia, dor crônica, ansiedade, oncologia e distúrbios do sono.
-              </p>
-              <div className="space-y-3">
-                {[
-                  { fonte: 'New England Journal of Medicine', tema: 'CBD na Síndrome de Dravet' },
-                  { fonte: 'Lancet Neurology', tema: 'Canabinoides e Epilepsia Refratária' },
-                  { fonte: 'JAMA Psychiatry', tema: 'CBD e Transtorno de Ansiedade' },
-                ].map((est, i) => (
-                  <div key={i} className="border-l-2 border-brand-200 pl-3">
-                    <div className="text-[10px] font-bold uppercase tracking-wide text-brand-500">{est.fonte}</div>
-                    <div className="text-xs text-ink-light">{est.tema}</div>
-                  </div>
-                ))}
-              </div>
-              <Link href="/ciencia" className="btn-ghost mt-5 px-0 text-sm">
-                Ver todos os estudos →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ScienceSection />
 
       {/* ══════════════════════════════════════════════════════
           PARA MÉDICOS — split layout
