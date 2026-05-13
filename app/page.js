@@ -6,6 +6,7 @@ import HeroFlask from '../components/HeroFlask'
 import StatItem from '../components/StatItem'
 import ProductCard from '../components/ProductCard'
 import ScienceSection from '../components/ScienceSection'
+import MedicalSection from '../components/MedicalSection'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -215,64 +216,9 @@ export default function Home() {
       <ScienceSection />
 
       {/* ══════════════════════════════════════════════════════
-          PARA MÉDICOS — split layout
+          SEÇÃO 07 — Canal Médico
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-surface-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Imagem */}
-            <div className="relative order-2 lg:order-1">
-              <div className="rounded-2xl overflow-hidden shadow-lg aspect-[4/3] bg-brand-50">
-                <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
-                  alt="Médico prescritor em jaleco branco"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-brand-500 text-white rounded-2xl p-5 shadow-brand">
-                <div className="text-3xl font-extrabold">1.600+</div>
-                <div className="text-brand-100 text-sm">médicos parceiros</div>
-              </div>
-            </div>
-
-            {/* Texto */}
-            <div className="order-1 lg:order-2">
-              <div className="section-divider mb-4"/>
-              <span className="section-label block mb-3">Canal do Médico Prescritor</span>
-              <h2 className="section-title mb-5">
-                Suporte completo para você,{' '}
-                <span className="text-brand-500">Dr(a).</span>
-              </h2>
-              <p className="text-ink-light leading-relaxed mb-6">
-                A CBMed cuida de toda a burocracia da RDC 660 — documentação, autorização ANVISA, importação e entrega em até 30 dias — para que você foque no que importa: o cuidado clínico.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  'Material científico baseado em evidências atualizadas',
-                  'Suporte na elaboração da prescrição conforme RDC 660',
-                  'Acompanhamento logístico pós-prescrição',
-                  'Canal direto de comunicação médico–CBMed',
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 text-sm text-ink-light">
-                    <div className="w-5 h-5 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center shrink-0">
-                      <IconCheck className="w-3 h-3"/>
-                    </div>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer" className="btn-primary">
-                  Canal WhatsApp Médico
-                </a>
-                <Link href="/para-medicos" className="btn-secondary">
-                  Área do Prescritor →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MedicalSection />
 
       {/* ══════════════════════════════════════════════════════
           FLUXO RDC 660 — linha do tempo

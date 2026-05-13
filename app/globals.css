@@ -37,7 +37,7 @@
 /* ─── Base ─────────────────────────────────────────────────────────────────── */
 @layer base {
   html  { scroll-behavior: smooth; }
-  body  { @apply font-sans text-ink antialiased; }
+  body  { @apply font-sans text-ink antialiased; overflow-x: hidden; }
   h1,h2,h3,h4,h5 { @apply tracking-tight; }
   p { @apply text-ink-light leading-relaxed; }
 }
