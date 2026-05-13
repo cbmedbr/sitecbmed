@@ -162,7 +162,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           PRODUTOS — cards brancos com imagem âmbar
       ══════════════════════════════════════════════════════ */}
-      <section id="produtos" className="py-20 bg-surface-base">
+      <section id="produtos" className="py-20 bg-[#f0ede6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-label block mb-3">Full Spectrum até 0,3% THC · Importação Uruguai</span>
