@@ -43,7 +43,16 @@ export default function RdcSection() {
           0%, 100% { transform: translateY(0px); }
           50%       { transform: translateY(-6px); }
         }
+        @keyframes floatBottleHover {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-12px); }
+        }
         .bottle-float { animation: floatBottle 5s ease-in-out infinite; }
+        .bottle-wrapper { transition: transform 0.3s ease; }
+        .bottle-wrapper:hover { transform: scale(1.05); }
+        .bottle-wrapper:hover .bottle-float {
+          animation: floatBottleHover 2.5s ease-in-out infinite;
+        }
       `}</style>
 
       {/* Grade papel-timbrado */}
@@ -141,15 +150,17 @@ export default function RdcSection() {
 
             {/* Coluna central: frasco */}
             <div className="flex items-center justify-center px-6">
-              <div className="bottle-float w-64 drop-shadow-[0_32px_48px_rgba(27,168,131,0.25)]">
-                <Image
-                  src="/produto-hero.png"
-                  alt="Frasco CBMed — produto auditado e rastreável"
-                  width={465}
-                  height={514}
-                  className="w-full h-auto"
-                  priority={false}
-                />
+              <div className="bottle-wrapper">
+                <div className="bottle-float w-64 drop-shadow-[0_32px_48px_rgba(27,168,131,0.25)]">
+                  <Image
+                    src="/produto-hero.png"
+                    alt="Frasco CBMed — produto auditado e rastreável"
+                    width={465}
+                    height={514}
+                    className="w-full h-auto"
+                    priority={false}
+                  />
+                </div>
               </div>
             </div>
 
@@ -171,15 +182,17 @@ export default function RdcSection() {
 
           {/* MOBILE — frasco + lista vertical */}
           <div className="lg:hidden flex flex-col items-center">
-            <div className="bottle-float w-48 drop-shadow-[0_24px_36px_rgba(27,168,131,0.25)] mb-10">
-              <Image
-                src="/produto-hero.png"
-                alt="Frasco CBMed — produto auditado e rastreável"
-                width={465}
-                height={514}
-                className="w-full h-auto"
-                priority={false}
-              />
+            <div className="bottle-wrapper">
+              <div className="bottle-float w-48 drop-shadow-[0_24px_36px_rgba(27,168,131,0.25)] mb-10">
+                <Image
+                  src="/produto-hero.png"
+                  alt="Frasco CBMed — produto auditado e rastreável"
+                  width={465}
+                  height={514}
+                  className="w-full h-auto"
+                  priority={false}
+                />
+              </div>
             </div>
             <ul className="space-y-3 w-full max-w-xs">
               {anotacoesMobile.map((text, i) => (
