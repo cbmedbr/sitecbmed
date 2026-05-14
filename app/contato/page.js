@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import InternalPageHero from '../../components/InternalPageHero'
+import { Mail, MapPin, Clock } from 'lucide-react'
 import { WHATSAPP, PHONE_DISPLAY, EMAIL } from '../../lib/constants'
 
 export default function Contato() {
@@ -21,18 +23,18 @@ export default function Contato() {
 
   const InfoItem = ({ icon, label, valor, href, destaque }) => (
     <div className="flex items-center gap-4">
-      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${destaque ? 'bg-brand-100 text-brand-600' : 'bg-gray-100 text-gray-500'}`}>
+      <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${destaque ? 'bg-brand-100 text-brand-600' : 'bg-white text-ink-light'}`}>
         {icon}
       </div>
       <div>
-        <div className="text-xs font-semibold text-gray-400 uppercase tracking-wide">{label}</div>
+        <div className="text-xs font-semibold text-ink-muted uppercase tracking-wide">{label}</div>
         {href ? (
           <a href={href} target={destaque ? '_blank' : undefined} rel="noopener noreferrer"
-            className={`font-medium mt-0.5 hover:underline ${destaque ? 'text-brand-600' : 'text-gray-700'}`}>
+            className={`font-medium mt-0.5 hover:underline ${destaque ? 'text-brand-600' : 'text-ink'}`}>
             {valor}
           </a>
         ) : (
-          <div className="text-gray-700 font-medium mt-0.5">{valor}</div>
+          <div className="text-ink font-medium mt-0.5">{valor}</div>
         )}
       </div>
     </div>
@@ -41,17 +43,12 @@ export default function Contato() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-950 via-brand-900 to-gray-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="badge mb-5 bg-white/10 text-brand-200 border border-white/10">Fale conosco</span>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-5">Entre em contato</h1>
-            <p className="text-gray-300 text-lg leading-relaxed">
-              Estamos prontos para esclarecer suas dúvidas e iniciar o seu acolhimento especializado. A forma mais rápida é pelo WhatsApp.
-            </p>
-          </div>
-        </div>
-      </section>
+      <InternalPageHero
+        eyebrow="CONTATO"
+        title="Entre em contato"
+        subtitle="Estamos prontos para esclarecer suas dúvidas e iniciar o seu acolhimento especializado. A forma mais rápida é pelo WhatsApp."
+        bg="caramelo"
+      />
 
       {/* Faixa WhatsApp */}
       <section className="bg-brand-500 py-8">
@@ -71,14 +68,14 @@ export default function Contato() {
       </section>
 
       {/* Formulário + Info */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#f0ede6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
 
             {/* Formulário */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Envie uma mensagem</h2>
-              <p className="text-gray-500 text-sm mb-8">Prefere escrever? Respondemos em até 24h úteis.</p>
+              <h2 className="font-serif font-semibold text-ink text-2xl mb-2">Envie uma mensagem</h2>
+              <p className="text-ink-light text-sm mb-8">Prefere escrever? Respondemos em até 24h úteis.</p>
 
               {enviado ? (
                 <div className="bg-brand-50 border border-brand-200 rounded-2xl p-8 text-center">
@@ -95,7 +92,7 @@ export default function Contato() {
                   </a>
                   <div className="mt-5">
                     <button onClick={() => { setEnviado(false); setForm({ nome:'', email:'', telefone:'', assunto:'', mensagem:'' }) }}
-                      className="text-sm text-gray-400 hover:text-gray-600">
+                      className="text-sm text-ink-muted hover:text-ink">
                       Enviar outra mensagem
                     </button>
                   </div>
@@ -104,32 +101,32 @@ export default function Contato() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="nome">
+                      <label className="block text-sm font-medium text-ink-light mb-1" htmlFor="nome">
                         Nome completo <span className="text-red-500">*</span>
                       </label>
                       <input id="nome" name="nome" type="text" required value={form.nome} onChange={handleChange}
                         placeholder="Seu nome"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent text-gray-800 placeholder-gray-400 text-sm"/>
+                        className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink placeholder-ink/30 text-sm bg-white"/>
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="telefone">WhatsApp</label>
+                      <label className="block text-sm font-medium text-ink-light mb-1" htmlFor="telefone">WhatsApp</label>
                       <input id="telefone" name="telefone" type="tel" value={form.telefone} onChange={handleChange}
                         placeholder="(48) 9 9982-2057"
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent text-gray-800 placeholder-gray-400 text-sm"/>
+                        className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink placeholder-ink/30 text-sm bg-white"/>
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="email">
+                    <label className="block text-sm font-medium text-ink-light mb-1" htmlFor="email">
                       E-mail <span className="text-red-500">*</span>
                     </label>
                     <input id="email" name="email" type="email" required value={form.email} onChange={handleChange}
                       placeholder="seu@email.com"
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent text-gray-800 placeholder-gray-400 text-sm"/>
+                      className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink placeholder-ink/30 text-sm bg-white"/>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="assunto">Assunto</label>
+                    <label className="block text-sm font-medium text-ink-light mb-1" htmlFor="assunto">Assunto</label>
                     <select id="assunto" name="assunto" value={form.assunto} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent text-gray-800 text-sm bg-white">
+                      className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink text-sm bg-white">
                       <option value="">Selecione um assunto</option>
                       <option value="acolhimento">Quero iniciar meu acolhimento</option>
                       <option value="produto">Dúvida sobre os produtos</option>
@@ -140,25 +137,25 @@ export default function Contato() {
                     </select>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1" htmlFor="mensagem">
+                    <label className="block text-sm font-medium text-ink-light mb-1" htmlFor="mensagem">
                       Mensagem <span className="text-red-500">*</span>
                     </label>
                     <textarea id="mensagem" name="mensagem" rows={5} required value={form.mensagem} onChange={handleChange}
                       placeholder="Conte brevemente sobre o seu caso ou dúvida..."
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent text-gray-800 placeholder-gray-400 resize-none text-sm"/>
+                      className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink placeholder-ink/30 resize-none text-sm bg-white"/>
                   </div>
                   <button type="submit" disabled={enviando}
                     className="w-full py-4 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-colors disabled:opacity-60 disabled:cursor-not-allowed text-sm">
                     {enviando ? 'Enviando...' : 'Enviar mensagem'}
                   </button>
-                  <p className="text-xs text-gray-400 text-center">Seus dados são tratados com total sigilo, conforme a LGPD.</p>
+                  <p className="text-xs text-ink-muted text-center">Seus dados são tratados com total sigilo, conforme a LGPD.</p>
                 </form>
               )}
             </div>
 
             {/* Info */}
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Outras formas de contato</h2>
+              <h2 className="font-serif font-semibold text-ink text-2xl mb-8">Outras formas de contato</h2>
               <div className="space-y-5 mb-10">
                 <InfoItem
                   destaque
@@ -171,28 +168,28 @@ export default function Contato() {
                   label="E-mail"
                   valor={EMAIL}
                   href={`mailto:${EMAIL}`}
-                  icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>}
+                  icon={<Mail size={20} />}
                 />
                 <InfoItem
                   label="Localização"
                   valor="Florianópolis, Santa Catarina"
-                  icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>}
+                  icon={<MapPin size={20} />}
                 />
                 <InfoItem
                   label="Horário"
                   valor="Segunda a Sexta, 8h às 18h"
-                  icon={<svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>}
+                  icon={<Clock size={20} />}
                 />
               </div>
 
-              <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+              <div className="bg-white rounded-2xl p-6 border border-ink/10">
                 <div className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-brand-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                   <div>
-                    <h3 className="font-bold text-gray-900 text-sm mb-1">Nota importante</h3>
-                    <p className="text-gray-500 text-xs leading-relaxed">
+                    <h3 className="font-serif font-semibold text-ink text-sm mb-1">Nota importante</h3>
+                    <p className="text-ink-light text-xs leading-relaxed">
                       A CBMed atua como assessoria estratégica. Não realizamos vendas diretas de produtos. Todo o processo de prescrição e acesso é conduzido por médicos habilitados e em conformidade com a RDC 660 da ANVISA.
                     </p>
                   </div>
