@@ -133,21 +133,29 @@ export default function ParaMedicos() {
       </section>
 
       {/* Fluxo do ponto de vista do médico */}
-      <section className="py-16 bg-brand-500 text-white">
+      <section className="py-20 bg-surface-base">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-brand-100 text-sm font-semibold uppercase tracking-widest mb-8">
+          <p className="font-mono text-xs font-bold uppercase tracking-widest text-ink text-center mb-12">
             O fluxo do ponto de vista do prescritor
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+            {/* Conector pontilhado entre steps — md+ */}
+            <div className="absolute hidden md:block top-8 left-[calc(33.333%+1rem)] right-[calc(33.333%+1rem)] pointer-events-none">
+              <svg width="100%" height="2" xmlns="http://www.w3.org/2000/svg">
+                <line x1="0" y1="1" x2="100%" y2="1" stroke="#1ba883" strokeWidth="1.5" strokeDasharray="6 5" opacity="0.2"/>
+              </svg>
+            </div>
+
             {[
               { n:'01', titulo:'Você prescreve', texto:'Emite o receituário conforme a RDC 660. Fornecemos modelo padronizado e orientações.' },
               { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos toda a documentação e submetemos à ANVISA.' },
               { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 30 dias. Você recebe relatório de conclusão.' },
             ].map((item, i) => (
-              <div key={i} className="bg-brand-400/40 rounded-2xl p-7">
-                <div className="text-4xl font-extrabold text-brand-100 mb-2">{item.n}</div>
-                <h3 className="font-bold text-white text-lg mb-2">{item.titulo}</h3>
-                <p className="text-brand-100 text-sm leading-relaxed">{item.texto}</p>
+              <div key={i}>
+                <div className="font-serif text-7xl font-semibold text-ink/20 leading-none mb-4">{item.n}</div>
+                <h3 className="font-serif text-xl font-semibold text-ink mb-3">{item.titulo}</h3>
+                <p className="text-ink-light text-sm leading-relaxed">{item.texto}</p>
               </div>
             ))}
           </div>
