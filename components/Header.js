@@ -83,8 +83,10 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 bg-white/70 backdrop-blur-lg border-b border-white/40 ${
-      scrolled ? 'shadow-md' : 'shadow-sm'
+    <header className={`sticky top-0 z-50 transition-all duration-300 border-b ${
+      scrolled
+        ? 'bg-white/90 backdrop-blur-lg border-white/40 shadow-md'
+        : 'bg-surface-base border-surface-base shadow-none'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 gap-4">
