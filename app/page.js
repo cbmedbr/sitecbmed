@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
-import { getArtigosRecentes } from '../lib/artigos'
 import MagneticButton from '../components/MagneticButton'
 import HeroFlask from '../components/HeroFlask'
 import StatItem from '../components/StatItem'
@@ -8,6 +7,7 @@ import ProductCard from '../components/ProductCard'
 import ScienceSection from '../components/ScienceSection'
 import MedicalSection from '../components/MedicalSection'
 import RdcSection from '../components/RdcSection'
+import ArticlesSection from '../components/ArticlesSection'
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {
@@ -66,7 +66,6 @@ const IconCheck = ({ className = 'w-4 h-4' }) => (
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 export default function Home() {
-  const artigos = getArtigosRecentes(3)
 
   return (
     <>
@@ -220,57 +219,7 @@ export default function Home() {
       ══════════════════════════════════════════════════════ */}
       <RdcSection />
 
-      {/* ══════════════════════════════════════════════════════
-          ARTIGOS — prévia do blog
-      ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-surface-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-end justify-between mb-12">
-            <div>
-              <div className="section-divider mb-4"/>
-              <h2 className="section-title">Base de Conhecimento</h2>
-              <p className="text-ink-light mt-2">Artigos científicos atualizados semanalmente.</p>
-            </div>
-            <Link href="/artigos" className="btn-ghost hidden sm:inline-flex">
-              Ver todos →
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {artigos.map(artigo => (
-              <Link key={artigo.slug} href={`/artigos/${artigo.slug}`} className="group card flex flex-col overflow-hidden hover:shadow-card-md transition-all hover:-translate-y-1">
-                <div className="h-44 overflow-hidden bg-brand-50">
-                  <img
-                    src={artigo.imagem}
-                    alt={artigo.titulo}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-5 flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-brand-500">{artigo.categoria}</span>
-                    <span className="text-slate-200">·</span>
-                    <span className="text-xs text-ink-muted">{artigo.tempoLeitura}</span>
-                  </div>
-                  <h3 className="font-bold text-ink text-sm leading-snug mb-2 flex-1 group-hover:text-brand-600 transition-colors line-clamp-2">
-                    {artigo.titulo}
-                  </h3>
-                  <span className="text-xs text-brand-500 font-semibold flex items-center gap-1 mt-2">
-                    Ler artigo
-                    <svg className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                    </svg>
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-          <div className="text-center mt-8 sm:hidden">
-            <Link href="/artigos" className="btn-secondary text-sm">Ver todos os artigos</Link>
-          </div>
-        </div>
-      </section>
+      <ArticlesSection />
 
       {/* ══════════════════════════════════════════════════════
           CTA FINAL
