@@ -38,7 +38,7 @@ function Dropdown({ label, links, icon, pathname }) {
       onMouseLeave={() => setOpen(false)}
     >
       <button className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-medium transition-colors ${
-        hasActive ? 'bg-brand-50 text-brand-600 font-semibold' : 'text-slate-600 hover:text-brand-600 hover:bg-brand-50/60'
+        hasActive ? 'bg-white/15 text-white font-semibold' : 'text-white/70 hover:text-white hover:bg-white/10'
       }`}>
         {icon}
         {label}
@@ -49,15 +49,15 @@ function Dropdown({ label, links, icon, pathname }) {
 
       {open && (
         <div className="absolute top-full left-0 pt-1 w-52 z-50">
-        <div className="bg-white border border-slate-100 rounded-2xl shadow-card-lg py-2">
+        <div className="bg-[#0d2d1f] border border-white/15 rounded-2xl shadow-card-lg py-2">
           {links.map(link => (
             <Link
               key={link.href}
               href={link.href}
               className={`flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors ${
                 pathname === link.href
-                  ? 'text-brand-600 font-semibold bg-brand-50'
-                  : 'text-slate-700 hover:text-brand-600 hover:bg-brand-50/60'
+                  ? 'text-brand-400 font-semibold bg-white/10'
+                  : 'text-white/75 hover:text-white hover:bg-white/10'
               }`}
             >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-500 opacity-60 shrink-0"/>
@@ -83,7 +83,7 @@ export default function Header() {
   }, [])
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 bg-white/70 backdrop-blur-lg border-b border-white/40 ${
+    <header className={`sticky top-0 z-50 transition-all duration-300 bg-[#0d2d1f]/95 backdrop-blur-lg border-b border-white/10 ${
       scrolled ? 'shadow-md' : 'shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -98,8 +98,8 @@ export default function Header() {
           <nav className="hidden lg:flex items-center gap-1">
 
             {/* Separador visual B2C */}
-            <div className="flex items-center gap-1 pr-3 border-r border-slate-200">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mr-1">Pacientes</span>
+            <div className="flex items-center gap-1 pr-3 border-r border-white/15">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mr-1">Pacientes</span>
               <Dropdown
                 label="Área para Pacientes"
                 links={pacienteLinks}
@@ -114,7 +114,7 @@ export default function Header() {
 
             {/* Separador visual B2B */}
             <div className="flex items-center gap-1 pl-3">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mr-1">Prescritores</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-white/40 mr-1">Prescritores</span>
               <Dropdown
                 label="Área para Prescritores"
                 links={prescritoresLinks}
@@ -135,8 +135,8 @@ export default function Header() {
               <Link key={link.href} href={link.href}
                 className={`px-3 py-2 rounded-xl text-sm font-medium transition-colors ${
                   pathname === link.href
-                    ? 'bg-brand-50 text-brand-600 font-semibold'
-                    : 'text-slate-600 hover:text-brand-600 hover:bg-brand-50/60'
+                    ? 'bg-white/15 text-white font-semibold'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}>
                 {link.label}
               </Link>
@@ -157,7 +157,7 @@ export default function Header() {
           </div>
 
           {/* ── Hamburger mobile ── */}
-          <button className="lg:hidden p-2 rounded-xl text-slate-600 hover:bg-slate-100 transition-colors"
+          <button className="lg:hidden p-2 rounded-xl text-white/70 hover:bg-white/10 transition-colors"
             onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menu">
             {mobileOpen ? (
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,21 +175,21 @@ export default function Header() {
         <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="lg:hidden pb-5 pt-3 border-t border-slate-100"
+            className="lg:hidden pb-5 pt-3 border-t border-white/10"
             initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
           >
-            <p className="section-label px-4 mb-2">Pacientes</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 px-4 mb-2">Pacientes</p>
             {pacienteLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 hover:text-brand-600 hover:bg-brand-50/60 rounded-xl transition-colors">{l.label}</Link>
+                className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors">{l.label}</Link>
             ))}
-            <p className="section-label px-4 mt-4 mb-2">Prescritores</p>
+            <p className="text-[10px] font-bold uppercase tracking-widest text-white/40 px-4 mt-4 mb-2">Prescritores</p>
             {prescritoresLinks.map(l => (
               <Link key={l.href} href={l.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-sm text-slate-700 hover:text-brand-600 hover:bg-brand-50/60 rounded-xl transition-colors">{l.label}</Link>
+                className="block px-4 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-colors">{l.label}</Link>
             ))}
             <div className="mt-4 px-4 flex flex-col gap-2">
               <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
