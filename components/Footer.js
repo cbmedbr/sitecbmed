@@ -6,7 +6,7 @@ export default function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer className="bg-gray-950 text-gray-400">
+    <footer className="bg-[#0d2d1f] text-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
@@ -47,6 +47,7 @@ export default function Footer() {
                 { href: '/ciencia',      label: 'Ciência' },
                 { href: '/sobre',        label: 'Sobre a CBMed' },
                 { href: '/contato',      label: 'Contato' },
+                { href: '/artigos',      label: 'Artigos' },
               ].map(link => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-brand-400 transition-colors">{link.label}</Link>
@@ -117,8 +118,11 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="border-t border-gray-900 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-gray-700">
           <span>© {year} CBMed Assessoria em Cannabis Medicinal. Todos os direitos reservados.</span>
-          <span>Florianópolis/SC · CNPJ: 00.000.000/0001-00</span>
+          <span>Florianópolis/SC · CNPJ: 64.853.460/0001-45</span>
         </div>
+        <p className="text-center text-xs text-gray-700 mt-3">
+          Este site não realiza prescrição médica. Produtos sujeitos à prescrição e autorização ANVISA — RDC 327/2019.
+        </p>
       </div>
     </footer>
   )

@@ -224,9 +224,9 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           CTA FINAL
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-brand-600">
+      <section className="py-20 bg-[#0d2d1f]">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">
             Pronto para iniciar o tratamento?
           </h2>
           <p className="text-brand-100 text-lg mb-10 leading-relaxed">
