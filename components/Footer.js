@@ -47,6 +47,7 @@ export default function Footer() {
                 { href: '/ciencia',      label: 'Ciência' },
                 { href: '/sobre',        label: 'Sobre a CBMed' },
                 { href: '/contato',      label: 'Contato' },
+                { href: '/artigos',      label: 'Artigos' },
               ].map(link => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-brand-400 transition-colors">{link.label}</Link>
