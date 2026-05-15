@@ -86,7 +86,7 @@ export default function ScienceSection() {
           </div>
 
           {/* Coluna direita: molécula CBD interativa */}
-          <div className="flex items-center justify-center h-full">
+          <div className="flex items-start justify-center h-full pt-8">
             <MoleculeCBD size={320} />
           </div>
 
