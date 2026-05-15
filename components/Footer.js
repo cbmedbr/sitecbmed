@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY, EMAIL } from '../lib/constants'
 import LogoCBMed from './LogoCBMed'
-import { Shield, Phone, Mail, MapPin, CheckCircle, Instagram, Linkedin, Stethoscope } from 'lucide-react'
+import { Shield, Phone, Mail, MapPin, CheckCircle, Stethoscope } from 'lucide-react'
 
 export default function Footer() {
   const year = new Date().getFullYear()
@@ -108,11 +108,19 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
               className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-brand-400 hover:border-white/30 transition-all">
-              <Instagram size={16} />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
               className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-brand-400 hover:border-white/30 transition-all">
-              <Linkedin size={16} />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+                <rect x="2" y="9" width="4" height="12"/>
+                <circle cx="4" cy="4" r="2"/>
+              </svg>
             </a>
           </div>
 
