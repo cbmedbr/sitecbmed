@@ -7,8 +7,6 @@ export const metadata = {
   description: 'Base de conhecimento CBMed: artigos técnicos sobre Cannabis Medicinal, CBD, regulamentação ANVISA e evidências clínicas atualizadas.',
 }
 
-const categorias = ['Todos', ...new Set(artigos.map(a => a.categoria))]
-
 export default function Artigos() {
   const recentes    = artigos.slice(0, 1)[0]
   const demais      = artigos.slice(1)

@@ -121,12 +121,18 @@ export default function Acolhimento() {
                 <button
                   className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-50/40 transition-colors"
                   onClick={() => setAberto(aberto === i ? null : i)}
+                  aria-expanded={aberto === i}
+                  aria-controls={`faq-panel-${i}`}
                 >
                   <span className="font-serif font-semibold text-ink text-sm">{item.pergunta}</span>
                   <ChevronDown size={20} className={`text-brand-500 shrink-0 transition-transform ${aberto === i ? 'rotate-180' : ''}`} />
                 </button>
                 {aberto === i && (
-                  <div className="px-6 pb-5 pt-3 text-ink-light text-sm leading-relaxed border-t border-ink/5">
+                  <div
+                    id={`faq-panel-${i}`}
+                    role="region"
+                    className="px-6 pb-5 pt-3 text-ink-light text-sm leading-relaxed border-t border-ink/5"
+                  >
                     {item.resposta}
                   </div>
                 )}

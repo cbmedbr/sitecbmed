@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { WHATSAPP } from '../../lib/constants'
 import InternalPageHero from '../../components/InternalPageHero'
 import MagneticButton from '../../components/MagneticButton'
