@@ -73,7 +73,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO — Split layout Premium HealthTech
       ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden min-h-[88vh] flex items-center">
+      <section className="relative overflow-hidden min-h-[88vh] flex items-center bg-gray-950">
         {/* Background image fullscreen */}
         <Image
           src="/hero-products.png"
@@ -81,7 +81,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-center"
+          className="object-contain object-right"
         />
 
         {/* Overlay gradient */}
