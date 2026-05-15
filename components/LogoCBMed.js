@@ -10,6 +10,7 @@ export default function LogoCBMed({ className = '', dropSize = 48 }) {
       alt="CBMed"
       width={width}
       height={height}
+      style={{ height: `${height}px`, width: 'auto' }}
       className={className}
       priority
     />
