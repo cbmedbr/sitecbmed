@@ -10,14 +10,14 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
 
   return (
     <div
-      className={`card flex flex-col md:flex-row overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
+      className={`bg-ink/[0.05] backdrop-blur-sm rounded-3xl border border-ink/15 shadow-md flex flex-col md:flex-row overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-xl hover:bg-ink/[0.07] ${
         destaque ? 'ring-2 ring-brand-400' : ''
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* ── Frasco ── */}
-      <div className="relative h-64 md:h-auto md:w-[45%] shrink-0 bg-white border-b md:border-b-0 md:border-r border-slate-100">
+      <div className="relative h-64 md:h-auto md:w-[45%] shrink-0 bg-white/40 border-b md:border-b-0 md:border-r border-ink/10">
         <motion.div
           className="absolute inset-0 flex items-end justify-center pb-4"
           animate={!prefersReduced && isHovered ? { y: [0, -12, 0] } : { y: 0 }}
