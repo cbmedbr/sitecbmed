@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { artigos, formatarData } from '../../lib/artigos'
 
@@ -37,10 +38,13 @@ export default function Artigos() {
             <div className="group grid grid-cols-1 lg:grid-cols-2 gap-0 bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               {/* Imagem */}
               <div className="relative h-64 lg:h-auto overflow-hidden bg-brand-50">
-                <img
+                <Image
                   src={recentes.imagem}
                   alt={recentes.titulo}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                 />
                 <span className="absolute top-4 left-4 bg-brand-500 text-white text-xs font-bold px-3 py-1.5 rounded-full">
                   {recentes.categoria}
@@ -78,10 +82,12 @@ export default function Artigos() {
               <Link key={artigo.slug} href={`/artigos/${artigo.slug}`}>
                 <div className="group card h-full flex flex-col overflow-hidden">
                   <div className="relative h-48 overflow-hidden bg-brand-50">
-                    <img
+                    <Image
                       src={artigo.imagem}
                       alt={artigo.titulo}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <span className="absolute top-3 left-3 bg-white text-brand-600 text-xs font-bold px-2.5 py-1 rounded-full border border-brand-100">
                       {artigo.categoria}

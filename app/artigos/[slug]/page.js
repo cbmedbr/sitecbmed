@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { artigos, getArtigoPorSlug, getArtigosRecentes, formatarData } from '../../../lib/artigos'
 import { notFound } from 'next/navigation'
@@ -146,11 +147,14 @@ export default function ArtigoPage({ params }) {
             {/* Conteúdo principal */}
             <article className="lg:col-span-2">
               {/* Imagem de capa */}
-              <div className="rounded-2xl overflow-hidden mb-10 bg-brand-50 h-64 md:h-80">
-                <img
+              <div className="relative rounded-2xl overflow-hidden mb-10 bg-brand-50 h-64 md:h-80">
+                <Image
                   src={artigo.imagem}
                   alt={artigo.titulo}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 100vw, 66vw"
+                  priority
                 />
               </div>
 
@@ -211,8 +215,14 @@ export default function ArtigoPage({ params }) {
                     {relacionados.map(rel => (
                       <Link key={rel.slug} href={`/artigos/${rel.slug}`}>
                         <div className="group flex gap-3 p-4 rounded-xl border border-gray-100 hover:border-brand-200 hover:bg-brand-50/30 transition-colors">
-                          <div className="w-14 h-14 rounded-lg overflow-hidden bg-brand-50 shrink-0">
-                            <img src={rel.imagem} alt={rel.titulo} className="w-full h-full object-cover"/>
+                          <div className="relative w-14 h-14 rounded-lg overflow-hidden bg-brand-50 shrink-0">
+                            <Image
+                              src={rel.imagem}
+                              alt={rel.titulo}
+                              fill
+                              className="object-cover"
+                              sizes="56px"
+                            />
                           </div>
                           <div>
                             <span className="text-[10px] font-bold uppercase tracking-wide text-brand-500">{rel.categoria}</span>

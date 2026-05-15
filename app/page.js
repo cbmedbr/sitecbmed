@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import MagneticButton from '../components/MagneticButton'
@@ -189,10 +190,12 @@ export default function Home() {
       ══════════════════════════════════════════════════════ */}
       <div className="relative w-full h-64 md:h-80 overflow-hidden">
         {/* Foto Macro: conta-gotas de vidro com gota de óleo dourado translúcido */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1600&q=80"
           alt="Frasco âmbar de óleo de CBD com conta-gotas em luz natural quente"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
