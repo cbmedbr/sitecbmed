@@ -16,7 +16,7 @@ const easeOut = t => 1 - Math.pow(1 - t, 3)
 
 export default function StatItem({ valor, label }) {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.4 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
   const prefersReduced = useReducedMotion()
 
   const { num, suffix, hasCount } = parseStat(valor)
