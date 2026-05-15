@@ -40,7 +40,7 @@ const IconWA = () => (
 
 export default function MedicalSection() {
   return (
-    <section className="py-20 bg-[#f0ede6]">
+    <section className="py-20 bg-cream">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-16 items-start">
 

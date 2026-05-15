@@ -43,7 +43,7 @@ export default function Acolhimento() {
       />
 
       {/* Etapas */}
-      <section className="py-20 bg-[#f0ede6]">
+      <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Como funciona o acolhimento</h2>
@@ -110,7 +110,7 @@ export default function Acolhimento() {
       </section>
 
       {/* FAQ accordion */}
-      <section className="py-20 bg-[#f0ede6]">
+      <section className="py-20 bg-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Dúvidas frequentes</h2>

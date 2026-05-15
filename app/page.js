@@ -158,7 +158,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           PRODUTOS — cards brancos com imagem âmbar
       ══════════════════════════════════════════════════════ */}
-      <section id="produtos" className="py-20 bg-[#f0ede6]">
+      <section id="produtos" className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-label block mb-3">Full Spectrum até 0,3% THC · Importação Uruguai</span>
@@ -227,7 +227,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           CTA FINAL
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#0d2d1f]">
+      <section className="py-20 bg-forest">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">
             Pronto para iniciar o tratamento?

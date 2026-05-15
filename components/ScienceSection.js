@@ -33,7 +33,7 @@ const IconCheck = ({ className = 'w-4 h-4' }) => (
 
 export default function ScienceSection() {
   return (
-    <section className="py-20 bg-[#0d2d1f]">
+    <section className="py-20 bg-forest">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-12 lg:gap-20 items-center">
 

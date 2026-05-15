@@ -46,7 +46,7 @@ export default function Ciencia() {
       />
 
       {/* Mecanismos */}
-      <section className="py-20 bg-[#f0ede6]">
+      <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="badge mb-3">Farmacologia</span>
@@ -105,7 +105,7 @@ export default function Ciencia() {
       </section>
 
       {/* RDC 660 */}
-      <section className="py-20 bg-[#f0ede6]">
+      <section className="py-20 bg-cream">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <span className="badge mb-3">Marco Regulatório</span>
@@ -140,7 +140,7 @@ export default function Ciencia() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0d2d1f] text-white">
+      <section className="py-16 bg-forest text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl font-semibold mb-4">Médico? Acesse nosso canal exclusivo</h2>
           <p className="text-white/70 mb-8 leading-relaxed">

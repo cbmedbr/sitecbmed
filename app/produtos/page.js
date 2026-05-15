@@ -83,7 +83,7 @@ export default function Produtos() {
       />
 
       {/* Selos de qualidade */}
-      <section className="bg-[#0d2d1f] py-8">
+      <section className="bg-forest py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {qualidade.map((d, i) => (
@@ -107,7 +107,7 @@ export default function Produtos() {
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-[#0d2d1f]/85" />
+          <div className="absolute inset-0 bg-forest/85" />
         </div>
 
         {/* Container dos cards */}
