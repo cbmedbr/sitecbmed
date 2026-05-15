@@ -1,6 +1,6 @@
 const bgs = {
   caramelo: 'bg-surface-base',
-  creme:    'bg-[#f0ede6]',
+  creme:    'bg-cream',
 }
 
 export default function InternalPageHero({ eyebrow, title, subtitle, bg = 'caramelo' }) {

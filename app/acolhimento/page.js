@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import InternalPageHero from '../../components/InternalPageHero'
+import { CheckCircle, ChevronDown } from 'lucide-react'
 import { WHATSAPP } from '../../lib/constants'
 
 const documentos = [
@@ -33,42 +35,29 @@ export default function Acolhimento() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-gray-950 via-brand-900 to-gray-900 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="badge mb-5 bg-white/10 text-brand-200 border border-white/10">Início do processo</span>
-            <h1 className="text-4xl md:text-5xl font-extrabold mb-5 leading-tight">
-              Acolhimento <span className="text-brand-400">Especializado</span>
-            </h1>
-            <p className="text-gray-300 text-lg leading-relaxed mb-8">
-              Do primeiro contato à entrega do produto — acompanhamos cada etapa com cuidado, clareza e segurança jurídica.
-            </p>
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="btn-whatsapp text-base py-4 px-8">
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.144.566 4.155 1.548 5.897L.057 23.082a.75.75 0 00.92.921l5.255-1.483A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.713 9.713 0 01-4.953-1.358l-.355-.21-3.668 1.035 1.051-3.596-.23-.37A9.712 9.712 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/>
-              </svg>
-              Iniciar Acolhimento pelo WhatsApp
-            </a>
-          </div>
-        </div>
-      </section>
+      <InternalPageHero
+        eyebrow="ACOLHIMENTO"
+        title="Acolhimento Especializado"
+        subtitle="Do primeiro contato à entrega do produto — acompanhamos cada etapa com cuidado, clareza e segurança jurídica."
+        bg="caramelo"
+      />
 
       {/* Etapas */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="section-title mb-4">Como funciona o acolhimento</h2>
-            <p className="section-subtitle mx-auto">Um processo desenhado para ser simples para o paciente e rigoroso na conformidade.</p>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Como funciona o acolhimento</h2>
+            <p className="section-subtitle mx-auto text-ink-light">Um processo desenhado para ser simples para o paciente e rigoroso na conformidade.</p>
           </div>
           <div className="max-w-3xl mx-auto space-y-4">
             {etapas.map((e, i) => (
-              <div key={i} className="flex items-start gap-5 bg-gray-50 rounded-2xl p-6">
-                <div className="w-12 h-12 bg-brand-500 text-white rounded-xl flex items-center justify-center text-sm font-extrabold shrink-0">
+              <div key={i} className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-sm">
+                <div className="font-mono text-4xl font-bold text-ink/10 leading-none shrink-0 w-12 text-center pt-1">
                   {e.n}
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-900 mb-1">{e.titulo}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{e.texto}</p>
+                  <h3 className="font-serif font-semibold text-ink mb-1">{e.titulo}</h3>
+                  <p className="text-ink-light text-sm leading-relaxed">{e.texto}</p>
                 </div>
               </div>
             ))}
@@ -77,12 +66,12 @@ export default function Acolhimento() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-surface-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="badge mb-3">Documentação Necessária</span>
-            <h2 className="section-title mb-4">O que você precisa reunir</h2>
-            <p className="section-subtitle mx-auto">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">O que você precisa reunir</h2>
+            <p className="section-subtitle mx-auto text-ink-light">
               Nossa equipe orienta e verifica cada documento — mas é útil já ter estes em mãos para agilizar o processo.
             </p>
           </div>
@@ -90,23 +79,19 @@ export default function Acolhimento() {
           <div className="space-y-4">
             {documentos.map((doc, i) => (
               <div key={i} className={`rounded-2xl p-6 border flex items-start gap-5 bg-white ${
-                doc.obrigatorio ? 'border-gray-200 shadow-sm' : 'border-dashed border-gray-200'
+                doc.obrigatorio ? 'border-ink/10 shadow-sm' : 'border-dashed border-ink/10'
               }`}>
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold shrink-0 text-sm ${
-                  doc.obrigatorio ? 'bg-brand-100 text-brand-700' : 'bg-gray-100 text-gray-400'
-                }`}>
-                  {i + 1}
-                </div>
+                <CheckCircle size={20} className={`shrink-0 mt-1 ${doc.obrigatorio ? 'text-brand-500' : 'text-ink/25'}`} />
                 <div className="flex-1">
                   <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 className="font-bold text-gray-900">{doc.titulo}</h3>
+                    <h3 className="font-serif font-semibold text-ink">{doc.titulo}</h3>
                     {doc.obrigatorio ? (
                       <span className="bg-brand-100 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Obrigatório</span>
                     ) : (
                       <span className="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Recomendado</span>
                     )}
                   </div>
-                  <p className="text-gray-500 text-sm leading-relaxed">{doc.descricao}</p>
+                  <p className="text-ink-light text-sm leading-relaxed">{doc.descricao}</p>
                 </div>
               </div>
             ))}
@@ -119,32 +104,35 @@ export default function Acolhimento() {
               </svg>
               Enviar documentos pelo WhatsApp
             </a>
-            <p className="text-xs text-gray-400 mt-3">Envio seguro e confidencial. Dados tratados conforme a LGPD.</p>
+            <p className="text-xs text-ink-muted mt-3">Envio seguro e confidencial. Dados tratados conforme a LGPD.</p>
           </div>
         </div>
       </section>
 
       {/* FAQ accordion */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-cream">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="section-title mb-4">Dúvidas frequentes</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Dúvidas frequentes</h2>
           </div>
           <div className="space-y-3">
             {faq.map((item, i) => (
-              <div key={i} className="border border-gray-100 rounded-2xl overflow-hidden">
+              <div key={i} className="border border-ink/10 rounded-2xl overflow-hidden bg-white">
                 <button
-                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
+                  className="w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-brand-50/40 transition-colors"
                   onClick={() => setAberto(aberto === i ? null : i)}
+                  aria-expanded={aberto === i}
+                  aria-controls={`faq-panel-${i}`}
                 >
-                  <span className="font-semibold text-gray-900 text-sm">{item.pergunta}</span>
-                  <svg className={`w-5 h-5 text-brand-500 shrink-0 transition-transform ${aberto === i ? 'rotate-180' : ''}`}
-                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"/>
-                  </svg>
+                  <span className="font-serif font-semibold text-ink text-sm">{item.pergunta}</span>
+                  <ChevronDown size={20} className={`text-brand-500 shrink-0 transition-transform ${aberto === i ? 'rotate-180' : ''}`} />
                 </button>
                 {aberto === i && (
-                  <div className="px-6 pb-5 pt-3 text-gray-500 text-sm leading-relaxed border-t border-gray-50">
+                  <div
+                    id={`faq-panel-${i}`}
+                    role="region"
+                    className="px-6 pb-5 pt-3 text-ink-light text-sm leading-relaxed border-t border-ink/5"
+                  >
                     {item.resposta}
                   </div>
                 )}

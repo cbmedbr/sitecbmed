@@ -31,6 +31,10 @@ module.exports = {
           light:   '#475569',
           muted:   '#94A3B8',
         },
+        // ── Backgrounds estruturais ─────────────────────────────────────────
+        forest: '#0d2d1f',   // verde escuro — CTAs, headers, footer
+        cream:  '#f0ede6',   // creme off-white — seções alternadas
+        navy:   '#0a1628',   // tinta escura — para-medicos hero, S08
         // ── Tokens semânticos v2 ────────────────────────────────────────────
         'brand-deep':         'var(--brand-deep)',
         'brand-accent':       'var(--brand-accent)',

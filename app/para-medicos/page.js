@@ -57,7 +57,7 @@ export default function ParaMedicos() {
   return (
     <>
       {/* Hero editorial premium */}
-      <section className="relative bg-[#0a1628] text-white overflow-hidden">
+      <section className="relative bg-navy text-white overflow-hidden">
         {/* Watermark selo */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-[0.06] pointer-events-none select-none hidden lg:block">
           <SeloAnvisa size={480} colorStroke="#1ba883" />
@@ -164,7 +164,7 @@ export default function ParaMedicos() {
       </section>
 
       {/* Benefícios */}
-      <section className="py-20 bg-[#f0ede6]">
+      <section className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">O que oferecemos ao prescritor</h2>
@@ -226,7 +226,7 @@ export default function ParaMedicos() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-[#0d2d1f] text-white">
+      <section className="py-16 bg-forest text-white">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl font-semibold mb-4">Torne-se um médico parceiro CBMed</h2>
           <p className="text-white/70 mb-8 text-lg leading-relaxed">

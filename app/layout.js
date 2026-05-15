@@ -27,6 +27,29 @@ export const metadata = {
   description:
     'Acesso seguro, legal e humanizado ao Óleo de CBD de alta performance. Assessoria estratégica especializada, conforme RDC 660 ANVISA. Florianópolis/SC.',
   keywords: ['cannabis medicinal', 'CBD', 'óleo de CBD', 'ANVISA', 'RDC 660', 'Florianópolis', 'CBMed'],
+  metadataBase: new URL('https://cbmed.com.br'),
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: 'https://cbmed.com.br',
+    siteName: 'CBMed',
+    title: 'CBMed | Assessoria em Cannabis Medicinal',
+    description: 'Acesso seguro, legal e humanizado ao Óleo de CBD com aprovação ANVISA conforme RDC 660.',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'CBMed — Cannabis Medicinal',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CBMed | Assessoria em Cannabis Medicinal',
+    description: 'Acesso seguro, legal e humanizado ao Óleo de CBD com aprovação ANVISA.',
+    images: ['/og-image.jpg'],
+  },
 }
 
 export default function RootLayout({ children }) {

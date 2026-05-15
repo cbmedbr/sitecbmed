@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import MagneticButton from '../components/MagneticButton'
@@ -72,34 +73,34 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO — Split layout Premium HealthTech
       ══════════════════════════════════════════════════════ */}
-      <section className="bg-surface-base border-b border-slate-100 overflow-hidden">
+      <section className="bg-gradient-to-br from-gray-950 via-brand-900 to-gray-900 border-b border-white/5 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             {/* ── Texto ── */}
             <div>
-              <div className="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 rounded-full px-4 py-2 mb-7">
+              <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-2 mb-7">
                 <svg className="w-3.5 h-3.5 text-brand-500 shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z"/>
                 </svg>
-                <span className="text-xs font-bold uppercase tracking-widest text-brand-600">Aprovado ANVISA</span>
+                <span className="text-xs font-bold uppercase tracking-widest text-brand-300">Aprovado ANVISA</span>
                 <span className="text-brand-300 select-none">·</span>
-                <span className="font-mono text-xs font-semibold text-brand-600">RDC 660</span>
+                <span className="font-mono text-xs font-semibold text-brand-300">RDC 660</span>
                 <span className="text-brand-300 select-none">·</span>
-                <span className="text-xs font-semibold text-brand-600">Importação Uruguai</span>
+                <span className="text-xs font-semibold text-brand-300">Importação Uruguai</span>
               </div>
 
-              <h1 className="font-serif text-display font-semibold text-ink mb-6">
+              <h1 className="font-serif text-display font-semibold text-white mb-6">
                 Proporcionamos{' '}
-                <span className="text-brand-500">Qualidade de Vida</span>
+                <span className="text-brand-400">Qualidade de Vida</span>
                 {' '}através da Cannabis Medicinal
               </h1>
 
-              <p className="text-lg text-ink-light leading-relaxed max-w-lg mb-10">
+              <p className="text-lg text-white/70 leading-relaxed max-w-lg mb-10">
                 Assessoria estratégica especializada, do primeiro contato ao recebimento em domicílio.
                 Acesso legal via RDC 660 para{' '}
-                <strong className="text-ink font-semibold">3.800+ pacientes</strong> e suporte a{' '}
-                <strong className="text-ink font-semibold">1.600+ médicos prescritores</strong>.
+                <strong className="text-white font-semibold">3.800+ pacientes</strong> e suporte a{' '}
+                <strong className="text-white font-semibold">1.600+ médicos prescritores</strong>.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-10">
@@ -109,7 +110,7 @@ export default function Home() {
                   Sou Paciente
                 </MagneticButton>
                 <MagneticButton href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
-                  className="btn-secondary text-base py-4 px-8">
+                  className="inline-flex items-center justify-center gap-2 border border-white/30 text-white hover:bg-white/10 font-semibold px-6 py-3 rounded-xl transition-colors text-sm">
                   Sou Médico
                 </MagneticButton>
               </div>
@@ -117,7 +118,7 @@ export default function Home() {
               {/* Trust chips */}
               <div className="flex flex-wrap gap-3">
                 {['Aprovação ANVISA', 'RDC 660 Compliant', 'Importação Uruguai', 'Entrega em até 30 dias'].map(item => (
-                  <span key={item} className="inline-flex items-center gap-2 bg-brand-50 border border-brand-100 text-brand-600 text-sm font-semibold px-4 py-2 rounded-full">
+                  <span key={item} className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full">
                     <IconCheck className="w-4 h-4 shrink-0"/>
                     {item}
                   </span>
@@ -157,7 +158,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           PRODUTOS — cards brancos com imagem âmbar
       ══════════════════════════════════════════════════════ */}
-      <section id="produtos" className="py-20 bg-[#f0ede6]">
+      <section id="produtos" className="py-20 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="section-label block mb-3">Full Spectrum até 0,3% THC · Importação Uruguai</span>
@@ -189,10 +190,12 @@ export default function Home() {
       ══════════════════════════════════════════════════════ */}
       <div className="relative w-full h-64 md:h-80 overflow-hidden">
         {/* Foto Macro: conta-gotas de vidro com gota de óleo dourado translúcido */}
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1600&q=80"
           alt="Frasco âmbar de óleo de CBD com conta-gotas em luz natural quente"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -224,7 +227,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           CTA FINAL
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-[#0d2d1f]">
+      <section className="py-20 bg-forest">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">
             Pronto para iniciar o tratamento?
