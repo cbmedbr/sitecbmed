@@ -12,7 +12,7 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
     <div
       className={`bg-gradient-to-br from-white/30 via-ink/[0.04] to-ink/[0.08] backdrop-blur-md rounded-3xl flex flex-col md:flex-row overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl ${
         destaque
-          ? 'border-2 border-gold-400 shadow-xl shadow-gold-400/20'
+          ? 'border-2 border-brand-400 shadow-xl shadow-brand-400/20'
           : 'border border-brand-400/50 shadow-xl shadow-brand-400/10'
       }`}
       onMouseEnter={() => setIsHovered(true)}
