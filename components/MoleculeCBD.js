@@ -49,6 +49,20 @@ export default function MoleculeCBD({ size = 320 }) {
     }
   }, [])
 
+  useEffect(() => {
+    const wrapper = containerRef.current?.parentElement
+    if (!wrapper) return
+
+    const handler = (e) => {
+      e.preventDefault()
+      e.stopPropagation()
+      window.scrollBy({ top: e.deltaY, behavior: 'auto' })
+    }
+
+    wrapper.addEventListener('wheel', handler, { capture: true, passive: false })
+    return () => wrapper.removeEventListener('wheel', handler, { capture: true })
+  }, [])
+
   return (
     <div className="relative" style={{ width: `${size}px`, height: `${size}px` }}>
       <div
