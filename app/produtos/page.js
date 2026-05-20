@@ -79,7 +79,7 @@ export default function Produtos() {
         eyebrow="NOSSOS PRODUTOS"
         title="Óleos Full Spectrum de Canabinoides"
         subtitle="Quatro produtos Full Spectrum até 0,3% THC. Importados do Uruguai com aprovação ANVISA e acessíveis via RDC 660."
-        bg="caramelo"
+        image="/hero-produtos.png"
       />
 
       {/* Selos de qualidade */}
