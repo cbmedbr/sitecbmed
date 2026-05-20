@@ -10,7 +10,7 @@ const documentos = [
   { titulo: 'Prescrição Médica',        descricao: 'Receituário com nome do produto, concentração (mg), posologia, via de administração, CID, assinatura e CRM do prescritor.', obrigatorio: true,  image: '/icon-prescricao.png',  numero: '01' },
   { titulo: 'Documento com Foto',        descricao: 'RG, CNH ou Passaporte do paciente. Cópia digitalizada legível (frente e verso quando houver).', obrigatorio: true,  image: '/icon-documento.png',   numero: '02' },
   { titulo: 'Comprovante de Residência', descricao: 'Conta de água, luz, telefone ou bancária com nome do paciente e endereço. Emitida nos últimos 90 dias.', obrigatorio: true,  image: '/icon-residencia.png',  numero: '03' },
-  { titulo: 'Relatório Médico',          descricao: 'Relatório clínico com diagnóstico, histórico e justificativa terapêutica. Recomendado — agiliza a aprovação ANVISA em até 40%.', obrigatorio: false, image: '/icon-relatorio.png',   numero: '04' },
+  { titulo: 'Relatório Médico',          descricao: 'Relatório clínico com diagnóstico, histórico e justificativa terapêutica. Recomendado.', obrigatorio: false, image: '/icon-relatorio.png',   numero: '04' },
 ]
 
 const faq = [
@@ -70,7 +70,7 @@ export default function Acolhimento() {
       <section className="relative overflow-hidden py-20 bg-navy">
         <Image src="/bg-checklist.png" alt="" fill sizes="100vw" className="object-cover object-center opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-navy/30" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative max-w-7xl xl:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="inline-block font-mono text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 text-brand-300 px-3 py-1 rounded-full mb-3">Documentação Necessária</span>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">O que você precisa reunir</h2>
@@ -79,7 +79,7 @@ export default function Acolhimento() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl xl:max-w-[1500px] mx-auto">
             {documentos.map((doc, i) => (
               <div
                 key={i}
@@ -89,7 +89,7 @@ export default function Acolhimento() {
                     : 'border-2 border-amber-400/30 hover:border-amber-400 shadow-xl shadow-amber-400/5 hover:shadow-2xl hover:shadow-amber-400/20'
                 }`}
               >
-                <div className="relative w-full aspect-[4/3] bg-navy overflow-hidden">
+                <div className="relative w-full aspect-[5/3] bg-navy overflow-hidden">
                   <Image src={doc.image} alt="" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
                   <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
                   <span className="absolute top-4 right-5 font-mono text-xs font-bold text-white/50 tracking-widest backdrop-blur-sm bg-white/5 px-2 py-1 rounded">
