@@ -39,7 +39,7 @@ export default function Acolhimento() {
         eyebrow="ACOLHIMENTO"
         title="Acolhimento Especializado"
         subtitle="Do primeiro contato à entrega do produto — acompanhamos cada etapa com cuidado, clareza e segurança jurídica."
-        bg="caramelo"
+        image="/hero-acolhimento.png"
       />
 
       {/* Etapas */}
