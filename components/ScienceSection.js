@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import MoleculeCBD from './MoleculeCBD'
 
 const citacoes = [
   {
@@ -84,47 +85,9 @@ export default function ScienceSection() {
             </div>
           </div>
 
-          {/* Coluna direita: átomo SVG animado */}
-          <div className="flex items-center justify-center">
-            <div style={{ opacity: 0.85 }}>
-              <svg viewBox="0 0 280 280" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <style>{`
-                    @keyframes spin0 { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
-                    @keyframes spin1 { from { transform: rotate(60deg);  } to { transform: rotate(420deg);  } }
-                    @keyframes spin2 { from { transform: rotate(120deg); } to { transform: rotate(480deg);  } }
-                    .g0 { transform-origin: 140px 140px; animation: spin0 3s linear infinite; }
-                    .g1 { transform-origin: 140px 140px; animation: spin1 4s linear infinite; }
-                    .g2 { transform-origin: 140px 140px; animation: spin2 5s linear infinite; }
-                  `}</style>
-                </defs>
-
-                {/* Órbita 0 — plano 0° */}
-                <g className="g0">
-                  <ellipse cx="140" cy="140" rx="110" ry="38"
-                    fill="none" stroke="#6dd4be" strokeWidth="1.2" opacity="0.6"/>
-                  <circle cx="250" cy="140" r="7" fill="#1ba883"/>
-                </g>
-
-                {/* Órbita 1 — plano 60° */}
-                <g className="g1">
-                  <ellipse cx="140" cy="140" rx="110" ry="38"
-                    fill="none" stroke="#6dd4be" strokeWidth="1.2" opacity="0.6"/>
-                  <circle cx="250" cy="140" r="7" fill="#1ba883"/>
-                </g>
-
-                {/* Órbita 2 — plano 120° */}
-                <g className="g2">
-                  <ellipse cx="140" cy="140" rx="110" ry="38"
-                    fill="none" stroke="#6dd4be" strokeWidth="1.2" opacity="0.6"/>
-                  <circle cx="250" cy="140" r="7" fill="#1ba883"/>
-                </g>
-
-                {/* Núcleo */}
-                <circle cx="140" cy="140" r="22" fill="#1ba883" opacity="0.95"/>
-                <circle cx="140" cy="140" r="14" fill="#39bea6"/>
-              </svg>
-            </div>
+          {/* Coluna direita: molécula CBD interativa */}
+          <div className="flex items-center justify-center h-full -mt-44">
+            <MoleculeCBD size={400} />
           </div>
 
         </div>

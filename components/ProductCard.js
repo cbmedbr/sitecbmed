@@ -10,14 +10,16 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
 
   return (
     <div
-      className={`card flex flex-col md:flex-row overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-card-md ${
-        destaque ? 'ring-2 ring-brand-400' : ''
+      className={`bg-gradient-to-br from-white/30 via-ink/[0.04] to-ink/[0.08] backdrop-blur-md rounded-3xl flex flex-col md:flex-row overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl ${
+        destaque
+          ? 'border-2 border-brand-400 shadow-xl shadow-brand-400/20'
+          : 'border border-brand-400/50 shadow-xl shadow-brand-400/10'
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* ── Frasco ── */}
-      <div className="relative h-64 md:h-auto md:w-[45%] shrink-0 bg-white border-b md:border-b-0 md:border-r border-slate-100">
+      <div className="relative h-64 md:h-auto md:w-[45%] shrink-0 border-b md:border-b-0 md:border-r border-white/20">
         <motion.div
           className="absolute inset-0 flex items-end justify-center pb-4"
           animate={!prefersReduced && isHovered ? { y: [0, -12, 0] } : { y: 0 }}
@@ -39,7 +41,7 @@ export default function ProductCard({ mg, sub, tipo, descricao, indicacoes, dest
       <div className="p-7 flex flex-col flex-1">
         <div className="text-[10px] font-bold uppercase tracking-widest text-brand-500 mb-1.5">{sub}</div>
         {destaque && (
-          <span className="inline-flex self-start items-center gap-1.5 bg-gold-500/10 border border-gold-400/40 text-gold-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2">
+          <span className="inline-flex self-start items-center gap-1.5 bg-gold-500/15 border border-gold-400/70 text-gold-600 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2" style={{ boxShadow: '0 0 12px rgba(202,168,60,0.2)' }}>
             ★ Mais prescrito
           </span>
         )}

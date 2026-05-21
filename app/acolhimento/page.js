@@ -1,15 +1,16 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import InternalPageHero from '../../components/InternalPageHero'
-import { CheckCircle, ChevronDown } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 import { WHATSAPP } from '../../lib/constants'
 
 const documentos = [
-  { titulo: 'Prescrição Médica',         descricao: 'Receituário com nome do produto, concentração (mg), posologia, via de administração, CID, assinatura e CRM do prescritor.', obrigatorio: true  },
-  { titulo: 'Documento com Foto',         descricao: 'RG, CNH ou Passaporte do paciente. Cópia digitalizada legível (frente e verso quando houver).', obrigatorio: true  },
-  { titulo: 'Comprovante de Residência',  descricao: 'Conta de água, luz, telefone ou bancária com nome do paciente e endereço. Emitida nos últimos 90 dias.', obrigatorio: true  },
-  { titulo: 'Relatório Médico',           descricao: 'Relatório clínico com diagnóstico, histórico e justificativa terapêutica. Recomendado — agiliza a aprovação ANVISA em até 40%.', obrigatorio: false },
+  { titulo: 'Prescrição Médica',        descricao: 'Receituário com nome do produto, concentração (mg), posologia, via de administração, CID, assinatura e CRM do prescritor.', obrigatorio: true,  image: '/icon-prescricao.png',  numero: '01' },
+  { titulo: 'Documento com Foto',        descricao: 'RG, CNH ou Passaporte do paciente. Cópia digitalizada legível (frente e verso quando houver).', obrigatorio: true,  image: '/icon-documento.png',   numero: '02' },
+  { titulo: 'Comprovante de Residência', descricao: 'Conta de água, luz, telefone ou bancária com nome do paciente e endereço. Emitida nos últimos 90 dias.', obrigatorio: true,  image: '/icon-residencia.png',  numero: '03' },
+  { titulo: 'Relatório Médico',          descricao: 'Relatório clínico com diagnóstico, histórico e justificativa terapêutica. Recomendado.', obrigatorio: false, image: '/icon-relatorio.png',   numero: '04' },
 ]
 
 const faq = [
@@ -39,7 +40,7 @@ export default function Acolhimento() {
         eyebrow="ACOLHIMENTO"
         title="Acolhimento Especializado"
         subtitle="Do primeiro contato à entrega do produto — acompanhamos cada etapa com cuidado, clareza e segurança jurídica."
-        bg="caramelo"
+        image="/hero-acolhimento.png"
       />
 
       {/* Etapas */}
@@ -66,32 +67,54 @@ export default function Acolhimento() {
       </section>
 
       {/* Checklist */}
-      <section className="py-20 bg-surface-base">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-20 bg-navy">
+        <Image src="/bg-checklist.png" alt="" fill sizes="100vw" className="object-cover object-center opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/60 to-navy/30" />
+        <div className="relative max-w-7xl xl:max-w-[1500px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <span className="badge mb-3">Documentação Necessária</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">O que você precisa reunir</h2>
-            <p className="section-subtitle mx-auto text-ink-light">
+            <span className="inline-block font-mono text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 text-brand-300 px-3 py-1 rounded-full mb-3">Documentação Necessária</span>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">O que você precisa reunir</h2>
+            <p className="section-subtitle mx-auto text-white/70">
               Nossa equipe orienta e verifica cada documento — mas é útil já ter estes em mãos para agilizar o processo.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl xl:max-w-[1500px] mx-auto">
             {documentos.map((doc, i) => (
-              <div key={i} className={`rounded-2xl p-6 border flex items-start gap-5 bg-white ${
-                doc.obrigatorio ? 'border-ink/10 shadow-sm' : 'border-dashed border-ink/10'
-              }`}>
-                <CheckCircle size={20} className={`shrink-0 mt-1 ${doc.obrigatorio ? 'text-brand-500' : 'text-ink/25'}`} />
-                <div className="flex-1">
-                  <div className="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 className="font-serif font-semibold text-ink">{doc.titulo}</h3>
-                    {doc.obrigatorio ? (
-                      <span className="bg-brand-100 text-brand-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Obrigatório</span>
-                    ) : (
-                      <span className="bg-amber-100 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">Recomendado</span>
-                    )}
+              <div
+                key={i}
+                className={`group relative bg-white rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col ${
+                  doc.obrigatorio
+                    ? 'border-2 border-brand-400/30 hover:border-brand-400 shadow-xl shadow-brand-400/5 hover:shadow-2xl hover:shadow-brand-400/20'
+                    : 'border-2 border-amber-400/30 hover:border-amber-400 shadow-xl shadow-amber-400/5 hover:shadow-2xl hover:shadow-amber-400/20'
+                }`}
+              >
+                <div className="relative w-full aspect-[5/3] bg-navy overflow-hidden">
+                  <Image src={doc.image} alt="" fill sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-navy/40 to-transparent pointer-events-none" />
+                  <span className="absolute top-4 right-5 font-mono text-xs font-bold text-white/50 tracking-widest backdrop-blur-sm bg-white/5 px-2 py-1 rounded">
+                    {doc.numero}
+                  </span>
+                </div>
+                <div className={`h-1 w-full transition-all duration-500 ${
+                  doc.obrigatorio
+                    ? 'bg-gradient-to-r from-brand-400/0 via-brand-400/80 to-brand-400/0 group-hover:via-brand-500'
+                    : 'bg-gradient-to-r from-amber-400/0 via-amber-400/80 to-amber-400/0 group-hover:via-amber-500'
+                }`} />
+                <div className="p-7 flex flex-col flex-1">
+                  <h3 className="font-serif font-semibold text-ink text-xl mb-3 leading-tight">{doc.titulo}</h3>
+                  <p className="text-ink-light text-sm leading-relaxed mb-6 flex-1">{doc.descricao}</p>
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wide ${
+                      doc.obrigatorio ? 'bg-brand-100 text-brand-700' : 'bg-amber-100 text-amber-700'
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${doc.obrigatorio ? 'bg-brand-500' : 'bg-amber-500'}`}></span>
+                      {doc.obrigatorio ? 'Obrigatório' : 'Recomendado'}
+                    </span>
+                    <span className={`text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                      doc.obrigatorio ? 'text-brand-500' : 'text-amber-500'
+                    }`}>→</span>
                   </div>
-                  <p className="text-ink-light text-sm leading-relaxed">{doc.descricao}</p>
                 </div>
               </div>
             ))}
@@ -104,7 +127,7 @@ export default function Acolhimento() {
               </svg>
               Enviar documentos pelo WhatsApp
             </a>
-            <p className="text-xs text-ink-muted mt-3">Envio seguro e confidencial. Dados tratados conforme a LGPD.</p>
+            <p className="text-xs text-white/50 mt-3">Envio seguro e confidencial. Dados tratados conforme a LGPD.</p>
           </div>
         </div>
       </section>

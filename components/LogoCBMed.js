@@ -2,17 +2,21 @@ import Image from 'next/image'
 
 export default function LogoCBMed({ className = '', dropSize = 48 }) {
   const height = dropSize
-  const width  = Math.round(dropSize * 3.0)
+  const width = Math.round(dropSize * 3.0)
 
   return (
-    <Image
-      src="/logo-cbmed.png"
-      alt="CBMed"
-      width={width}
-      height={height}
-      style={{ width: 'auto', height: 'auto' }}
-      className={className}
-      priority
-    />
+    <div
+      className={`relative inline-block ${className}`}
+      style={{ height: `${height}px`, width: `${width}px` }}
+    >
+      <Image
+        src="/logo-cbmed.png"
+        alt="CBMed"
+        fill
+        sizes={`${width}px`}
+        className="object-contain"
+        priority
+      />
+    </div>
   )
 }
