@@ -111,15 +111,15 @@ export default function Home() {
                 <IconWA />
                 Sou Paciente
               </MagneticButton>
-              <MagneticButton href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
+              <a href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 border border-white/40 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-colors text-base backdrop-blur-sm">
                 Sou Médico
-              </MagneticButton>
+              </a>
             </div>
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-3">
-              {['Aprovação ANVISA', 'RDC 660 Compliant', 'Importação Uruguai', 'Entrega em até 30 dias'].map(item => (
+              {['Aprovação ANVISA', 'Importação Uruguai', 'Entrega em até 30 dias'].map(item => (
                 <span key={item} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full">
                   <IconCheck className="w-4 h-4 shrink-0"/>
                   {item}
