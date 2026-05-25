@@ -29,7 +29,7 @@ export default function ArticlesSection() {
   const [hero, ...secundarios] = getArtigosRecentes(3)
 
   return (
-    <section className="py-20 bg-surface-base">
+    <section className="py-20 bg-[#0D2D1F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
