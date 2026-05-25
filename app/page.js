@@ -91,15 +91,6 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <div className="max-w-2xl">
 
-            {/* Badge ANVISA */}
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-7">
-              <Shield size={14} className="text-brand-400" />
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-300">Aprovado ANVISA</span>
-              <span className="text-white/30">·</span>
-              <span className="font-mono text-xs font-semibold text-brand-300">RDC 660</span>
-              <span className="text-white/30">·</span>
-              <span className="text-xs font-semibold text-brand-300">Importação Uruguai</span>
-            </div>
 
             <h1 className="font-serif text-display-lg font-semibold text-white mb-4">
               Proporcionamos{' '}

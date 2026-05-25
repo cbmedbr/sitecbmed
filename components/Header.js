@@ -89,7 +89,7 @@ export default function Header() {
         : 'bg-white border-b border-ink/5 shadow-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 gap-4">
+        <div className="flex items-center justify-between h-12 gap-4">
 
           {/* ── Logo ── */}
           <Link href="/" aria-label="CBMed — página inicial" className="shrink-0">
