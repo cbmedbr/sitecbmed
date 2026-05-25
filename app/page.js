@@ -101,7 +101,7 @@ export default function Home() {
               <span className="text-xs font-semibold text-brand-300">Importação Uruguai</span>
             </div>
 
-            <h1 className="font-serif text-display font-semibold text-white mb-6">
+            <h1 className="font-serif text-display-lg font-semibold text-white mb-4">
               Proporcionamos{' '}
               <span className="text-brand-400">Qualidade de Vida</span>
               {' '}através da Cannabis Medicinal
@@ -114,7 +114,7 @@ export default function Home() {
               <strong className="text-white font-semibold">1.600+ médicos prescritores</strong>.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-10">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
               <MagneticButton href={WHATSAPP} target="_blank" rel="noopener noreferrer"
                 className="btn-primary text-base py-4 px-8">
                 <IconWA />
