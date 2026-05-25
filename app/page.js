@@ -221,26 +221,26 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           CTA FINAL
       ══════════════════════════════════════════════════════ */}
-      <section className="py-20 bg-forest">
+      <section className="py-20 bg-[#F0EDE6]">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">
+          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">
             Pronto para iniciar o tratamento?
           </h2>
-          <p className="text-brand-100 text-lg mb-10 leading-relaxed">
+          <p className="text-ink-light text-lg mb-10 leading-relaxed">
             Nossa equipe em Florianópolis/SC está disponível para conduzir todo o processo com segurança, agilidade e empatia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-white text-brand-600 font-bold px-8 py-4 rounded-xl hover:bg-brand-50 transition-colors shadow-md text-base">
+              className="inline-flex items-center gap-2.5 bg-brand-500 text-white font-bold px-8 py-4 rounded-xl hover:bg-brand-600 transition-colors shadow-md text-base">
               <IconWA />
               Acolhimento pelo WhatsApp
             </a>
             <a href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white hover:bg-white/10 font-semibold px-8 py-4 rounded-xl transition-colors text-base">
+              className="inline-flex items-center gap-2 border-2 border-ink/20 text-ink hover:bg-ink/5 font-semibold px-8 py-4 rounded-xl transition-colors text-base">
               Sou Médico Prescritor
             </a>
           </div>
-          <p className="text-brand-200 text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 18h · Florianópolis/SC</p>
+          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 18h · Florianópolis/SC</p>
         </div>
       </section>
     </>
