@@ -184,7 +184,7 @@ export default function Produtos() {
       </section>
 
       {/* Aviso regulatório */}
-      <section className="py-12 bg-surface-base">
+      <section className="py-12 bg-[#F0EDE6]">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="bg-white rounded-2xl border border-gray-100 p-8">
             <Info size={32} className="text-brand-500 mx-auto mb-3" />

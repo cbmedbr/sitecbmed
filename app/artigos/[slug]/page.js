@@ -99,6 +99,7 @@ export default function ArtigoPage({ params }) {
         title={artigo.titulo}
         subtitle={artigo.subtitulo}
         bg="caramelo"
+        image={artigo.imagemHero}
       />
 
       {/* ── Corpo do artigo ── */}
