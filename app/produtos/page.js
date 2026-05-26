@@ -6,7 +6,7 @@ import { CheckCircle, ShieldCheck, Info } from 'lucide-react'
 
 export const metadata = {
   title: 'Nossos Produtos',
-  description: 'Catálogo CBMed — Óleos Full Spectrum até 0,3% THC, importados do Uruguai conforme RDC 660. CBD 1500mg, 3000mg, 6000mg e CBD+CBG.',
+  description: 'Catálogo CBMed: Óleos Full Spectrum até 0,3% THC, importados do Uruguai conforme RDC 660. CBD 1500mg, 3000mg, 6000mg e CBD+CBG.',
 }
 
 const produtos = [
@@ -190,7 +190,7 @@ export default function Produtos() {
             <Info size={32} className="text-brand-500 mx-auto mb-3" />
             <h3 className="font-serif font-semibold text-ink mb-3">Aviso Regulatório</h3>
             <p className="text-ink-light text-sm leading-relaxed max-w-2xl mx-auto">
-              Os produtos desta página são importados por pessoa física mediante autorização da ANVISA, conforme RDC 660/2022. A CBMed atua exclusivamente como assessoria estratégica — não realiza vendas diretas. A indicação da concentração e posologia é de competência exclusiva do médico prescritor, após avaliação clínica individualizada.
+              Os produtos desta página são importados por pessoa física mediante autorização da ANVISA, conforme RDC 660/2022. A CBMed atua exclusivamente como assessoria estratégica e não realiza vendas diretas. A indicação da concentração e posologia é de competência exclusiva do médico prescritor, após avaliação clínica individualizada.
             </p>
           </div>
         </div>

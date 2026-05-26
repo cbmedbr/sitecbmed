@@ -5,7 +5,7 @@ import { Scale, BookOpen, Heart, Eye, HelpCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'Sobre a CBMed',
-  description: 'Conheça a CBMed — assessoria especializada em Cannabis Medicinal, baseada em Florianópolis/SC e conforme a RDC 660 da ANVISA.',
+  description: 'Conheça a CBMed, assessoria especializada em Cannabis Medicinal, baseada em Florianópolis/SC e conforme a RDC 660 da ANVISA.',
 }
 
 const pilares = [

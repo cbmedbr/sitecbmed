@@ -29,23 +29,23 @@ export default function ArticlesSection() {
   const [hero, ...secundarios] = getArtigosRecentes(3)
 
   return (
-    <section className="py-20 bg-[#0D2D1F]">
+    <section className="py-20 bg-[#F0EDE6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
           <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-brand-300 block mb-3">
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-brand-500 block mb-3">
               INSIGHTS CLÍNICOS
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white leading-tight">
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink leading-tight">
               Conhecimento que respalda decisões
             </h2>
-            <p className="text-white/70 text-base mt-2">
+            <p className="text-ink-light text-base mt-2">
               Evidências científicas sobre Cannabis Medicinal, curadas para a prática clínica.
             </p>
           </div>
-          <Link href="/artigos" className="text-brand-300 hover:text-brand-200 font-semibold text-sm hidden sm:inline-flex items-center gap-1 transition-colors shrink-0">
+          <Link href="/artigos" className="text-brand-500 hover:text-brand-600 font-semibold text-sm hidden sm:inline-flex items-center gap-1 transition-colors shrink-0">
             Ver todos os artigos →
           </Link>
         </div>

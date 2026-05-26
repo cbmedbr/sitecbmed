@@ -18,7 +18,7 @@ export default function Artigos() {
       <InternalPageHero
         eyebrow="BASE DE CONHECIMENTO"
         title="Base de Conhecimento"
-        subtitle="Artigos científicos, análises regulatórias e evidências clínicas sobre Cannabis Medicinal — produzidos pela equipe técnica CBMed para pacientes e profissionais de saúde."
+        subtitle="Artigos científicos, análises regulatórias e evidências clínicas sobre Cannabis Medicinal, produzidos pela equipe técnica CBMed para pacientes e profissionais de saúde."
         bg="caramelo"
       />
 

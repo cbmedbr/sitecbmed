@@ -122,7 +122,7 @@ export default function RdcSection() {
               Cada frasco é um produto auditado
             </h2>
             <p className="text-white/70 text-base md:text-lg max-w-sm mx-auto leading-relaxed text-balance">
-              Da farmácia uruguaia ao paciente brasileiro — rastreabilidade completa
+              Da farmácia uruguaia ao paciente brasileiro: rastreabilidade completa
             </p>
           </div>
 

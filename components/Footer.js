@@ -28,7 +28,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-1.5 text-xs text-white/40">
               <MapPin size={14} className="text-brand-500 shrink-0" />
-              <span className="font-mono">Florianópolis, SC — Brasil</span>
+              <span className="font-mono">Florianópolis, SC · Brasil</span>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-[11px] text-white/30 mt-8 max-w-2xl mx-auto leading-relaxed">
-          Este site não realiza prescrição médica. Produtos sujeitos à prescrição e autorização ANVISA — RDC 327/2019.
+          Este site não realiza prescrição médica. Produtos sujeitos à prescrição e autorização ANVISA (RDC 327/2019).
         </p>
       </div>
     </footer>

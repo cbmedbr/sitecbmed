@@ -32,7 +32,7 @@ const beneficios = [
   },
   {
     titulo: 'Canal Exclusivo',
-    texto: 'Linha de comunicação direta entre o médico prescritor e nossa equipe especializada — sem filas, com respostas ágeis.',
+    texto: 'Linha de comunicação direta entre o médico prescritor e nossa equipe especializada, com respostas ágeis e sem filas.',
     icone: <MessageCircle size={24} className="text-brand-500 mb-4" />,
   },
   {
@@ -84,7 +84,7 @@ export default function ParaMedicos() {
               </h1>
 
               <p className="text-gray-300 text-lg leading-relaxed mb-10 max-w-xl">
-                A CBMed transforma a sua prescrição em acesso real para o paciente. Cuidamos de toda a operação regulatória e logística — você foca no diagnóstico e no cuidado.
+                A CBMed transforma a sua prescrição em acesso real para o paciente. Cuidamos de toda a operação regulatória e logística, para que você foque no diagnóstico e no cuidado.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -206,7 +206,7 @@ export default function ParaMedicos() {
                     ? 'text-white bg-white/20 border border-white/30'
                     : 'text-brand-600 bg-brand-50 border border-brand-100'
                 }`}>
-                  {item.evidencia} — OCEBM
+                  {item.evidencia} · OCEBM
                 </span>
                 <p className={`text-sm font-medium ${item.destaque ? 'text-white' : 'text-ink'}`}>
                   {item.condicao}

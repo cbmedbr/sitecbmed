@@ -63,7 +63,7 @@ function Secao({ secao }) {
         <blockquote className="my-8 bg-brand-50 border-l-4 border-brand-500 rounded-r-2xl p-6">
           <p className="text-ink italic leading-relaxed mb-3 text-lg">{secao.conteudo}</p>
           {secao.fonte && (
-            <cite className="text-brand-600 text-sm font-semibold not-italic">— {secao.fonte}</cite>
+            <cite className="text-brand-600 text-sm font-semibold not-italic">{secao.fonte}</cite>
           )}
         </blockquote>
       )

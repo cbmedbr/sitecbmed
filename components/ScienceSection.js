@@ -4,7 +4,7 @@ import MoleculeCBD from './MoleculeCBD'
 const citacoes = [
   {
     num: '¹',
-    texto: 'O canabidiol reduziu significativamente a frequência de crises em pacientes com síndrome de Dravet — redução mediana de 38,9% vs 13,3% no placebo.',
+    texto: 'O canabidiol reduziu significativamente a frequência de crises em pacientes com síndrome de Dravet, com redução mediana de 38,9% vs 13,3% no placebo.',
     fonte: 'New England Journal of Medicine, 2021',
   },
   {

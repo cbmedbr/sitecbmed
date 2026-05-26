@@ -39,21 +39,21 @@ export default function Acolhimento() {
       <InternalPageHero
         eyebrow="ACOLHIMENTO"
         title="Acolhimento Especializado"
-        subtitle="Do primeiro contato à entrega do produto — acompanhamos cada etapa com cuidado, clareza e segurança jurídica."
+        subtitle="Do primeiro contato à entrega do produto, acompanhamos cada etapa com cuidado, clareza e segurança jurídica."
         image="/hero-acolhimento.png"
       />
 
       {/* Etapas */}
-      <section className="py-20 bg-cream">
+      <section className="py-12 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Como funciona o acolhimento</h2>
+          <div className="text-center mb-8">
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-ink mb-4">Como funciona o acolhimento</h2>
             <p className="section-subtitle mx-auto text-ink-light">Um processo desenhado para ser simples para o paciente e rigoroso na conformidade.</p>
           </div>
-          <div className="max-w-3xl mx-auto space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
             {etapas.map((e, i) => (
-              <div key={i} className="flex items-start gap-5 bg-white rounded-2xl p-6 shadow-sm">
-                <div className="font-mono text-4xl font-bold text-ink/10 leading-none shrink-0 w-12 text-center pt-1">
+              <div key={i} className="flex items-start gap-5 bg-white rounded-2xl p-5 shadow-sm">
+                <div className="font-mono text-2xl font-bold text-ink/10 leading-none shrink-0 w-8 text-center pt-1">
                   {e.n}
                 </div>
                 <div>
@@ -75,7 +75,7 @@ export default function Acolhimento() {
             <span className="inline-block font-mono text-xs font-bold uppercase tracking-widest bg-white/10 border border-white/20 text-brand-300 px-3 py-1 rounded-full mb-3">Documentação Necessária</span>
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-4">O que você precisa reunir</h2>
             <p className="section-subtitle mx-auto text-white/70">
-              Nossa equipe orienta e verifica cada documento — mas é útil já ter estes em mãos para agilizar o processo.
+              Nossa equipe orienta e verifica cada documento, mas é útil já ter estes em mãos para agilizar o processo.
             </p>
           </div>
 

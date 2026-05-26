@@ -53,7 +53,7 @@ export default function MedicalSection() {
               Prescreva com segurança regulatória e suporte clínico completo
             </h2>
             <p className="text-ink-light leading-relaxed mb-8 max-w-lg">
-              A CBMed cuida de toda a burocracia da RDC 660 — documentação, autorização ANVISA, importação e entrega em até 30 dias — para que você foque no que importa: o cuidado clínico.
+              A CBMed cuida de toda a burocracia da RDC 660: documentação, autorização ANVISA, importação e entrega em até 30 dias, para que você foque no que importa: o cuidado clínico.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
