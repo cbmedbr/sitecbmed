@@ -81,7 +81,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-bottom"
+          className="object-cover object-[50%_30%] scale-95"
         />
 
         {/* Overlay gradient */}
