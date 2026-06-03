@@ -73,7 +73,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO — Split layout Premium HealthTech
       ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-gray-950">
+      <section className="relative overflow-hidden h-screen flex items-center bg-gray-950">
         {/* Background image fullscreen */}
         <Image
           src="/hero-products.png"
