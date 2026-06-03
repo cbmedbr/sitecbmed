@@ -11,7 +11,7 @@ const tagColor = {
 function Tag({ categoria }) {
   const cls = tagColor[categoria] ?? 'bg-brand-50 text-brand-600'
   return (
-    <span className={`font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full ${cls}`}>
+    <span className={`font-mono text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full select-none ${cls}`}>
       {categoria}
     </span>
   )

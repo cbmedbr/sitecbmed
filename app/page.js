@@ -120,7 +120,7 @@ export default function Home() {
             {/* Trust chips */}
             <div className="flex flex-wrap gap-3">
               {['Aprovação ANVISA', 'Importação Uruguai', 'Entrega em até 30 dias'].map(item => (
-                <span key={item} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full">
+                <span key={item} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full select-none">
                   <IconCheck className="w-4 h-4 shrink-0"/>
                   {item}
                 </span>

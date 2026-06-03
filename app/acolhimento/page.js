@@ -105,7 +105,7 @@ export default function Acolhimento() {
                   <h3 className="font-serif font-semibold text-ink text-xl mb-3 leading-tight">{doc.titulo}</h3>
                   <p className="text-ink-light text-sm leading-relaxed mb-6 flex-1">{doc.descricao}</p>
                   <div className="flex items-center justify-between">
-                    <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wide ${
+                    <span className={`inline-flex items-center gap-1.5 text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wide select-none ${
                       doc.obrigatorio ? 'bg-brand-100 text-brand-700' : 'bg-amber-100 text-amber-700'
                     }`}>
                       <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${doc.obrigatorio ? 'bg-brand-500' : 'bg-amber-500'}`}></span>

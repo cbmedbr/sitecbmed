@@ -80,7 +80,7 @@
 
   /* Seção */
   .section-label {
-    @apply text-xs font-bold uppercase tracking-widest text-brand-500;
+    @apply text-xs font-bold uppercase tracking-widest text-brand-500 select-none cursor-default;
   }
   .section-title {
     @apply text-display-md font-bold text-ink;

@@ -201,7 +201,7 @@ export default function ParaMedicos() {
                   ? 'bg-brand-500 border-brand-400'
                   : 'bg-white border-gray-100'
               }`}>
-                <span className={`inline-block font-mono text-xs font-bold rounded-full px-3 py-1 mb-3 ${
+                <span className={`inline-block font-mono text-xs font-bold rounded-full px-3 py-1 mb-3 select-none ${
                   item.destaque
                     ? 'text-white bg-white/20 border border-white/30'
                     : 'text-brand-600 bg-brand-50 border border-brand-100'
