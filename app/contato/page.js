@@ -47,7 +47,7 @@ export default function Contato() {
         eyebrow="CONTATO"
         title="Entre em contato"
         subtitle="Estamos prontos para esclarecer suas dúvidas e iniciar o seu acolhimento especializado. A forma mais rápida é pelo WhatsApp."
-        bg="caramelo"
+        bg="forest"
       />
 
       {/* Faixa WhatsApp */}

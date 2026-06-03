@@ -30,7 +30,7 @@ export default function Sobre() {
         eyebrow="SOBRE A CBMED"
         title="Sobre a CBMed"
         subtitle="Nascemos da convicção de que o acesso à Cannabis Medicinal deve ser seguro, humanizado e dentro da lei. Nossa missão é remover as barreiras burocráticas e técnicas que separam pacientes de um tratamento eficaz."
-        bg="caramelo"
+        bg="forest"
       />
 
       {/* Missão e números */}
@@ -83,7 +83,7 @@ export default function Sobre() {
       </section>
 
       {/* Pilares */}
-      <section className="py-20 bg-surface-base">
+      <section className="py-20 bg-[#F0EDE6]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Nossos pilares</h2>
