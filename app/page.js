@@ -73,7 +73,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════
           HERO — Split layout Premium HealthTech
       ══════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden min-h-screen flex items-center bg-gray-950">
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center bg-gray-950">
         {/* Background image fullscreen */}
         <Image
           src="/hero-products.png"
@@ -81,7 +81,7 @@ export default function Home() {
           fill
           priority
           sizes="100vw"
-          className="object-cover object-[50%_30%] scale-95"
+          className="object-cover object-[50%_30%]"
         />
 
         {/* Overlay gradient */}
@@ -92,7 +92,7 @@ export default function Home() {
           <div className="max-w-2xl">
 
 
-            <h1 className="font-serif text-display-lg font-semibold text-white mb-4">
+            <h1 className="font-serif text-display-lg font-semibold text-white mb-4 select-none">
               Proporcionamos{' '}
               <span className="text-brand-400">Qualidade de Vida</span>
               {' '}através da Cannabis Medicinal
