@@ -19,13 +19,6 @@ const citacoes = [
   },
 ]
 
-const coaItems = [
-  'Cannabidiol (CBD) ≥99%',
-  'THC <0,3%',
-  'Metais pesados: ausente',
-  'Pesticidas: ausente',
-]
-
 const IconCheck = ({ className = 'w-4 h-4' }) => (
   <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
@@ -61,28 +54,9 @@ export default function ScienceSection() {
               ))}
             </div>
 
-            <Link href="/ciencia" className="text-brand-400 hover:text-brand-300 text-sm font-semibold inline-flex items-center gap-1 mb-10 transition-colors">
+            <Link href="/ciencia" className="text-brand-400 hover:text-brand-300 text-sm font-semibold inline-flex items-center gap-1 transition-colors">
               Ver estudos completos →
             </Link>
-
-            <div className="border-t border-white/15 pt-8">
-              <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-white/40 block mb-4">
-                Certificado de Análise (COA)
-              </span>
-              <ul className="space-y-2.5 mb-5">
-                {coaItems.map((item, i) => (
-                  <li key={i} className="flex items-center gap-2.5">
-                    <span className="w-5 h-5 bg-brand-500/20 text-brand-400 rounded-full flex items-center justify-center shrink-0">
-                      <IconCheck className="w-3 h-3"/>
-                    </span>
-                    <span className="font-mono text-xs text-white/70">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="#" className="text-brand-400 hover:text-brand-300 text-sm font-semibold inline-flex items-center gap-1 transition-colors">
-                Baixar COA →
-              </a>
-            </div>
           </div>
 
           {/* Coluna direita: molécula CBD interativa */}

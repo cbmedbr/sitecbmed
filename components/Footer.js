@@ -106,7 +106,7 @@ export default function Footer() {
         {/* Linha de social + bottom bar */}
         <div className="border-t border-white/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-3">
-            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+            <a href="https://www.instagram.com/cbmed.br" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
               className="w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white/60 hover:text-brand-400 hover:border-white/30 transition-all">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>

@@ -2,18 +2,14 @@ import Image from 'next/image'
 
 const anotacoesEsquerda = [
   { titulo: 'Aprovado ANVISA', sub: 'RDC 660' },
-  { titulo: 'Vidro âmbar', sub: 'UV-protect' },
 ]
 
 const anotacoesDireita = [
-  { titulo: 'Importação Uruguai', sub: 'certificada' },
   { titulo: 'COA por lote', sub: 'rastreável' },
 ]
 
 const anotacoesMobile = [
   'Aprovado ANVISA · RDC 660',
-  'Importação Uruguai certificada',
-  'Vidro âmbar UV-protect',
   'COA por lote rastreável',
 ]
 

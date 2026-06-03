@@ -42,7 +42,7 @@ export default function Ciencia() {
         eyebrow="BASE CIENTÍFICA"
         title="A ciência por trás do CBD"
         subtitle="Evidências clínicas, mecanismos de ação e referências peer-reviewed para médicos prescritores e pacientes."
-        bg="caramelo"
+        bg="forest"
       />
 
       {/* Mecanismos */}

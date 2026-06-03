@@ -14,7 +14,7 @@ const documentos = [
 ]
 
 const faq = [
-  { pergunta: 'Quanto tempo leva o processo completo?',             resposta: 'Em até 30 dias após a autorização da ANVISA. A CBMed monitora cada etapa e mantém você informado em tempo real.' },
+  { pergunta: 'Quanto tempo leva o processo completo?',             resposta: 'Em até 15 dias após a autorização da ANVISA. A CBMed monitora cada etapa e mantém você informado em tempo real.' },
   { pergunta: 'O produto pode ser entregue em qualquer cidade?',    resposta: 'Sim. Atendemos pacientes em todo o território nacional. A entrega é feita no endereço informado na documentação.' },
   { pergunta: 'Qual é o papel da CBMed no processo?',              resposta: 'Somos a assessoria estratégica: organizamos a documentação, submetemos à ANVISA, coordenamos a importação e acompanhamos a entrega. Não vendemos produtos diretamente.' },
   { pergunta: 'Preciso renovar a autorização a cada pedido?',       resposta: 'Sim. Cada importação requer uma nova autorização ANVISA. A CBMed gerencia todo o processo de renovação com agilidade.' },
@@ -26,7 +26,7 @@ const etapas = [
   { n:'02', titulo:'Avaliação Médica',       texto:'Se você ainda não tem prescrição, conectamos você a um médico parceiro habilitado para avaliação clínica remota ou presencial.' },
   { n:'03', titulo:'Envio da Documentação', texto:'Nossa equipe orienta na coleta de documentos e verifica tudo antes de submeter à ANVISA, evitando indeferimentos.' },
   { n:'04', titulo:'Autorização ANVISA',     texto:'Submetemos o processo e acompanhamos o status junto à agência. Prazo médio: 10 a 20 dias úteis após documentação completa.' },
-  { n:'05', titulo:'Importação dos EUA',     texto:'Autorizado o processo, o produto é despachado diretamente do laboratório nos EUA para o endereço do paciente no Brasil.' },
+  { n:'05', titulo:'Importação do Uruguai',   texto:'Autorizado o processo, o produto é despachado diretamente do laboratório no Uruguai para o endereço do paciente no Brasil.' },
   { n:'06', titulo:'Entrega e Acompanhamento', texto:'Produto recebido em domicílio com rastreamento completo. Nossa equipe continua disponível para suporte pós-entrega.' },
 ]
 
