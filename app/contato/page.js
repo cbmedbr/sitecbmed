@@ -181,7 +181,7 @@ export default function Contato() {
                 />
                 <InfoItem
                   label="Horário"
-                  valor="Segunda a Sexta, 8h às 18h"
+                  valor="Segunda a Sexta, 8h às 17h"
                   icon={<Clock size={20} />}
                 />
               </div>

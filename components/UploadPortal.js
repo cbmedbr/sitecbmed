@@ -1,5 +1,6 @@
 'use client'
 import { useState, useRef } from 'react'
+import { EMAIL } from '../lib/constants'
 
 const IconUpload = () => (
   <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +67,7 @@ Por favor, confirme o recebimento e oriente os próximos passos.
 Obrigado(a)!`
     )
 
-    window.location.href = `mailto:contato@cbmed.com.br?subject=${subject}&body=${body}`
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`
     setEnviado(true)
   }
 

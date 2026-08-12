@@ -240,7 +240,7 @@ export default function Home() {
               Sou Médico Prescritor
             </a>
           </div>
-          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 18h</p>
+          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 17h</p>
         </div>
       </section>
     </>

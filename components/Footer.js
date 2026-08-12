@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-white/40 text-xs">
                 <span className="w-3.5 shrink-0"/>
-                <span className="font-mono">Seg–Sex · 8h às 18h</span>
+                <span className="font-mono">Seg–Sex · 8h às 17h</span>
               </li>
             </ul>
 
