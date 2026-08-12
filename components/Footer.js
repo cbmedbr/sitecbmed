@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Marca — 4 colunas */}
           <div className="lg:col-span-4">
             <div className="mb-6">
-              <LogoCBMed dropSize={72} />
+              <LogoCBMed height={43} />
             </div>
 
             <p className="font-serif text-base text-white/70 leading-relaxed max-w-xs mb-6 italic">

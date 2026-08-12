@@ -93,7 +93,7 @@ export default function Header() {
 
           {/* ── Logo ── */}
           <Link href="/" aria-label="CBMed — página inicial" className="shrink-0">
-            <LogoCBMed dropSize={80} />
+            <LogoCBMed height={36} />
           </Link>
 
           {/* ── Nav central: dois universos ── */}

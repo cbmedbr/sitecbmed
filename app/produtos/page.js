@@ -129,7 +129,7 @@ export default function Produtos() {
                 <div className="lg:col-span-5 flex gap-5 items-center">
                   {/* Frasco coluna fixa */}
                   <div className="w-36 md:w-44 shrink-0 flex items-center justify-center">
-                    <Image src={p.img} alt={p.nome} width={180} height={300} className="object-contain drop-shadow-2xl w-full h-auto" />
+                    <Image src={p.img} alt={p.nome} width={956} height={2013} className="object-contain drop-shadow-2xl w-full h-auto" />
                   </div>
                   {/* Dados ao lado do frasco */}
                   <div className="flex-1 min-w-0">

@@ -76,7 +76,7 @@ export default function Home() {
       <section className="relative overflow-hidden h-screen flex items-center bg-gray-950">
         {/* Background image fullscreen */}
         <Image
-          src="/hero-products.png"
+          src="/hero-products.avif"
           alt=""
           fill
           priority
