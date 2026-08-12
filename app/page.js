@@ -227,7 +227,7 @@ export default function Home() {
             Pronto para iniciar o tratamento?
           </h2>
           <p className="text-ink-light text-lg mb-10 leading-relaxed">
-            Nossa equipe em Florianópolis/SC está disponível para conduzir todo o processo com segurança, agilidade e empatia.
+            Nossa equipe está disponível para conduzir todo o processo com segurança, agilidade e empatia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
@@ -240,7 +240,7 @@ export default function Home() {
               Sou Médico Prescritor
             </a>
           </div>
-          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 18h · Florianópolis/SC</p>
+          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 18h</p>
         </div>
       </section>
     </>

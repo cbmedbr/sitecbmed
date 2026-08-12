@@ -5,7 +5,7 @@ import { Scale, BookOpen, Heart, Eye, HelpCircle } from 'lucide-react'
 
 export const metadata = {
   title: 'Sobre a CBMed',
-  description: 'Conheça a CBMed, assessoria especializada em Cannabis Medicinal, baseada em Florianópolis/SC e conforme a RDC 660 da ANVISA.',
+  description: 'Conheça a CBMed, assessoria especializada em Cannabis Medicinal, conforme a RDC 660 da ANVISA.',
 }
 
 const pilares = [
@@ -19,7 +19,7 @@ const faq = [
   { pergunta: 'O uso de Cannabis Medicinal é legal no Brasil?',           resposta: 'Sim. A ANVISA regulamenta a importação e o uso de produtos à base de cannabis por meio da RDC 660, desde que haja prescrição médica e autorização do órgão. A CBMed auxilia todo esse processo.' },
   { pergunta: 'Preciso de receita médica para ter acesso ao óleo de CBD?', resposta: 'Sim, é necessária prescrição de médico habilitado. Nossa assessoria conecta você aos profissionais adequados e cuida de toda a documentação junto à ANVISA.' },
   { pergunta: 'Quanto tempo leva o processo de acesso ao produto?',        resposta: 'Em até 30 dias após a autorização da ANVISA. Nossa equipe agiliza cada etapa para garantir o menor prazo possível.' },
-  { pergunta: 'Vocês atendem pacientes de fora de Santa Catarina?',        resposta: 'Sim! Embora nossa sede seja em Florianópolis/SC, realizamos atendimentos remotos para pacientes de todo o Brasil com a mesma qualidade e atenção.' },
+  { pergunta: 'Vocês atendem pacientes de todo o Brasil?',                resposta: 'Sim! Realizamos atendimentos remotos para pacientes de todo o Brasil com a mesma qualidade e atenção.' },
 ]
 
 export default function Sobre() {
@@ -40,7 +40,7 @@ export default function Sobre() {
             <div>
               <h2 className="font-serif text-3xl font-semibold text-ink mb-6">Quem somos</h2>
               <p className="text-ink-light leading-relaxed mb-4">
-                A CBMed é uma empresa de assessoria estratégica especializada em Cannabis Medicinal, com sede em Florianópolis, Santa Catarina. Atuamos como ponte entre pacientes, médicos prescritores e os entes regulatórios da ANVISA.
+                A CBMed é uma empresa de assessoria estratégica especializada em Cannabis Medicinal. Atuamos como ponte entre pacientes, médicos prescritores e os entes regulatórios da ANVISA.
               </p>
               <p className="text-ink-light leading-relaxed mb-4">
                 Nossa equipe é composta por profissionais com formação nas áreas de saúde, direito regulatório e consultoria de acesso a tratamentos inovadores. Cada membro é capacitado para orientar com precisão técnica e cuidado humano.

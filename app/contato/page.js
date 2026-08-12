@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import InternalPageHero from '../../components/InternalPageHero'
-import { Mail, MapPin, Clock } from 'lucide-react'
+import { Mail, Clock } from 'lucide-react'
 import { WHATSAPP, PHONE_DISPLAY, EMAIL } from '../../lib/constants'
 
 export default function Contato() {
@@ -178,11 +178,6 @@ export default function Contato() {
                   valor={EMAIL}
                   href={`mailto:${EMAIL}`}
                   icon={<Mail size={20} />}
-                />
-                <InfoItem
-                  label="Localização"
-                  valor="Florianópolis, Santa Catarina"
-                  icon={<MapPin size={20} />}
                 />
                 <InfoItem
                   label="Horário"

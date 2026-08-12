@@ -51,9 +51,16 @@ Nunca alterar sem aprovação explícita do cliente:
 - `1.600+` — médicos parceiros
 - `até 30d` — prazo de entrega
 - `RDC 660` — conformidade ANVISA
-- `CNPJ: 64.853.460/0001-45`
 - Links WhatsApp em `lib/constants.js` — nunca hardcodar URLs
 - Citações científicas: NEJM 2021, Lancet Neurology 2019, JAMA 2019 — fontes reais, jamais inventar
+
+### Removidos a pedido do cliente (2026-08-12)
+
+Não reintroduzir sem nova solicitação explícita:
+
+- `CNPJ: 64.853.460/0001-45` — saiu da barra inferior do rodapé
+- Endereço/localização `Florianópolis, SC` — saiu do rodapé, de `/contato`, dos textos de `/sobre` e `/` e dos metadados SEO (description + keywords)
+- Ano do copyright — rodapé agora exibe `© CBMed Assessoria em Cannabis Medicinal.` sem data
 
 ## Compliance regulatório (ANVISA)
 
@@ -127,7 +134,7 @@ Limpeza profunda (`rm -rf .next node_modules + npm install`) é necessária entr
 
 ## Arquivos sensíveis
 
-- `lib/constants.js` — WhatsApp links, telefone, email, CNPJ
+- `lib/constants.js` — WhatsApp links, telefone, email
 - `lib/artigos.js` — conteúdo dos artigos (não alterar textos sem aprovação)
 - `public/produto-*.png` — PNGs com fundo transparente (não sobrescrever com versões antigas)
 - `app/globals.css` — tokens de design (alterações impactam todo o site)
