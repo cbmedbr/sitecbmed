@@ -5,20 +5,14 @@ import Image from 'next/image'
 import InternalPageHero from '../../components/InternalPageHero'
 import { ChevronDown } from 'lucide-react'
 import { WHATSAPP } from '../../lib/constants'
+// Fonte única — o layout servidor usa o mesmo array para emitir o FAQPage.
+import { FAQ_ACOLHIMENTO as faq } from '../../lib/faq'
 
 const documentos = [
   { titulo: 'Prescrição Médica',        descricao: 'Receituário com nome do produto, concentração (mg), posologia, via de administração, CID, assinatura e CRM do prescritor.', obrigatorio: true,  image: '/icon-prescricao.png',  numero: '01' },
   { titulo: 'Documento com Foto',        descricao: 'RG, CNH ou Passaporte do paciente. Cópia digitalizada legível (frente e verso quando houver).', obrigatorio: true,  image: '/icon-documento.png',   numero: '02' },
   { titulo: 'Comprovante de Residência', descricao: 'Conta de água, luz, telefone ou bancária com nome do paciente e endereço. Emitida nos últimos 90 dias.', obrigatorio: true,  image: '/icon-residencia.png',  numero: '03' },
   { titulo: 'Relatório Médico',          descricao: 'Relatório clínico com diagnóstico, histórico e justificativa terapêutica. Recomendado.', obrigatorio: false, image: '/icon-relatorio.png',   numero: '04' },
-]
-
-const faq = [
-  { pergunta: 'Quanto tempo leva o processo completo?',             resposta: 'Em até 15 dias após a autorização da ANVISA. A CBMed monitora cada etapa e mantém você informado em tempo real.' },
-  { pergunta: 'O produto pode ser entregue em qualquer cidade?',    resposta: 'Sim. Atendemos pacientes em todo o território nacional. A entrega é feita no endereço informado na documentação.' },
-  { pergunta: 'Qual é o papel da CBMed no processo?',              resposta: 'Somos a assessoria estratégica: organizamos a documentação, submetemos à ANVISA, coordenamos a importação e acompanhamos a entrega. Não vendemos produtos diretamente.' },
-  { pergunta: 'Preciso renovar a autorização a cada pedido?',       resposta: 'Sim. Cada importação requer uma nova autorização ANVISA. A CBMed gerencia todo o processo de renovação com agilidade.' },
-  { pergunta: 'Ainda não tenho prescrição. Como proceder?',         resposta: 'Nossa equipe conecta você a médicos parceiros habilitados para avaliação e emissão da prescrição adequada ao seu caso.' },
 ]
 
 const etapas = [
