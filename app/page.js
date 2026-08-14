@@ -9,6 +9,15 @@ import ScienceSection from '../components/ScienceSection'
 import MedicalSection from '../components/MedicalSection'
 import RdcSection from '../components/RdcSection'
 import ArticlesSection from '../components/ArticlesSection'
+import { buildMetadata } from '../lib/seo'
+import { SITE_DESCRIPTION } from '../lib/site'
+
+// Sem `title` — a home herda o title.default do root layout.
+export const metadata = buildMetadata({
+  description: SITE_DESCRIPTION,
+  path: '/',
+})
+
 // ─── Dados ───────────────────────────────────────────────────────────────────
 const produtos = [
   {

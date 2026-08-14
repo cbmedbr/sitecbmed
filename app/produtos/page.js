@@ -3,11 +3,13 @@ import { WHATSAPP } from '../../lib/constants'
 import InternalPageHero from '../../components/InternalPageHero'
 import Image from 'next/image'
 import { CheckCircle, ShieldCheck, Info } from 'lucide-react'
+import { buildMetadata } from '../../lib/seo'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Nossos Produtos',
   description: 'Catálogo CBMed: Óleos Full Spectrum até 0,3% THC, importados do Uruguai conforme RDC 660. CBD 1500mg, 3000mg, 6000mg e CBD+CBG.',
-}
+  path: '/produtos',
+})
 
 const produtos = [
   {
