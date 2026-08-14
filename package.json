@@ -17,7 +17,7 @@
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.14.0",
     "next": "^15.3.0",
-    "next-mdx-remote": "^5.0.0",
+    "next-mdx-remote": "^6.0.0",
     "react": "^18",
     "react-dom": "^18",
     "remark-gfm": "^4.0.1"
