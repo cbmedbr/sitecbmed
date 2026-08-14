@@ -2,11 +2,13 @@ import { WHATSAPP } from '../../lib/constants'
 import InternalPageHero from '../../components/InternalPageHero'
 import MagneticButton from '../../components/MagneticButton'
 import { Scale, BookOpen, Heart, Eye, HelpCircle } from 'lucide-react'
+import { buildMetadata } from '../../lib/seo'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Sobre a CBMed',
   description: 'Conheça a CBMed, assessoria especializada em Cannabis Medicinal, conforme a RDC 660 da ANVISA.',
-}
+  path: '/sobre',
+})
 
 const pilares = [
   { titulo: 'Legalidade',    texto: 'Operamos exclusivamente dentro do marco regulatório brasileiro, seguindo a RDC 660 da ANVISA e toda a legislação vigente.', icone: <Scale size={28} className="text-brand-500" /> },
@@ -18,7 +20,7 @@ const pilares = [
 const faq = [
   { pergunta: 'O uso de Cannabis Medicinal é legal no Brasil?',           resposta: 'Sim. A ANVISA regulamenta a importação e o uso de produtos à base de cannabis por meio da RDC 660, desde que haja prescrição médica e autorização do órgão. A CBMed auxilia todo esse processo.' },
   { pergunta: 'Preciso de receita médica para ter acesso ao óleo de CBD?', resposta: 'Sim, é necessária prescrição de médico habilitado. Nossa assessoria conecta você aos profissionais adequados e cuida de toda a documentação junto à ANVISA.' },
-  { pergunta: 'Quanto tempo leva o processo de acesso ao produto?',        resposta: 'Em até 30 dias após a autorização da ANVISA. Nossa equipe agiliza cada etapa para garantir o menor prazo possível.' },
+  { pergunta: 'Quanto tempo leva o processo de acesso ao produto?',        resposta: 'Em até 15 dias após a autorização da ANVISA. Nossa equipe agiliza cada etapa para garantir o menor prazo possível.' },
   { pergunta: 'Vocês atendem pacientes de todo o Brasil?',                resposta: 'Sim! Realizamos atendimentos remotos para pacientes de todo o Brasil com a mesma qualidade e atenção.' },
 ]
 
@@ -46,7 +48,7 @@ export default function Sobre() {
                 Nossa equipe é composta por profissionais com formação nas áreas de saúde, direito regulatório e consultoria de acesso a tratamentos inovadores. Cada membro é capacitado para orientar com precisão técnica e cuidado humano.
               </p>
               <p className="text-ink-light leading-relaxed">
-                Desde a nossa fundação, já auxiliamos mais de 3.800 pacientes a obterem acesso legal ao Óleo de CBD com importação dos EUA, em concentrações de 1500 mg, 3000 mg e 6000 mg, todos aprovados pela ANVISA conforme a RDC 660.
+                Desde a nossa fundação, já auxiliamos mais de 3.800 pacientes a obterem acesso legal ao Óleo de CBD com importação do Uruguai, em concentrações de 1500 mg, 3000 mg e 6000 mg, todos aprovados pela ANVISA conforme a RDC 660.
               </p>
 
               {/* RDC 660 destaque */}
