@@ -5,7 +5,7 @@ const citacoes = [
   {
     num: '¹',
     texto: 'O canabidiol reduziu significativamente a frequência de crises em pacientes com síndrome de Dravet, com redução mediana de 38,9% vs 13,3% no placebo.',
-    fonte: 'New England Journal of Medicine, 2021',
+    fonte: 'New England Journal of Medicine, 2017',
   },
   {
     num: '²',
