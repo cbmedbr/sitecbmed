@@ -1,231 +1,316 @@
-import Image from 'next/image'
 import Link from 'next/link'
-import { artigos, getArtigoPorSlug, getArtigosRecentes, formatarData } from '../../../lib/artigos'
 import { notFound } from 'next/navigation'
-import InternalPageHero from '../../../components/InternalPageHero'
+import { compileMDX } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
+import {
+  getAllArtigos,
+  getArtigoBySlug,
+  getRelatedArtigos,
+  formatarData,
+  dataISO,
+} from '../../../lib/artigos'
 import { buildMetadata } from '../../../lib/seo'
+import { SITE_NAME, absoluteUrl } from '../../../lib/site'
+import { mdxComponents } from '../../../components/MdxComponents'
+import ArtigoCard from '../../../components/ArtigoCard'
+
+export const dynamicParams = false
 
 export async function generateStaticParams() {
-  return artigos.map(a => ({ slug: a.slug }))
+  return getAllArtigos().map(a => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
-  const artigo = getArtigoPorSlug(slug)
+  const artigo = getArtigoBySlug(slug)
   if (!artigo) return {}
 
-  // lib/artigos.js guarda só 'YYYY-MM-DD'; fixar hora em BRT evita o
-  // published_time escorregar para o dia anterior em UTC.
-  const publicadoEm = `${artigo.data}T09:00:00-03:00`
-
-  // Sem '| CBMed' — o template do root layout já anexa o sufixo.
-  return buildMetadata({
-    title: artigo.titulo,
-    description: artigo.resumo,
+  const metadata = buildMetadata({
+    title: artigo.title,
+    description: artigo.description,
     path: `/artigos/${artigo.slug}`,
-    image: artigo.imagemHero,
     type: 'article',
-    publishedTime: publicadoEm,
-    modifiedTime: publicadoEm,
-    authors: [artigo.autor],
-    section: artigo.categoria,
+    publishedTime: dataISO(artigo.date),
+    modifiedTime: dataISO(artigo.updated),
+    authors: ['Equipe CBMed'],
+    section: artigo.category,
   })
+
+  if (artigo.keywords.length) metadata.keywords = artigo.keywords
+  if (artigo.tags.length) metadata.openGraph.tags = artigo.tags
+
+  // A imagem OG deste artigo vem do arquivo opengraph-image.js do segmento.
+  // Imagens declaradas explicitamente aqui teriam precedência sobre a convenção
+  // de arquivo, então removemos ambas: o og:image gerado (1200x630 com o título)
+  // assume, e o twitter:image herda dele.
+  delete metadata.openGraph.images
+  delete metadata.twitter.images
+
+  return metadata
 }
 
-// ─── Renderizador de seção ────────────────────────────────────────────────────
-function Secao({ secao }) {
-  switch (secao.tipo) {
-    case 'intro':
-      return (
-        <p className="text-lg text-ink-light leading-relaxed mb-8 font-light border-l-4 border-brand-400 pl-5">
-          {secao.conteudo}
-        </p>
-      )
-    case 'h2':
-      return (
-        <div className="mb-6">
-          <h2 className="font-serif font-semibold text-ink text-xl md:text-2xl mb-4">{secao.titulo}</h2>
-          {secao.conteudo && secao.conteudo.split('\n\n').map((p, i) => (
-            <p key={i} className="text-ink-light leading-relaxed mb-3">{p}</p>
-          ))}
-        </div>
-      )
-    case 'paragrafo':
-      return <p className="text-ink-light leading-relaxed mb-6">{secao.conteudo}</p>
-    case 'lista':
-      return (
-        <ul className="space-y-3 mb-8">
-          {secao.itens.map((item, i) => {
-            const [bold, ...rest] = item.split(':')
-            const temBold = item.includes(':') && bold.length < 60
-            return (
-              <li key={i} className="flex items-start gap-3">
-                <div className="w-5 h-5 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center shrink-0 mt-0.5 text-xs font-bold">
-                  {i + 1}
-                </div>
-                <span className="text-ink-light leading-relaxed text-sm md:text-base">
-                  {temBold ? (
-                    <><strong className="text-ink">{bold}:</strong>{rest.join(':')}</>
-                  ) : item}
-                </span>
-              </li>
-            )
-          })}
-        </ul>
-      )
-    case 'citacao':
-      return (
-        <blockquote className="my-8 bg-brand-50 border-l-4 border-brand-500 rounded-r-2xl p-6">
-          <p className="text-ink italic leading-relaxed mb-3 text-lg">{secao.conteudo}</p>
-          {secao.fonte && (
-            <cite className="text-brand-600 text-sm font-semibold not-italic">{secao.fonte}</cite>
-          )}
-        </blockquote>
-      )
-    case 'referencias':
-      return (
-        <div className="mt-10 pt-8 border-t border-ink/10">
-          <h3 className="text-sm font-bold uppercase tracking-widest text-ink-muted mb-4">Referências</h3>
-          <ol className="space-y-2">
-            {secao.itens.map((ref, i) => (
-              <li key={i} className="flex items-start gap-2 text-xs text-ink-muted leading-relaxed">
-                <span className="font-bold text-brand-400 shrink-0">[{i + 1}]</span>
-                <span>{ref}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
-      )
-    default:
-      return null
+// ─── JSON-LD ──────────────────────────────────────────────────────────────────
+
+function jsonLdArtigo(artigo) {
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: artigo.title,
+    description: artigo.description,
+    datePublished: dataISO(artigo.date),
+    dateModified: dataISO(artigo.updated),
+    inLanguage: 'pt-BR',
+    author: {
+      '@type': 'Organization',
+      name: 'Equipe CBMed',
+      url: absoluteUrl('/artigos/politica-editorial'),
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      logo: {
+        '@type': 'ImageObject',
+        url: absoluteUrl('/logo-cbmed.png'),
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': absoluteUrl(`/artigos/${artigo.slug}`),
+    },
+  }
+  if (artigo.keywords.length) ld.keywords = artigo.keywords.join(', ')
+  if (artigo.sources.length) ld.citation = artigo.sources.map(s => s.url)
+  return ld
+}
+
+function jsonLdBreadcrumb(artigo) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Início', item: absoluteUrl('/') },
+      { '@type': 'ListItem', position: 2, name: 'Artigos', item: absoluteUrl('/artigos') },
+      { '@type': 'ListItem', position: 3, name: artigo.title, item: absoluteUrl(`/artigos/${artigo.slug}`) },
+    ],
   }
 }
 
+function jsonLdFaq(artigo) {
+  if (!artigo.faq.length) return null
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: artigo.faq.map(f => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  }
+}
+
+function JsonLd({ data }) {
+  if (!data) return null
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }}
+    />
+  )
+}
+
+// ─── Corpo MDX ────────────────────────────────────────────────────────────────
+// compileMDX dentro de try/catch: um artigo do n8n com sintaxe MDX inválida
+// (ex.: um `<` solto no texto) degrada para texto sem formatação com warning,
+// em vez de derrubar o build de todo o site.
+async function CorpoArtigo({ artigo }) {
+  try {
+    const { content } = await compileMDX({
+      source: artigo.content,
+      components: mdxComponents,
+      options: { mdxOptions: { remarkPlugins: [remarkGfm] } },
+    })
+    return content
+  } catch (e) {
+    console.warn(`[artigos] ${artigo.slug}: falha ao compilar MDX (${e.message}) — exibindo texto sem formatação`)
+    return (
+      <div className="text-ink-light leading-relaxed whitespace-pre-wrap">{artigo.content}</div>
+    )
+  }
+}
+
+// ─── Página ───────────────────────────────────────────────────────────────────
+
 export default async function ArtigoPage({ params }) {
   const { slug } = await params
-  const artigo = getArtigoPorSlug(slug)
+  const artigo = getArtigoBySlug(slug)
   if (!artigo) notFound()
 
-  const relacionados = getArtigosRecentes(3).filter(a => a.slug !== artigo.slug).slice(0, 2)
+  const relacionados = getRelatedArtigos(artigo.slug, artigo.tags, 3)
+  const atualizado = artigo.updated !== artigo.date
 
   return (
     <>
-      <InternalPageHero
-        eyebrow="ARTIGO"
-        title={artigo.titulo}
-        subtitle={artigo.subtitulo}
-        bg="caramelo"
-        image={artigo.imagemHero}
-      />
+      <JsonLd data={jsonLdArtigo(artigo)} />
+      <JsonLd data={jsonLdBreadcrumb(artigo)} />
+      <JsonLd data={jsonLdFaq(artigo)} />
 
-      {/* ── Corpo do artigo ── */}
-      <section className="py-12 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Meta strip */}
-          <div className="flex flex-wrap items-center gap-2 text-sm text-ink-muted font-mono mb-10">
-            <span>{artigo.autor}</span>
-            <span>·</span>
-            <span>{formatarData(artigo.data)}</span>
-            <span>·</span>
-            <span>{artigo.tempoLeitura} de leitura</span>
-          </div>
+      <div className="bg-cream">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-20">
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          {/* Breadcrumb */}
+          <nav aria-label="Trilha de navegação" className="mb-8">
+            <ol className="flex flex-wrap items-center gap-1.5 text-xs font-mono text-ink-muted">
+              <li><Link href="/" className="hover:text-brand-600 transition-colors">Início</Link></li>
+              <li aria-hidden>›</li>
+              <li><Link href="/artigos" className="hover:text-brand-600 transition-colors">Artigos</Link></li>
+              <li aria-hidden>›</li>
+              <li aria-current="page" className="text-ink line-clamp-1">{artigo.title}</li>
+            </ol>
+          </nav>
 
-            {/* Conteúdo principal */}
-            <article className="lg:col-span-2">
-              {/* Imagem de capa */}
-              <div className="relative rounded-2xl overflow-hidden mb-10 bg-brand-50 h-64 md:h-80">
-                <Image
-                  src={artigo.imagem}
-                  alt={artigo.titulo}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 66vw"
-                  priority
-                />
-              </div>
+          {/* Cabeçalho */}
+          <header className="mb-10">
+            <span className="inline-block bg-brand-50 text-brand-600 border border-brand-100 font-mono text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
+              {artigo.category}
+            </span>
+            <h1 className="font-serif text-3xl md:text-4xl font-semibold text-ink leading-tight mb-5">
+              {artigo.title}
+            </h1>
+            <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-muted font-mono">
+              <span>
+                Publicado em <time dateTime={artigo.date}>{formatarData(artigo.date)}</time>
+              </span>
+              {atualizado && (
+                <>
+                  <span aria-hidden>·</span>
+                  <span>
+                    Atualizado em <time dateTime={artigo.updated}>{formatarData(artigo.updated)}</time>
+                  </span>
+                </>
+              )}
+              <span aria-hidden>·</span>
+              <span>{artigo.readingTime} min de leitura</span>
+            </div>
+          </header>
 
-              {/* Seções */}
-              <div className="prose-custom">
-                {artigo.secoes.map((secao, i) => (
-                  <Secao key={i} secao={secao} />
+          {/* Corpo MDX */}
+          <article>
+            <CorpoArtigo artigo={artigo} />
+          </article>
+
+          {/* Referências científicas */}
+          {artigo.sources.length > 0 && (
+            <section aria-labelledby="referencias-titulo" className="mt-12 pt-8 border-t border-ink/10">
+              <h2 id="referencias-titulo" className="font-mono text-sm font-bold uppercase tracking-widest text-ink mb-5">
+                Referências científicas
+              </h2>
+              <ol className="space-y-3 list-decimal pl-5 marker:text-brand-500 marker:font-bold">
+                {artigo.sources.map((fonte, i) => (
+                  <li key={i} className="text-sm text-ink-light leading-relaxed pl-1">
+                    <a
+                      href={fonte.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-600 font-medium underline decoration-brand-300 underline-offset-2 hover:text-brand-500 transition-colors"
+                    >
+                      {fonte.title}
+                    </a>
+                    {fonte.year && <span className="text-ink-muted"> · {fonte.year}</span>}
+                    {fonte.type && (
+                      <span className="ml-2 inline-block bg-brand-50 text-brand-600 font-mono text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded-full align-middle">
+                        {fonte.type}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </section>
+          )}
+
+          {/* Perguntas frequentes */}
+          {artigo.faq.length > 0 && (
+            <section aria-labelledby="faq-titulo" className="mt-12 pt-8 border-t border-ink/10">
+              <h2 id="faq-titulo" className="font-serif text-2xl font-semibold text-ink mb-6">
+                Perguntas frequentes
+              </h2>
+              <div className="space-y-3">
+                {artigo.faq.map((item, i) => (
+                  <details
+                    key={i}
+                    className="group bg-white border border-ink/10 rounded-2xl open:border-brand-200 transition-colors"
+                  >
+                    <summary className="flex items-center justify-between gap-4 cursor-pointer list-none p-5 font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                      {item.q}
+                      <svg
+                        className="w-4 h-4 shrink-0 text-brand-500 transition-transform group-open:rotate-180"
+                        fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7"/>
+                      </svg>
+                    </summary>
+                    <p className="px-5 pb-5 text-ink-light text-sm leading-relaxed">{item.a}</p>
+                  </details>
                 ))}
               </div>
+            </section>
+          )}
 
-              {/* Rodapé do artigo */}
-              <div className="mt-10 pt-8 border-t border-ink/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                <div className="text-sm text-ink-muted font-mono">
-                  Publicado em {formatarData(artigo.data)} · Equipe Científica CBMed
-                </div>
-                <Link href="/artigos" className="btn-ghost text-sm">
-                  ← Voltar para artigos
-                </Link>
-              </div>
-            </article>
-
-            {/* Sidebar */}
-            <aside className="space-y-8">
-              {/* Aviso clínico — mantém bg-amber-50 intencional */}
-              <div className="bg-amber-50 border border-amber-100 rounded-2xl p-5">
-                <div className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
-                  </svg>
-                  <div>
-                    <h3 className="font-bold text-amber-800 text-sm mb-1">Aviso Clínico</h3>
-                    <p className="text-amber-700 text-xs leading-relaxed">
-                      Este artigo tem finalidade educativa e informativa. Não substitui avaliação e prescrição médica individualizada. Consulte sempre um profissional de saúde habilitado.
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA acolhimento */}
-              <div className="bg-white border border-ink/10 rounded-2xl p-6">
-                <h3 className="font-serif font-semibold text-ink mb-2">Precisa de orientação?</h3>
-                <p className="text-ink-light text-sm mb-4 leading-relaxed">
-                  Nossa equipe especializada está pronta para esclarecer dúvidas e iniciar o seu acolhimento.
-                </p>
-                <Link href="/acolhimento" className="btn-primary w-full justify-center text-sm py-3">
-                  Iniciar Acolhimento
-                </Link>
-                <Link href="/para-medicos" className="btn-outline w-full justify-center text-sm py-2.5 mt-2">
-                  Sou Médico Prescritor
-                </Link>
-              </div>
-
-              {/* Artigos relacionados */}
-              {relacionados.length > 0 && (
-                <div>
-                  <h3 className="font-mono text-ink text-sm font-bold uppercase tracking-widest mb-4">Leia também</h3>
-                  <div className="space-y-4">
-                    {relacionados.map(rel => (
-                      <Link key={rel.slug} href={`/artigos/${rel.slug}`}>
-                        <div className="group flex gap-3 p-4 rounded-xl border border-ink/10 hover:border-brand-200 hover:bg-brand-50/30 transition-colors">
-                          <div className="relative w-14 h-14 rounded-lg overflow-hidden bg-brand-50 shrink-0">
-                            <Image
-                              src={rel.imagem}
-                              alt={rel.titulo}
-                              fill
-                              className="object-cover"
-                              sizes="56px"
-                            />
-                          </div>
-                          <div>
-                            <span className="text-[10px] font-bold uppercase tracking-wide text-brand-500">{rel.categoria}</span>
-                            <p className="text-ink text-sm font-medium leading-snug group-hover:text-brand-600 transition-colors line-clamp-2">{rel.titulo}</p>
-                          </div>
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </aside>
+          {/* Autoria */}
+          <div className="mt-12 bg-white border border-ink/10 rounded-2xl p-6 flex items-start gap-4">
+            <div className="w-11 h-11 bg-brand-50 text-brand-600 rounded-xl flex items-center justify-center shrink-0 font-serif font-semibold text-lg" aria-hidden>
+              CB
+            </div>
+            <div>
+              <p className="font-semibold text-ink">Equipe CBMed</p>
+              <p className="text-ink-light text-sm leading-relaxed mt-0.5">
+                Conteúdo educativo produzido a partir de estudos indexados no PubMed.{' '}
+                <Link href="/artigos/politica-editorial" className="text-brand-600 font-medium underline decoration-brand-300 underline-offset-2 hover:text-brand-500 transition-colors">
+                  Conheça nossa política editorial
+                </Link>.
+              </p>
+            </div>
           </div>
+
+          {/* Disclaimer médico */}
+          <div className="mt-6 bg-amber-50 border border-amber-100 rounded-2xl p-5 text-xs text-amber-800 leading-relaxed">
+            <strong className="font-bold">Aviso importante:</strong> este conteúdo tem caráter exclusivamente
+            informativo e educacional, e não substitui consulta, diagnóstico ou acompanhamento com profissional
+            de saúde habilitado. Produtos à base de canabidiol exigem prescrição médica e autorização da ANVISA,
+            conforme a RDC 660/2022.
+          </div>
+
+          {/* Leia também */}
+          {relacionados.length > 0 && (
+            <section aria-labelledby="relacionados-titulo" className="mt-14">
+              <h2 id="relacionados-titulo" className="font-mono text-sm font-bold uppercase tracking-widest text-ink mb-6">
+                Leia também
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {relacionados.map(rel => (
+                  <ArtigoCard key={rel.slug} artigo={rel} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* CTA institucional discreto */}
+          <div className="mt-14 bg-forest rounded-3xl p-8 text-center">
+            <h2 className="font-serif font-semibold text-white text-xl mb-2">
+              Dúvidas sobre o acesso legal via RDC 660?
+            </h2>
+            <p className="text-white/70 text-sm mb-5 max-w-md mx-auto">
+              Nossa equipe orienta pacientes e médicos prescritores em todas as etapas do processo regulatório.
+            </p>
+            <Link
+              href="/contato"
+              className="inline-flex items-center justify-center bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm px-6 py-3 rounded-xl transition-colors"
+            >
+              Falar com a equipe
+            </Link>
+          </div>
+
         </div>
-      </section>
+      </div>
     </>
   )
 }
