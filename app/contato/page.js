@@ -3,12 +3,23 @@
 import { useState } from 'react'
 import InternalPageHero from '../../components/InternalPageHero'
 import { Mail, Clock } from 'lucide-react'
-import { WHATSAPP, PHONE_DISPLAY, EMAIL } from '../../lib/constants'
+import { WHATSAPP, WHATSAPP_NUMBER, PHONE_DISPLAY, EMAIL } from '../../lib/constants'
+
+// Rótulos legíveis para o texto que vai no WhatsApp — o select guarda só a chave.
+const ASSUNTOS = {
+  acolhimento: 'Quero iniciar meu acolhimento',
+  produto:     'Dúvida sobre os produtos',
+  processo:    'Como funciona o processo?',
+  anvisa:      'Questões regulatórias (ANVISA / RDC 660)',
+  medico:      'Sou médico prescritor',
+  outro:       'Outro assunto',
+}
 
 export default function Contato() {
   const [form, setForm]     = useState({ nome: '', email: '', telefone: '', assunto: '', mensagem: '' })
   const [enviado, setEnviado]   = useState(false)
   const [enviando, setEnviando] = useState(false)
+  const [linkWhats, setLinkWhats] = useState('')
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -17,8 +28,28 @@ export default function Contato() {
   function handleSubmit(e) {
     e.preventDefault()
     setEnviando(true)
-    // Conecte a um backend ou serviço (Resend, EmailJS etc.)
-    setTimeout(() => { setEnviando(false); setEnviado(true) }, 1500)
+
+    const texto = [
+      'Olá! Vim pelo formulário do site da CBMed.',
+      '',
+      `Nome: ${form.nome}`,
+      `E-mail: ${form.email}`,
+      form.telefone ? `WhatsApp: ${form.telefone}` : null,
+      form.assunto  ? `Assunto: ${ASSUNTOS[form.assunto] || form.assunto}` : null,
+      '',
+      form.mensagem,
+    ].filter(Boolean).join('\n')
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(texto)}`
+    setLinkWhats(url)
+
+    // Abre em aba nova para o usuário não perder a página. Se o navegador
+    // bloquear o popup, navega na própria aba — a mensagem não pode se perder.
+    const aba = window.open(url, '_blank', 'noopener,noreferrer')
+    if (!aba) window.location.href = url
+
+    setEnviando(false)
+    setEnviado(true)
   }
 
   const InfoItem = ({ icon, label, valor, href, destaque }) => (
@@ -93,14 +124,14 @@ export default function Contato() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
                     </svg>
                   </div>
-                  <h3 className="text-xl font-bold text-brand-800 mb-2">Mensagem recebida!</h3>
-                  <p className="text-brand-600 mb-4">Nossa equipe entrará em contato em breve.</p>
-                  <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+                  <h3 className="text-xl font-bold text-brand-800 mb-2">WhatsApp aberto!</h3>
+                  <p className="text-brand-600 mb-4">Sua mensagem já foi preenchida. Toque em enviar no WhatsApp para concluir.</p>
+                  <a href={linkWhats || WHATSAPP} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-sm font-semibold text-brand-700 underline">
-                    Ou fale agora pelo WhatsApp
+                    Não abriu? Clique aqui
                   </a>
                   <div className="mt-5">
-                    <button onClick={() => { setEnviado(false); setForm({ nome:'', email:'', telefone:'', assunto:'', mensagem:'' }) }}
+                    <button onClick={() => { setEnviado(false); setLinkWhats(''); setForm({ nome:'', email:'', telefone:'', assunto:'', mensagem:'' }) }}
                       className="text-sm text-ink-muted hover:text-ink">
                       Enviar outra mensagem
                     </button>
@@ -155,7 +186,7 @@ export default function Contato() {
                   </div>
                   <button type="submit" disabled={enviando}
                     className="w-full py-4 bg-brand-500 text-white font-semibold rounded-xl hover:bg-brand-600 transition-colors disabled:opacity-60 disabled:cursor-not-allowed text-sm">
-                    {enviando ? 'Enviando...' : 'Enviar mensagem'}
+                    {enviando ? 'Abrindo WhatsApp...' : 'Enviar pelo WhatsApp'}
                   </button>
                   <p className="text-xs text-ink-muted text-center">Seus dados são tratados com total sigilo, conforme a LGPD.</p>
                 </form>
