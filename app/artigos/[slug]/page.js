@@ -4,6 +4,8 @@ import { artigos, getArtigoPorSlug, getArtigosRecentes, formatarData } from '../
 import { notFound } from 'next/navigation'
 import InternalPageHero from '../../../components/InternalPageHero'
 import { buildMetadata } from '../../../lib/seo'
+import JsonLd from '../../../components/JsonLd'
+import { grafo, articleSchema } from '../../../lib/schema'
 
 export async function generateStaticParams() {
   return artigos.map(a => ({ slug: a.slug }))
@@ -110,6 +112,8 @@ export default async function ArtigoPage({ params }) {
 
   return (
     <>
+      <JsonLd data={grafo(articleSchema(artigo))} />
+
       <InternalPageHero
         eyebrow="ARTIGO"
         title={artigo.titulo}
