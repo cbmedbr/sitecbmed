@@ -3,18 +3,33 @@ import Link from 'next/link'
 import { artigos, getArtigoPorSlug, getArtigosRecentes, formatarData } from '../../../lib/artigos'
 import { notFound } from 'next/navigation'
 import InternalPageHero from '../../../components/InternalPageHero'
+import { buildMetadata } from '../../../lib/seo'
 
 export async function generateStaticParams() {
   return artigos.map(a => ({ slug: a.slug }))
 }
 
 export async function generateMetadata({ params }) {
-  const artigo = getArtigoPorSlug(params.slug)
+  const { slug } = await params
+  const artigo = getArtigoPorSlug(slug)
   if (!artigo) return {}
-  return {
-    title: `${artigo.titulo} | CBMed`,
+
+  // lib/artigos.js guarda só 'YYYY-MM-DD'; fixar hora em BRT evita o
+  // published_time escorregar para o dia anterior em UTC.
+  const publicadoEm = `${artigo.data}T09:00:00-03:00`
+
+  // Sem '| CBMed' — o template do root layout já anexa o sufixo.
+  return buildMetadata({
+    title: artigo.titulo,
     description: artigo.resumo,
-  }
+    path: `/artigos/${artigo.slug}`,
+    image: artigo.imagemHero,
+    type: 'article',
+    publishedTime: publicadoEm,
+    modifiedTime: publicadoEm,
+    authors: [artigo.autor],
+    section: artigo.categoria,
+  })
 }
 
 // ─── Renderizador de seção ────────────────────────────────────────────────────
@@ -86,8 +101,9 @@ function Secao({ secao }) {
   }
 }
 
-export default function ArtigoPage({ params }) {
-  const artigo = getArtigoPorSlug(params.slug)
+export default async function ArtigoPage({ params }) {
+  const { slug } = await params
+  const artigo = getArtigoPorSlug(slug)
   if (!artigo) notFound()
 
   const relacionados = getArtigosRecentes(3).filter(a => a.slug !== artigo.slug).slice(0, 2)

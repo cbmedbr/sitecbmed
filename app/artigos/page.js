@@ -3,11 +3,14 @@ import Link from 'next/link'
 import { artigos, formatarData } from '../../lib/artigos'
 import InternalPageHero from '../../components/InternalPageHero'
 import MagneticButton from '../../components/MagneticButton'
+import { buildMetadata } from '../../lib/seo'
 
-export const metadata = {
-  title: 'Artigos Científicos | CBMed',
+// Sem '| CBMed' aqui — o template do root layout já anexa o sufixo.
+export const metadata = buildMetadata({
+  title: 'Artigos Científicos',
   description: 'Base de conhecimento CBMed: artigos técnicos sobre Cannabis Medicinal, CBD, regulamentação ANVISA e evidências clínicas atualizadas.',
-}
+  path: '/artigos',
+})
 
 export default function Artigos() {
   const recentes    = artigos.slice(0, 1)[0]

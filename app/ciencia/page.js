@@ -3,14 +3,16 @@ import { WHATSAPP_DR } from '../../lib/constants'
 import InternalPageHero from '../../components/InternalPageHero'
 import MagneticButton from '../../components/MagneticButton'
 import { Brain, Activity, Layers, FlaskConical } from 'lucide-react'
+import { buildMetadata } from '../../lib/seo'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Ciência',
   description: 'Base científica sobre canabinoides e Cannabis Medicinal. Estudos clínicos, mecanismos de ação e referências para médicos prescritores.',
-}
+  path: '/ciencia',
+})
 
 const estudos = [
-  { titulo: 'CBD e Epilepsia Refratária',       referencia: 'Devinsky O. et al., New England Journal of Medicine (2017)',    resumo: 'Ensaio clínico randomizado demonstrou redução de 36,5% nas convulsões em pacientes com Síndrome de Dravet tratados com cannabidiol oral. Nível de evidência A.', tags: ['Epilepsia', 'Pediatria', 'Nível A'], cor: 'brand' },
+  { titulo: 'CBD e Epilepsia Refratária',       referencia: 'Devinsky O. et al., New England Journal of Medicine (2017)',    resumo: 'Ensaio clínico randomizado demonstrou redução mediana de 38,9% nas convulsões em pacientes com Síndrome de Dravet tratados com cannabidiol oral, contra 13,3% no placebo. Nível de evidência A.', tags: ['Epilepsia', 'Pediatria', 'Nível A'], cor: 'brand' },
   { titulo: 'Canabinoides na Dor Crônica',       referencia: 'Aviram J. et al., Journal of Pain Research (2017)',            resumo: 'Revisão sistemática de 71 estudos demonstrou que canabinoides reduzem significativamente dor crônica neuropática, com boa tolerabilidade a longo prazo.', tags: ['Dor Neuropática', 'Crônica', 'Revisão Sistemática'], cor: 'blue' },
   { titulo: 'CBD no Transtorno de Ansiedade',    referencia: 'Blessing E.M. et al., Neurotherapeutics (2015)',               resumo: 'Revisão de estudos clínicos sugere potencial terapêutico do CBD em múltiplas formas de ansiedade, incluindo TEPT e TOC, sem efeitos sedativos relevantes.', tags: ['Ansiedade', 'TEPT', 'Nível B'], cor: 'purple' },
   { titulo: 'Cannabis e Qualidade do Sono',      referencia: 'Shannon S. et al., The Permanente Journal (2019)',             resumo: 'Estudo clínico com 72 adultos mostrou que CBD reduziu ansiedade em 79,2% dos casos e melhorou o sono em 66,7% na primeira avaliação mensal.', tags: ['Sono', 'Ansiedade', 'Nível B'], cor: 'indigo' },
