@@ -18,7 +18,7 @@ const produtos = [
     descricao: 'Indicado para início do protocolo terapêutico. Alta tolerabilidade, titulação gradual e eficácia documentada em ansiedade e distúrbios do sono.',
     indicacoes: ['Ansiedade', 'Insônia', 'Dor leve'],
     destaque: false,
-    img: '/produto-1500.png',
+    img: '/produto-1500.avif',
   },
   {
     mg: '3000 mg',
@@ -27,7 +27,7 @@ const produtos = [
     descricao: 'Formulação Full Spectrum mais prescrita pelos médicos parceiros da CBMed. Evidência clínica robusta em epilepsia, dor neuropática e ansiedade severa.',
     indicacoes: ['Epilepsia', 'Ansiedade severa', 'Dor neuropática'],
     destaque: true,
-    img: '/produto-3000.png',
+    img: '/produto-3000.avif',
   },
   {
     mg: '6000 mg',
@@ -36,7 +36,7 @@ const produtos = [
     descricao: 'Alta concentração para condições neurológicas complexas e protocolos intensivos. Exige acompanhamento médico especializado.',
     indicacoes: ['Neurologia', 'Oncologia', 'Dor refratária'],
     destaque: false,
-    img: '/produto-6000.png',
+    img: '/produto-6000.avif',
   },
   {
     mg: 'CBD 5% + CBG 5%',
@@ -45,7 +45,7 @@ const produtos = [
     descricao: 'Combinação sinérgica de 1500 mg de CBD e 1500 mg de CBG. O CBG potencializa os efeitos anti-inflamatórios e neuroprotetores, ampliando o espectro terapêutico.',
     indicacoes: ['Inflamação', 'Neuroproteção', 'Ansiedade', 'Dor crônica'],
     destaque: false,
-    img: '/produto-cbg.png',
+    img: '/produto-cbg.avif',
   },
 ]
 
@@ -76,7 +76,7 @@ export default function Home() {
       <section className="relative overflow-hidden h-screen flex items-center bg-gray-950">
         {/* Background image fullscreen */}
         <Image
-          src="/hero-products.png"
+          src="/hero-products.avif"
           alt=""
           fill
           priority
@@ -227,7 +227,7 @@ export default function Home() {
             Pronto para iniciar o tratamento?
           </h2>
           <p className="text-ink-light text-lg mb-10 leading-relaxed">
-            Nossa equipe em Florianópolis/SC está disponível para conduzir todo o processo com segurança, agilidade e empatia.
+            Nossa equipe está disponível para conduzir todo o processo com segurança, agilidade e empatia.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
@@ -240,7 +240,7 @@ export default function Home() {
               Sou Médico Prescritor
             </a>
           </div>
-          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 18h · Florianópolis/SC</p>
+          <p className="text-ink-muted text-sm mt-6">{PHONE_DISPLAY} · Seg–Sex 8h às 17h</p>
         </div>
       </section>
     </>

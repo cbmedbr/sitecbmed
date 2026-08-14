@@ -1,11 +1,9 @@
 import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY, EMAIL } from '../lib/constants'
 import LogoCBMed from './LogoCBMed'
-import { Shield, Phone, Mail, MapPin, CheckCircle, Stethoscope } from 'lucide-react'
+import { Shield, Phone, Mail, CheckCircle, Stethoscope } from 'lucide-react'
 
 export default function Footer() {
-  const year = new Date().getFullYear()
-
   return (
     <footer className="bg-forest text-white/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10">
@@ -14,7 +12,7 @@ export default function Footer() {
           {/* Marca — 4 colunas */}
           <div className="lg:col-span-4">
             <div className="mb-6">
-              <LogoCBMed dropSize={72} />
+              <LogoCBMed height={43} />
             </div>
 
             <p className="font-serif text-base text-white/70 leading-relaxed max-w-xs mb-6 italic">
@@ -24,11 +22,6 @@ export default function Footer() {
             <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 text-xs mb-5">
               <Shield size={14} className="text-brand-400 shrink-0" />
               <span className="text-white/60">Aprovado <span className="text-white font-semibold">ANVISA · RDC 660</span></span>
-            </div>
-
-            <div className="flex items-center gap-1.5 text-xs text-white/40">
-              <MapPin size={14} className="text-brand-500 shrink-0" />
-              <span className="font-mono">Florianópolis, SC · Brasil</span>
             </div>
           </div>
 
@@ -70,7 +63,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-white/40 text-xs">
                 <span className="w-3.5 shrink-0"/>
-                <span className="font-mono">Seg–Sex · 8h às 18h</span>
+                <span className="font-mono">Seg–Sex · 8h às 17h</span>
               </li>
             </ul>
 
@@ -125,9 +118,7 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-4 text-xs text-white/40">
-            <span>© {year} CBMed Assessoria em Cannabis Medicinal.</span>
-            <span className="hidden md:inline text-white/20">·</span>
-            <span className="font-mono">CNPJ 64.853.460/0001-45</span>
+            <span>© CBMed Assessoria em Cannabis Medicinal.</span>
           </div>
         </div>
 

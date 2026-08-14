@@ -15,7 +15,8 @@ const produtos = [
     nome: 'CBD Full Spectrum 1500mg',
     sub: 'Importação Uruguai · Protocolo Inicial',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
-    img: '/produto-1500.png',
+    img: '/produto-1500.avif',
+    imgW: 956, imgH: 2013,
     corBadge: 'bg-white/20 text-white',
     destaque: false,
     descricao: 'Formulação Full Spectrum indicada para pacientes em início de protocolo terapêutico. Concentração calibrada para alta tolerabilidade, permitindo titulação gradual conforme orientação médica.',
@@ -28,7 +29,8 @@ const produtos = [
     nome: 'CBD Full Spectrum 3000mg',
     sub: 'Importação Uruguai · Protocolo Intermediário',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
-    img: '/produto-3000.png',
+    img: '/produto-3000.avif',
+    imgW: 788, imgH: 1855,
     corBadge: 'bg-white/20 text-white',
     destaque: true,
     descricao: 'Concentração intermediária, padrão mais prescrito pelos médicos parceiros da CBMed. Evidência clínica robusta em epilepsia, dor neuropática e ansiedade severa.',
@@ -41,7 +43,8 @@ const produtos = [
     nome: 'CBD Full Spectrum 6000mg',
     sub: 'Importação Uruguai · Protocolo Intensivo',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
-    img: '/produto-6000.png',
+    img: '/produto-6000.avif',
+    imgW: 959, imgH: 2013,
     corBadge: 'bg-white/20 text-white',
     destaque: false,
     descricao: 'Alta concentração para protocolos terapêuticos intensivos. Para condições neurológicas complexas, dores refratárias e suporte oncológico. Exige acompanhamento médico especializado.',
@@ -54,7 +57,8 @@ const produtos = [
     nome: 'CBD + CBG Full Spectrum',
     sub: 'Importação Uruguai · Fórmula Combinada',
     tipo: 'CBD + CBG Full Spectrum · até 0,3% THC',
-    img: '/produto-cbg.png',
+    img: '/produto-cbg.avif',
+    imgW: 956, imgH: 2013,
     corBadge: 'bg-white/20 text-white',
     destaque: false,
     descricao: 'Combinação sinérgica de 1500 mg de CBD e 1500 mg de CBG em um único frasco. O CBG (canabigero) potencializa os efeitos anti-inflamatórios e neuroprotetores, ampliando o espectro terapêutico.',
@@ -129,7 +133,7 @@ export default function Produtos() {
                 <div className="lg:col-span-5 flex gap-5 items-center">
                   {/* Frasco coluna fixa */}
                   <div className="w-36 md:w-44 shrink-0 flex items-center justify-center">
-                    <Image src={p.img} alt={p.nome} width={180} height={300} className="object-contain drop-shadow-2xl w-full h-auto" />
+                    <Image src={p.img} alt={p.nome} width={p.imgW} height={p.imgH} className="object-contain drop-shadow-2xl w-full h-auto" />
                   </div>
                   {/* Dados ao lado do frasco */}
                   <div className="flex-1 min-w-0">

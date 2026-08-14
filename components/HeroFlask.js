@@ -40,10 +40,10 @@ export default function HeroFlask() {
     >
       <motion.div ref={ref} style={{ rotateX, rotateY }}>
         <Image
-          src="/produto-hero.png"
+          src="/produto-hero.avif"
           alt="Frasco CBMed conta-gotas"
-          width={465}
-          height={514}
+          width={811}
+          height={1007}
           className="w-full h-auto drop-shadow-[0_32px_48px_rgba(13,90,70,0.20)]"
           priority
         />
