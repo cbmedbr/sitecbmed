@@ -3,11 +3,13 @@ import { WHATSAPP_DR } from '../../lib/constants'
 import MagneticButton from '../../components/MagneticButton'
 import SeloAnvisa from '../../components/SeloAnvisa'
 import { FileText, Package, BookOpen, Heart, MessageCircle, Shield } from 'lucide-react'
+import { buildMetadata } from '../../lib/seo'
 
-export const metadata = {
+export const metadata = buildMetadata({
   title: 'Para Médicos',
   description: 'Suporte completo para médicos prescritores de Cannabis Medicinal. CBMed cuida de toda a burocracia da RDC 660 enquanto você foca no cuidado clínico.',
-}
+  path: '/para-medicos',
+})
 
 const beneficios = [
   {
