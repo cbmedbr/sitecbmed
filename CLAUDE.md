@@ -58,9 +58,16 @@ Nunca alterar sem aprovação explícita do cliente:
 
 Não reintroduzir sem nova solicitação explícita:
 
-- `CNPJ: 64.853.460/0001-45` — saiu da barra inferior do rodapé
 - Endereço/localização `Florianópolis, SC` — saiu do rodapé, de `/contato`, dos textos de `/sobre` e `/` e dos metadados SEO (description + keywords)
 - Ano do copyright — rodapé agora exibe `© CBMed Assessoria em Cannabis Medicinal.` sem data
+
+### Reintroduzidos a pedido do cliente (2026-08-17)
+
+- `CNPJ: 64.853.460/0001-45` — voltou à barra inferior do rodapé, vindo de `CNPJ` em `lib/constants.js`. Também alimenta `taxID` no schema `Organization`.
+
+### Telefone oficial alterado (2026-08-17)
+
+O número passou de `(48) 9 9982-2057` para **`(48) 9 9838-3370`** em todo o site — rodapé, `/contato` e **todos** os botões de WhatsApp, que saem de `WHATSAPP_NUMBER` em `lib/constants.js`. O número antigo não aparece mais em lugar nenhum.
 
 ## Compliance regulatório (ANVISA)
 
