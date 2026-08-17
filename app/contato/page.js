@@ -151,7 +151,7 @@ export default function Contato() {
                     <div>
                       <label className="block text-sm font-medium text-ink-light mb-1" htmlFor="telefone">WhatsApp</label>
                       <input id="telefone" name="telefone" type="tel" value={form.telefone} onChange={handleChange}
-                        placeholder="(48) 9 9982-2057"
+                        placeholder="(48) 9 9999-9999"
                         className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink placeholder-ink/30 text-sm bg-white"/>
                     </div>
                   </div>

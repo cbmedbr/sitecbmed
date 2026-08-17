@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY, EMAIL } from '../lib/constants'
+import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY, EMAIL, CNPJ } from '../lib/constants'
 import LogoCBMed from './LogoCBMed'
 import { Shield, Phone, Mail, CheckCircle, Stethoscope } from 'lucide-react'
 
@@ -119,6 +119,7 @@ export default function Footer() {
 
           <div className="flex flex-col md:flex-row md:items-center gap-1.5 md:gap-4 text-xs text-white/40">
             <span>© CBMed Assessoria em Cannabis Medicinal.</span>
+            <span className="font-mono">CNPJ {CNPJ}</span>
           </div>
         </div>
 
