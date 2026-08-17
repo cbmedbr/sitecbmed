@@ -59,11 +59,12 @@ Nunca alterar sem aprovação explícita do cliente:
 Não reintroduzir sem nova solicitação explícita:
 
 - Endereço/localização `Florianópolis, SC` — saiu do rodapé, de `/contato`, dos textos de `/sobre` e `/` e dos metadados SEO (description + keywords)
-- Ano do copyright — rodapé agora exibe `© CBMed Assessoria em Cannabis Medicinal.` sem data
+- Ano do copyright — a linha de copyright do rodapé não exibe data
 
 ### Reintroduzidos a pedido do cliente (2026-08-17)
 
 - `CNPJ: 64.853.460/0001-45` — voltou à barra inferior do rodapé, vindo de `CNPJ` em `lib/constants.js`. Também alimenta `taxID` no schema `Organization`.
+- Razão social `CB CannaBio Medicinal` — entrou na barra inferior do rodapé, vinda de `RAZAO_SOCIAL` em `lib/constants.js`. A linha exibe `© CB CannaBio Medicinal — Assessoria em Cannabis Medicinal.` e alimenta `legalName` no schema `Organization` (onde `name` segue sendo a marca, `CBMed`).
 
 ### Telefone oficial alterado (2026-08-17)
 
