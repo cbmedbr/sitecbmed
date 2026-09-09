@@ -151,8 +151,8 @@ export default function RdcSection() {
                   <Image
                     src="/produto-hero.avif"
                     alt="Frasco CBMed — produto auditado e rastreável"
-                    width={811}
-                    height={1007}
+                    width={1622}
+                    height={2013}
                     className="w-full h-auto"
                     priority={false}
                   />
@@ -183,8 +183,8 @@ export default function RdcSection() {
                 <Image
                   src="/produto-hero.avif"
                   alt="Frasco CBMed — produto auditado e rastreável"
-                  width={811}
-                  height={1007}
+                  width={1622}
+                  height={2013}
                   className="w-full h-auto"
                   priority={false}
                 />

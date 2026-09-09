@@ -42,8 +42,8 @@ export default function HeroFlask() {
         <Image
           src="/produto-hero.avif"
           alt="Frasco CBMed conta-gotas"
-          width={465}
-          height={514}
+          width={1622}
+          height={2013}
           className="w-full h-auto drop-shadow-[0_32px_48px_rgba(13,90,70,0.20)]"
           priority
         />
