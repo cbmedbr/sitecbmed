@@ -27,7 +27,7 @@ const produtos = [
     descricao: 'Indicado para início do protocolo terapêutico. Alta tolerabilidade, titulação gradual e eficácia documentada em ansiedade e distúrbios do sono.',
     indicacoes: ['Ansiedade', 'Insônia', 'Dor leve'],
     destaque: false,
-    img: '/produto-1500.png',
+    img: '/produto-1500.avif',
   },
   {
     mg: '3000 mg',
@@ -36,7 +36,7 @@ const produtos = [
     descricao: 'Formulação Full Spectrum mais prescrita pelos médicos parceiros da CBMed. Evidência clínica robusta em epilepsia, dor neuropática e ansiedade severa.',
     indicacoes: ['Epilepsia', 'Ansiedade severa', 'Dor neuropática'],
     destaque: true,
-    img: '/produto-3000.png',
+    img: '/produto-3000.avif',
   },
   {
     mg: '6000 mg',
@@ -45,7 +45,7 @@ const produtos = [
     descricao: 'Alta concentração para condições neurológicas complexas e protocolos intensivos. Exige acompanhamento médico especializado.',
     indicacoes: ['Neurologia', 'Oncologia', 'Dor refratária'],
     destaque: false,
-    img: '/produto-6000.png',
+    img: '/produto-6000.avif',
   },
   {
     mg: 'CBD 5% + CBG 5%',
@@ -54,7 +54,7 @@ const produtos = [
     descricao: 'Combinação sinérgica de 1500 mg de CBD e 1500 mg de CBG. O CBG potencializa os efeitos anti-inflamatórios e neuroprotetores, ampliando o espectro terapêutico.',
     indicacoes: ['Inflamação', 'Neuroproteção', 'Ansiedade', 'Dor crônica'],
     destaque: false,
-    img: '/produto-cbg.png',
+    img: '/produto-cbg.avif',
   },
 ]
 
