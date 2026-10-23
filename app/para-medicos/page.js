@@ -6,8 +6,8 @@ import { FileText, Package, BookOpen, Heart, MessageCircle, Shield } from 'lucid
 import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
-  title: 'Para Médicos',
-  description: 'Suporte completo para médicos prescritores de Cannabis Medicinal. CBMed cuida de toda a burocracia da RDC 660 enquanto você foca no cuidado clínico.',
+  title: 'Prescrição de cannabis medicinal: suporte ao médico',
+  description: 'Suporte a médicos prescritores de cannabis medicinal: modelo de receita para a RDC 660, documentação da ANVISA e acompanhamento do paciente.',
   path: '/para-medicos',
 })
 

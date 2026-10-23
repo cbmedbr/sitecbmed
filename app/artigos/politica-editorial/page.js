@@ -5,7 +5,7 @@ import { BookOpen, Search, ShieldCheck, Stethoscope } from 'lucide-react'
 export const metadata = buildMetadata({
   title: 'Política Editorial',
   description:
-    'Como a CBMed produz seu conteúdo educativo: critérios de fontes científicas, base em estudos indexados no PubMed e conformidade com as resoluções RDC 327/2019 e RDC 660/2022 da ANVISA.',
+    'Como a CBMed produz conteúdo educativo: fontes científicas indexadas no PubMed e conformidade com as normas da ANVISA, como a RDC 660/2022.',
   path: '/artigos/politica-editorial',
 })
 

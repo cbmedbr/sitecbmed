@@ -8,8 +8,8 @@ import { grafo, faqSchema } from '../../lib/schema'
 import { FAQ_SOBRE as faq } from '../../lib/faq'
 
 export const metadata = buildMetadata({
-  title: 'Sobre a CBMed',
-  description: 'Conheça a CBMed, assessoria especializada em Cannabis Medicinal, conforme a RDC 660 da ANVISA.',
+  title: 'Quem somos: assessoria em cannabis medicinal',
+  description: 'Conheça a CBMed (CB CannaBio Medicinal): assessoria para o acesso legal à cannabis medicinal pela RDC 660, com atendimento online para todo o Brasil.',
   path: '/sobre',
 })
 
