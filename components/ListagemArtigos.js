@@ -66,7 +66,7 @@ export default function ListagemArtigos({ artigos, pagina, totalPaginas }) {
         title="Artigos sobre Cannabis Medicinal"
         subtitle="Conteúdo educativo produzido a partir de estudos indexados no PubMed: ciência, regulamentação ANVISA e evidências clínicas, para pacientes e profissionais de saúde."
         bg="caramelo"
-        image="/hero-artigos.png"
+        image="/hero-artigos.avif"
       />
 
       <section className="py-14 pb-20 bg-cream">
