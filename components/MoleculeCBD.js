@@ -1,20 +1,40 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 
+// A 3Dmol (~157 KB) só carrega quando a seção chega perto da tela, e a molécula
+// só gira enquanto está visível. Antes ela carregava junto com a home e girava
+// em WebGL o tempo todo, mesmo fora da tela — no PageSpeed a home não ficava
+// ociosa nunca (TBT de até 6 s).
+// A estrutura (PubChem CID 644019, canabidiol) é servida de /public em vez de
+// ser baixada do PubChem a cada visita.
 export default function MoleculeCBD({ size = 320 }) {
   const containerRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)
 
   useEffect(() => {
-    if (!containerRef.current) return
+    const el = containerRef.current
+    if (!el) return
 
     let viewer = null
     let cancelled = false
+    let iniciado = false
+    let visivel = false
+    const semMovimento = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+    const atualizarGiro = () => {
+      if (!viewer || semMovimento) return
+      if (visivel) viewer.spin('y', 0.5)
+      else viewer.spin(false)
+    }
 
     const init = async () => {
       try {
-        const $3Dmol = (await import('3dmol')).default || (await import('3dmol'))
+        const mod = await import('3dmol')
+        const $3Dmol = mod.default || mod
+        const resposta = await fetch('/molecula-cbd.sdf')
+        if (!resposta.ok) throw new Error(`SDF ${resposta.status}`)
+        const sdf = await resposta.text()
         if (cancelled || !containerRef.current) return
 
         viewer = $3Dmol.createViewer(containerRef.current, {
@@ -22,29 +42,37 @@ export default function MoleculeCBD({ size = 320 }) {
           backgroundAlpha: 0,
           antialias: true,
         })
-
-        $3Dmol.download('cid:644019', viewer, { multimodel: false }, () => {
-          if (cancelled) return
-          viewer.setStyle({}, {
-            stick: { radius: 0.18, colorscheme: 'cyanCarbon' },
-            sphere: { scale: 0.22 }
-          })
-          viewer.setBackgroundColor(0x000000, 0)
-          viewer.zoomTo()
-          viewer.render()
-          viewer.spin('y', 0.5)
-          setLoaded(true)
+        viewer.addModel(sdf, 'sdf')
+        viewer.setStyle({}, {
+          stick: { radius: 0.18, colorscheme: 'cyanCarbon' },
+          sphere: { scale: 0.22 }
         })
+        viewer.setBackgroundColor(0x000000, 0)
+        viewer.zoomTo()
+        viewer.render()
+        atualizarGiro()
+        setLoaded(true)
       } catch (e) {
         console.error('Erro carregando 3dmol:', e)
         setError(true)
       }
     }
 
-    init()
+    // Monta a ~300px de entrar na tela; depois disso só liga e desliga o giro.
+    const observer = new IntersectionObserver(([entrada]) => {
+      visivel = entrada.isIntersecting
+      if (visivel && !iniciado) {
+        iniciado = true
+        init()
+      } else {
+        atualizarGiro()
+      }
+    }, { rootMargin: '300px' })
+    observer.observe(el)
 
     return () => {
       cancelled = true
+      observer.disconnect()
       try { if (viewer) viewer.spin(false) } catch {}
     }
   }, [])
