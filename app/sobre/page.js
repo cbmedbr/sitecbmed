@@ -8,8 +8,8 @@ import { grafo, faqSchema } from '../../lib/schema'
 import { FAQ_SOBRE as faq } from '../../lib/faq'
 
 export const metadata = buildMetadata({
-  title: 'Sobre a CBMed',
-  description: 'Conheça a CBMed, assessoria especializada em Cannabis Medicinal, conforme a RDC 660 da ANVISA.',
+  title: 'Quem somos: assessoria em cannabis medicinal',
+  description: 'Conheça a CBMed (CB CannaBio Medicinal): assessoria para o acesso legal à cannabis medicinal pela RDC 660, com atendimento online para todo o Brasil.',
   path: '/sobre',
 })
 
@@ -46,7 +46,7 @@ export default function Sobre() {
                 Nossa equipe é composta por profissionais com formação nas áreas de saúde, direito regulatório e consultoria de acesso a tratamentos inovadores. Cada membro é capacitado para orientar com precisão técnica e cuidado humano.
               </p>
               <p className="text-ink-light leading-relaxed">
-                Desde a nossa fundação, já auxiliamos mais de 3.800 pacientes a obterem acesso legal ao Óleo de CBD com importação do Uruguai, em concentrações de 1500 mg, 3000 mg e 6000 mg, todos aprovados pela ANVISA conforme a RDC 660.
+                Desde a nossa fundação, auxiliamos pacientes de todo o Brasil a obterem acesso legal ao Óleo de CBD por importação do Uruguai, nas concentrações de 1500 mg, 3000 mg e 6000 mg, com autorização da ANVISA conforme a RDC 660.
               </p>
 
               {/* RDC 660 destaque */}
@@ -67,10 +67,10 @@ export default function Sobre() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { valor: '3.800+', label: 'Pacientes assessorados' },
-                { valor: '1.600+', label: 'Médicos parceiros'      },
-                { valor: 'RDC 660', label: 'Conformidade ANVISA'   },
-                { valor: 'FLN/SC',  label: 'Base de operações'     },
+                { valor: '100% online', label: 'Atendimento em todo o Brasil' },
+                { valor: '2 anos',      label: 'Validade do cadastro ANVISA'  },
+                { valor: 'RDC 660',     label: 'Conformidade ANVISA'          },
+                { valor: 'até 20d',     label: 'Prazo de entrega'             },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-7 text-center">
                   <div className="font-mono tabular-nums text-3xl font-bold text-brand-600 mb-1">{item.valor}</div>

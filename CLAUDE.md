@@ -47,9 +47,7 @@ Glassmorphism em seções escuras: `bg-white/8 backdrop-blur-sm border border-wh
 
 Nunca alterar sem aprovação explícita do cliente:
 
-- `3.800+` — pacientes assessorados
-- `1.600+` — médicos parceiros
-- `até 30d` — prazo de entrega
+- `até 20d` — prazo de entrega (era `até 30d`; alterado a pedido do cliente em 2026-10-23 e unificado no site inteiro, inclusive na FAQ, que dizia 15 dias; sem a palavra "garantida")
 - `RDC 660` — conformidade ANVISA
 - Links WhatsApp em `lib/constants.js` — nunca hardcodar URLs
 - Citações científicas: NEJM 2021, Lancet Neurology 2019, JAMA 2019 — fontes reais, jamais inventar
@@ -60,6 +58,13 @@ Não reintroduzir sem nova solicitação explícita:
 
 - Endereço/localização `Florianópolis, SC` — saiu do rodapé, de `/contato`, dos textos de `/sobre` e `/` e dos metadados SEO (description + keywords)
 - Ano do copyright — a linha de copyright do rodapé não exibe data
+
+### Removidos a pedido do cliente (2026-10-23)
+
+Não reintroduzir sem nova solicitação explícita:
+
+- Contadores `3.800+` (pacientes assessorados) e `1.600+` (médicos parceiros) — saíram da home (hero, faixa de números, seção de médicos), de `/sobre`, de `/para-medicos` e do `llms.txt`. No lugar entraram fatos verificáveis: `100% online`, `2 anos` (validade do cadastro ANVISA, RDC 660 Art. 8º) e `6 meses` (validade da receita, Art. 7º §5º)
+- O card `FLN/SC — Base de operações` de `/sobre`, resto da remoção da localização de 2026-08-12
 
 ### Reintroduzidos a pedido do cliente (2026-08-17)
 

@@ -6,7 +6,7 @@ import { buildMetadata } from '../../lib/seo'
 export const metadata = buildMetadata({
   title: 'Artigos sobre Cannabis Medicinal',
   description:
-    'Base de conhecimento CBMed: artigos educativos sobre Cannabis Medicinal, CBD, regulamentação ANVISA e evidências científicas, produzidos a partir de estudos indexados no PubMed.',
+    'Artigos educativos sobre cannabis medicinal, CBD e a regulação da ANVISA, escritos a partir de estudos científicos indexados no PubMed.',
   path: '/artigos',
 })
 

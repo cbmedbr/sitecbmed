@@ -6,8 +6,8 @@ import { CheckCircle, ShieldCheck, Info } from 'lucide-react'
 import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
-  title: 'Nossos Produtos',
-  description: 'Catálogo CBMed: Óleos Full Spectrum até 0,3% THC, importados do Uruguai conforme RDC 660. CBD 1500mg, 3000mg, 6000mg e CBD+CBG.',
+  title: 'Óleos Full Spectrum de CBD importados (RDC 660)',
+  description: 'Conheça os óleos Full Spectrum de CBD disponíveis por importação legal (RDC 660): composição, concentrações e documentos. Uso somente com prescrição médica.',
   path: '/produtos',
 })
 
@@ -81,7 +81,7 @@ export default function Produtos() {
         eyebrow="NOSSOS PRODUTOS"
         title="Óleos Full Spectrum de Canabinoides"
         subtitle="Quatro produtos Full Spectrum até 0,3% THC. Importados do Uruguai com aprovação ANVISA e acessíveis via RDC 660."
-        image="/hero-produtos.png"
+        image="/hero-produtos.avif"
       />
 
       {/* Selos de qualidade */}

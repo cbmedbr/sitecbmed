@@ -6,7 +6,7 @@ import { Brain, Activity, Layers, FlaskConical } from 'lucide-react'
 import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
-  title: 'Ciência',
+  title: 'Evidências científicas sobre o canabidiol (CBD)',
   description: 'Base científica sobre canabinoides e Cannabis Medicinal. Estudos clínicos, mecanismos de ação e referências para médicos prescritores.',
   path: '/ciencia',
 })

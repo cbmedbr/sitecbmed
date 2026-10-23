@@ -6,8 +6,8 @@ import { FileText, Package, BookOpen, Heart, MessageCircle, Shield } from 'lucid
 import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
-  title: 'Para Médicos',
-  description: 'Suporte completo para médicos prescritores de Cannabis Medicinal. CBMed cuida de toda a burocracia da RDC 660 enquanto você foca no cuidado clínico.',
+  title: 'Prescrição de cannabis medicinal: suporte ao médico',
+  description: 'Suporte a médicos prescritores de cannabis medicinal: modelo de receita para a RDC 660, documentação da ANVISA e acompanhamento do paciente.',
   path: '/para-medicos',
 })
 
@@ -77,7 +77,7 @@ export default function ParaMedicos() {
             {/* Coluna texto */}
             <div>
               <p className="font-mono text-xs font-bold uppercase tracking-widest text-brand-400 mb-5">
-                Canal Exclusivo · 1.600+ Prescritores
+                Canal Exclusivo para Prescritores
               </p>
 
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
@@ -111,7 +111,7 @@ export default function ParaMedicos() {
 
               {/* Trust chips */}
               <div className="flex flex-wrap gap-3">
-                {['1.600+ médicos parceiros', 'Suporte jurídico-regulatório', 'Processo 100% legal'].map(item => (
+                {['Modelo de receita RDC 660', 'Suporte jurídico-regulatório', 'Processo 100% legal'].map(item => (
                   <span key={item} className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-semibold px-4 py-2 rounded-full">
                     <svg className="w-3.5 h-3.5 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
@@ -153,7 +153,7 @@ export default function ParaMedicos() {
             {[
               { n:'01', titulo:'Você prescreve', texto:'Emite o receituário conforme a RDC 660. Fornecemos modelo padronizado e orientações.' },
               { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos toda a documentação e submetemos à ANVISA.' },
-              { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 30 dias. Você recebe relatório de conclusão.' },
+              { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 20 dias. Você recebe relatório de conclusão.' },
             ].map((item, i) => (
               <div key={i}>
                 <div className="font-serif text-7xl font-semibold text-ink/20 leading-none mb-4">{item.n}</div>
@@ -232,7 +232,7 @@ export default function ParaMedicos() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl font-semibold mb-4">Torne-se um médico parceiro CBMed</h2>
           <p className="text-white/70 mb-8 text-lg leading-relaxed">
-            Junte-se aos 1.600+ prescritores que contam com o suporte completo da CBMed para oferecer aos seus pacientes o melhor acesso à Cannabis Medicinal no Brasil.
+            Conte com o suporte da CBMed para oferecer aos seus pacientes acesso legal à Cannabis Medicinal no Brasil.
           </p>
           <MagneticButton href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer" className="btn-primary text-base py-4 px-10 inline-flex items-center gap-2.5">
             <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
