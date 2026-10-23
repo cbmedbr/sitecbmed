@@ -153,7 +153,7 @@ export default function ParaMedicos() {
             {[
               { n:'01', titulo:'Você prescreve', texto:'Emite o receituário conforme a RDC 660. Fornecemos modelo padronizado e orientações.' },
               { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos toda a documentação e submetemos à ANVISA.' },
-              { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 30 dias. Você recebe relatório de conclusão.' },
+              { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 20 dias. Você recebe relatório de conclusão.' },
             ].map((item, i) => (
               <div key={i}>
                 <div className="font-serif text-7xl font-semibold text-ink/20 leading-none mb-4">{item.n}</div>

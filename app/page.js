@@ -127,7 +127,7 @@ export default function Home() {
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-3">
-              {['Aprovação ANVISA', 'Importação Estrangeira', 'Entrega em até 30 dias'].map(item => (
+              {['Aprovação ANVISA', 'Importação Estrangeira', 'Entrega em até 20 dias'].map(item => (
                 <span key={item} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full select-none">
                   <IconCheck className="w-4 h-4 shrink-0"/>
                   {item}
@@ -148,7 +148,7 @@ export default function Home() {
             {[
               { valor: '100% online', label: 'Atendimento em todo o Brasil' },
               { valor: '2 anos',      label: 'Validade do cadastro ANVISA'  },
-              { valor: 'até 30d', label: 'Prazo de entrega'       },
+              { valor: 'até 20d', label: 'Prazo de entrega'       },
               { valor: 'RDC 660', label: 'Conformidade ANVISA'    },
             ].map((item, i) => (
               <StatItem key={i} valor={item.valor} label={item.label} />
@@ -203,7 +203,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <span className="section-label text-brand-300 block mb-2">Qualidade garantida</span>
             <h3 className="text-2xl md:text-3xl font-bold text-white max-w-sm leading-tight">
-              Entrega garantida em até 30 dias após autorização ANVISA
+              Entrega em até 20 dias após autorização ANVISA
             </h3>
           </div>
         </div>

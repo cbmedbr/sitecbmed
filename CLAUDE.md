@@ -47,7 +47,7 @@ Glassmorphism em seções escuras: `bg-white/8 backdrop-blur-sm border border-wh
 
 Nunca alterar sem aprovação explícita do cliente:
 
-- `até 30d` — prazo de entrega
+- `até 20d` — prazo de entrega (era `até 30d`; alterado a pedido do cliente em 2026-10-23 e unificado no site inteiro, inclusive na FAQ, que dizia 15 dias; sem a palavra "garantida")
 - `RDC 660` — conformidade ANVISA
 - Links WhatsApp em `lib/constants.js` — nunca hardcodar URLs
 - Citações científicas: NEJM 2021, Lancet Neurology 2019, JAMA 2019 — fontes reais, jamais inventar

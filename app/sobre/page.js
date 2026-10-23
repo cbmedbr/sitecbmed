@@ -70,7 +70,7 @@ export default function Sobre() {
                 { valor: '100% online', label: 'Atendimento em todo o Brasil' },
                 { valor: '2 anos',      label: 'Validade do cadastro ANVISA'  },
                 { valor: 'RDC 660',     label: 'Conformidade ANVISA'          },
-                { valor: 'até 30d',     label: 'Prazo de entrega'             },
+                { valor: 'até 20d',     label: 'Prazo de entrega'             },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-7 text-center">
                   <div className="font-mono tabular-nums text-3xl font-bold text-brand-600 mb-1">{item.valor}</div>
