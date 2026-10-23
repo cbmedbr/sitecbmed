@@ -3,7 +3,7 @@ import { FileCheck, Shield, Package, MessageCircle } from 'lucide-react'
 import { WHATSAPP_DR } from '../lib/constants'
 
 const stats = [
-  { valor: '1.600+', label: 'médicos parceiros' },
+  { valor: '6 meses', label: 'validade da receita' },
   { valor: '30 dias', label: 'prazo de entrega' },
   { valor: 'RDC 660', label: 'conformidade ANVISA' },
 ]

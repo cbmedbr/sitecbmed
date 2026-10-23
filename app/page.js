@@ -109,9 +109,8 @@ export default function Home() {
 
             <p className="text-lg text-white/80 leading-relaxed max-w-lg mb-10">
               Assessoria estratégica especializada, do primeiro contato ao recebimento em domicílio.
-              Acesso legal via RDC 660 para{' '}
-              <strong className="text-white font-semibold">3.800+ pacientes</strong> e suporte a{' '}
-              <strong className="text-white font-semibold">1.600+ médicos prescritores</strong>.
+              Acesso legal via RDC 660 para pacientes e suporte a médicos prescritores
+              em todo o Brasil.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -147,8 +146,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-white text-center">
             {[
-              { valor: '3.800+',  label: 'Pacientes assessorados' },
-              { valor: '1.600+',  label: 'Médicos parceiros'      },
+              { valor: '100% online', label: 'Atendimento em todo o Brasil' },
+              { valor: '2 anos',      label: 'Validade do cadastro ANVISA'  },
               { valor: 'até 30d', label: 'Prazo de entrega'       },
               { valor: 'RDC 660', label: 'Conformidade ANVISA'    },
             ].map((item, i) => (

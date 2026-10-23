@@ -77,7 +77,7 @@ export default function ParaMedicos() {
             {/* Coluna texto */}
             <div>
               <p className="font-mono text-xs font-bold uppercase tracking-widest text-brand-400 mb-5">
-                Canal Exclusivo · 1.600+ Prescritores
+                Canal Exclusivo para Prescritores
               </p>
 
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
@@ -111,7 +111,7 @@ export default function ParaMedicos() {
 
               {/* Trust chips */}
               <div className="flex flex-wrap gap-3">
-                {['1.600+ médicos parceiros', 'Suporte jurídico-regulatório', 'Processo 100% legal'].map(item => (
+                {['Modelo de receita RDC 660', 'Suporte jurídico-regulatório', 'Processo 100% legal'].map(item => (
                   <span key={item} className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-semibold px-4 py-2 rounded-full">
                     <svg className="w-3.5 h-3.5 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
@@ -232,7 +232,7 @@ export default function ParaMedicos() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl font-semibold mb-4">Torne-se um médico parceiro CBMed</h2>
           <p className="text-white/70 mb-8 text-lg leading-relaxed">
-            Junte-se aos 1.600+ prescritores que contam com o suporte completo da CBMed para oferecer aos seus pacientes o melhor acesso à Cannabis Medicinal no Brasil.
+            Conte com o suporte da CBMed para oferecer aos seus pacientes acesso legal à Cannabis Medicinal no Brasil.
           </p>
           <MagneticButton href={WHATSAPP_DR} target="_blank" rel="noopener noreferrer" className="btn-primary text-base py-4 px-10 inline-flex items-center gap-2.5">
             <svg className="w-5 h-5 shrink-0" fill="currentColor" viewBox="0 0 24 24">
