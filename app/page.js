@@ -22,37 +22,33 @@ export const metadata = buildMetadata({
 const produtos = [
   {
     mg: '1500 mg',
-    sub: 'Protocolo Inicial',
+    sub: 'Importação Uruguai',
     tipo: 'CBD Full Spectrum',
-    descricao: 'Indicado para início do protocolo terapêutico. Alta tolerabilidade, titulação gradual e eficácia documentada em ansiedade e distúrbios do sono.',
-    indicacoes: ['Ansiedade', 'Insônia', 'Dor leve'],
+    descricao: 'Óleo Full Spectrum com 1500 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
     destaque: false,
     img: '/produto-1500.webp',
   },
   {
     mg: '3000 mg',
-    sub: 'Protocolo Intermediário',
+    sub: 'Importação Uruguai',
     tipo: 'CBD Full Spectrum',
-    descricao: 'Formulação Full Spectrum mais prescrita pelos médicos parceiros da CBMed. Evidência clínica robusta em epilepsia, dor neuropática e ansiedade severa.',
-    indicacoes: ['Epilepsia', 'Ansiedade severa', 'Dor neuropática'],
+    descricao: 'Óleo Full Spectrum com 3000 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
     destaque: true,
     img: '/produto-3000.webp',
   },
   {
     mg: '6000 mg',
-    sub: 'Protocolo Intensivo',
+    sub: 'Importação Uruguai',
     tipo: 'CBD Full Spectrum',
-    descricao: 'Alta concentração para condições neurológicas complexas e protocolos intensivos. Exige acompanhamento médico especializado.',
-    indicacoes: ['Neurologia', 'Oncologia', 'Dor refratária'],
+    descricao: 'Óleo Full Spectrum com 6000 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
     destaque: false,
     img: '/produto-6000.webp',
   },
   {
     mg: 'CBD 5% + CBG 5%',
-    sub: 'Fórmula Combinada',
+    sub: 'Importação Uruguai',
     tipo: 'CBD + CBG Full Spectrum',
-    descricao: 'Combinação sinérgica de 1500 mg de CBD e 1500 mg de CBG. O CBG potencializa os efeitos anti-inflamatórios e neuroprotetores, ampliando o espectro terapêutico.',
-    indicacoes: ['Inflamação', 'Neuroproteção', 'Ansiedade', 'Dor crônica'],
+    descricao: 'Óleo Full Spectrum com 1500 mg de CBD e 1500 mg de CBG por frasco. A escolha da concentração é do médico prescritor.',
     destaque: false,
     img: '/produto-cbg.webp',
   },
@@ -127,7 +123,7 @@ export default function Home() {
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-3">
-              {['Aprovação ANVISA', 'Importação Estrangeira', 'Entrega em até 20 dias'].map(item => (
+              {['Autorização ANVISA', 'Importação Estrangeira', 'Entrega em até 20 dias'].map(item => (
                 <span key={item} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full select-none">
                   <IconCheck className="w-4 h-4 shrink-0"/>
                   {item}
@@ -201,7 +197,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <span className="section-label text-brand-300 block mb-2">Qualidade garantida</span>
+            <span className="section-label text-brand-300 block mb-2">Entrega acompanhada</span>
             <h3 className="text-2xl md:text-3xl font-bold text-white max-w-sm leading-tight">
               Entrega em até 20 dias após autorização ANVISA
             </h3>

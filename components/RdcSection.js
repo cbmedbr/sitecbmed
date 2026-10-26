@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 const anotacoesEsquerda = [
-  { titulo: 'Aprovado ANVISA', sub: 'RDC 660' },
+  { titulo: 'Autorização ANVISA', sub: 'RDC 660' },
 ]
 
 const anotacoesDireita = [
@@ -9,7 +9,7 @@ const anotacoesDireita = [
 ]
 
 const anotacoesMobile = [
-  'Aprovado ANVISA · RDC 660',
+  'Autorização ANVISA · RDC 660',
   'COA por lote rastreável',
 ]
 

@@ -41,7 +41,7 @@ export const metadata = {
     url: SITE_URL,
     siteName: 'CBMed',
     title: SITE_TITLE_DEFAULT,
-    description: 'Acesso seguro, legal e humanizado ao Óleo de CBD com aprovação ANVISA conforme RDC 660.',
+    description: SITE_DESCRIPTION,
     images: [
       {
         url: OG_IMAGE,
@@ -54,7 +54,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE_DEFAULT,
-    description: 'Acesso seguro, legal e humanizado ao Óleo de CBD com aprovação ANVISA.',
+    description: SITE_DESCRIPTION,
     images: [OG_IMAGE],
   },
 }
