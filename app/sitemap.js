@@ -4,15 +4,15 @@ import { absoluteUrl } from '../lib/site'
 // `atualizadoEm` é mantido à mão de propósito: usar a data do build faria todas as
 // URLs mudarem de lastmod a cada deploy, e o Google aprende a ignorar sitemaps assim.
 const ROTAS = [
-  { path: '/',             prioridade: 1.0, frequencia: 'weekly',  atualizadoEm: '2026-10-23' },
-  { path: '/acolhimento',  prioridade: 0.9, frequencia: 'monthly', atualizadoEm: '2026-10-23' },
-  { path: '/produtos',     prioridade: 0.9, frequencia: 'monthly', atualizadoEm: '2026-10-23' },
-  { path: '/para-medicos', prioridade: 0.8, frequencia: 'monthly', atualizadoEm: '2026-10-23' },
-  { path: '/artigos',      prioridade: 0.7, frequencia: 'weekly',  atualizadoEm: '2026-10-23' },
+  { path: '/',             prioridade: 1.0, frequencia: 'weekly',  atualizadoEm: '2026-10-26' },
+  { path: '/acolhimento',  prioridade: 0.9, frequencia: 'monthly', atualizadoEm: '2026-10-26' },
+  { path: '/produtos',     prioridade: 0.9, frequencia: 'monthly', atualizadoEm: '2026-10-26' },
+  { path: '/para-medicos', prioridade: 0.8, frequencia: 'monthly', atualizadoEm: '2026-10-26' },
+  { path: '/artigos',      prioridade: 0.7, frequencia: 'weekly',  atualizadoEm: '2026-10-26' },
   { path: '/ciencia',      prioridade: 0.7, frequencia: 'monthly', atualizadoEm: '2026-10-23' },
   { path: '/sobre',        prioridade: 0.6, frequencia: 'yearly',  atualizadoEm: '2026-10-23' },
   { path: '/contato',      prioridade: 0.5, frequencia: 'yearly',  atualizadoEm: '2026-10-23' },
-  { path: '/artigos/politica-editorial', prioridade: 0.4, frequencia: 'yearly', atualizadoEm: '2026-10-23' },
+  { path: '/artigos/politica-editorial', prioridade: 0.4, frequencia: 'yearly', atualizadoEm: '2026-10-26' },
 ]
 
 // 'YYYY-MM-DD' vira meia-noite UTC, que em BRT é o dia anterior às 21h.

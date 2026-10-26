@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { WHATSAPP } from '../../lib/constants'
 import InternalPageHero from '../../components/InternalPageHero'
 import Image from 'next/image'
-import { CheckCircle, ShieldCheck, Info } from 'lucide-react'
+import { ShieldCheck, Info } from 'lucide-react'
 import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
@@ -15,61 +15,57 @@ const produtos = [
   {
     mg: '1500 mg',
     nome: 'CBD Full Spectrum 1500mg',
-    sub: 'Importação Uruguai · Protocolo Inicial',
+    sub: 'Importação Uruguai',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
     img: '/produto-1500.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: false,
-    descricao: 'Formulação Full Spectrum indicada para pacientes em início de protocolo terapêutico. Concentração calibrada para alta tolerabilidade, permitindo titulação gradual conforme orientação médica.',
+    descricao: 'Óleo Full Spectrum com 1500 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
     composicao: 'Óleo de cânhamo Full Spectrum, canabidiol (CBD), óleo veicular MCT (triglicerídeo de cadeia média), vitamina E. THC ≤ 0,3%.',
-    indicacoes: ['Ansiedade leve a moderada', 'Distúrbios do sono', 'Dor crônica leve', 'Bem-estar geral'],
-    dosagem: 'Conforme prescrição médica. Geralmente 5 a 20 mg/dia em doses fracionadas.',
+    dosagem: 'Somente com prescrição médica. A dose é definida pelo médico.',
   },
   {
     mg: '3000 mg',
     nome: 'CBD Full Spectrum 3000mg',
-    sub: 'Importação Uruguai · Protocolo Intermediário',
+    sub: 'Importação Uruguai',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
     img: '/produto-3000.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: true,
-    descricao: 'Concentração intermediária, padrão mais prescrito pelos médicos parceiros da CBMed. Evidência clínica robusta em epilepsia, dor neuropática e ansiedade severa.',
+    descricao: 'Óleo Full Spectrum com 3000 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
     composicao: 'Óleo de cânhamo Full Spectrum, canabidiol (CBD), CBG, CBC, terpenos naturais, óleo veicular MCT, vitamina E. THC ≤ 0,3%.',
-    indicacoes: ['Epilepsia e crises convulsivas', 'Ansiedade severa / TEPT', 'Dor neuropática', 'Esclerose múltipla'],
-    dosagem: 'Conforme prescrição médica. Geralmente 20 a 50 mg/dia em doses fracionadas.',
+    dosagem: 'Somente com prescrição médica. A dose é definida pelo médico.',
   },
   {
     mg: '6000 mg',
     nome: 'CBD Full Spectrum 6000mg',
-    sub: 'Importação Uruguai · Protocolo Intensivo',
+    sub: 'Importação Uruguai',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
     img: '/produto-6000.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: false,
-    descricao: 'Alta concentração para protocolos terapêuticos intensivos. Para condições neurológicas complexas, dores refratárias e suporte oncológico. Exige acompanhamento médico especializado.',
+    descricao: 'Óleo Full Spectrum com 6000 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
     composicao: 'Óleo de cânhamo Full Spectrum de alta concentração, CBD, CBG, CBDA, CBC, terpenos naturais, óleo veicular MCT, vitamina E. THC ≤ 0,3%.',
-    indicacoes: ['Neurologia complexa', 'Oncologia (suporte)', 'Dor refratária', 'Autismo severo (TEA)'],
-    dosagem: 'Conforme prescrição médica especializada. Titulação obrigatória e gradual.',
+    dosagem: 'Somente com prescrição médica. A dose é definida pelo médico.',
   },
   {
     mg: 'CBD 5% + CBG 5%',
     nome: 'CBD + CBG Full Spectrum',
-    sub: 'Importação Uruguai · Fórmula Combinada',
+    sub: 'Importação Uruguai',
     tipo: 'CBD + CBG Full Spectrum · até 0,3% THC',
     img: '/produto-cbg.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: false,
-    descricao: 'Combinação sinérgica de 1500 mg de CBD e 1500 mg de CBG em um único frasco. O CBG (canabigero) potencializa os efeitos anti-inflamatórios e neuroprotetores, ampliando o espectro terapêutico.',
+    descricao: 'Óleo Full Spectrum com 1500 mg de CBD e 1500 mg de CBG por frasco. A escolha da concentração é do médico prescritor.',
     composicao: 'Óleo de cânhamo Full Spectrum, canabidiol (CBD) 1500 mg, canabigero (CBG) 1500 mg, terpenos naturais, óleo veicular MCT, vitamina E. THC ≤ 0,3%.',
-    indicacoes: ['Inflamação crônica', 'Neuroproteção', 'Ansiedade e humor', 'Dor crônica'],
-    dosagem: 'Conforme prescrição médica. Dose inicial 10 a 20 mg/dia (CBD+CBG combinados), com titulação gradual.',
+    dosagem: 'Somente com prescrição médica. A dose é definida pelo médico.',
   },
 ]
 
 const qualidade = [
   { label: 'Full Spectrum',         descricao: 'Espectro completo de canabinoides, terpenos e flavonoides para o efeito entourage.' },
-  { label: 'Aprovado ANVISA',       descricao: 'Autorizado para importação por pessoa física, conforme RDC 660/2022.' },
-  { label: 'THC ≤ 0,3%',            descricao: 'Todos os produtos dentro dos limites legais estabelecidos pela ANVISA.' },
+  { label: 'Autorização ANVISA',    descricao: 'Autorizado para importação por pessoa física, conforme RDC 660/2022.' },
+  { label: 'THC ≤ 0,3%',            descricao: 'Teor de THC até 0,3%, conforme o fabricante.' },
   { label: 'Rastreabilidade Total', descricao: 'Origem documentada da matéria-prima ao produto finalizado.' },
 ]
 
@@ -80,7 +76,7 @@ export default function Produtos() {
       <InternalPageHero
         eyebrow="NOSSOS PRODUTOS"
         title="Óleos Full Spectrum de Canabinoides"
-        subtitle="Quatro produtos Full Spectrum até 0,3% THC. Importados do Uruguai com aprovação ANVISA e acessíveis via RDC 660."
+        subtitle="Quatro produtos Full Spectrum até 0,3% THC. Importados do Uruguai mediante autorização da ANVISA (RDC 660)."
         image="/hero-produtos.webp"
       />
 
@@ -156,21 +152,12 @@ export default function Produtos() {
                   </div>
                   <div className="flex items-center gap-2 text-xs text-white/50">
                     <ShieldCheck size={16} className="text-brand-400 shrink-0" />
-                    Aprovado ANVISA · RDC 660 · Importação Uruguai
+                    Autorização ANVISA · RDC 660 · Importação Uruguai
                   </div>
                 </div>
 
-                {/* Indicações + CTA */}
+                {/* CTA */}
                 <div className="lg:col-span-3 flex flex-col justify-center">
-                  <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-white/50 mb-3">Principais indicações</h3>
-                  <ul className="space-y-2 mb-7">
-                    {p.indicacoes.map(ind => (
-                      <li key={ind} className="flex items-center gap-2 text-sm text-white/80">
-                        <CheckCircle size={16} className="text-brand-400 shrink-0" />
-                        {ind}
-                      </li>
-                    ))}
-                  </ul>
                   <a href={WHATSAPP} target="_blank" rel="noopener noreferrer"
                     className={`self-center inline-flex items-center justify-center px-6 py-3 rounded-full font-semibold text-sm transition-colors ${
                       p.destaque ? 'bg-brand-500 text-white hover:bg-brand-600' : 'bg-white text-ink hover:bg-white/90'

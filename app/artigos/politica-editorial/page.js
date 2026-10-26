@@ -32,7 +32,7 @@ const criterios = [
     icone: <ShieldCheck size={24} className="text-brand-500" />,
     titulo: 'Conformidade regulatória',
     texto:
-      'O conteúdo é produzido em conformidade com a RDC 327/2019 da ANVISA, que disciplina a comunicação sobre produtos de Cannabis ao público, e com a RDC 660/2022, que regulamenta a importação por pessoa física mediante prescrição médica e autorização da agência.',
+      'O conteúdo segue as normas da ANVISA sobre produtos de cannabis: a RDC 1.015/2026, que restringe a publicidade desses produtos, e a RDC 660/2022, que regulamenta a importação por pessoa física mediante prescrição médica e autorização da agência.',
   },
 ]
 
