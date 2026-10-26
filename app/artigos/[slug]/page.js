@@ -202,7 +202,7 @@ export default async function ArtigoPage({ params }) {
           {artigo.sources.length > 0 && (
             <section aria-labelledby="referencias-titulo" className="mt-12 pt-8 border-t border-ink/10">
               <h2 id="referencias-titulo" className="font-mono text-sm font-bold uppercase tracking-widest text-ink mb-5">
-                Referências científicas
+                Referências
               </h2>
               <ol className="space-y-3 list-decimal pl-5 marker:text-brand-500 marker:font-bold">
                 {artigo.sources.map((fonte, i) => (
@@ -263,7 +263,7 @@ export default async function ArtigoPage({ params }) {
             <div>
               <p className="font-semibold text-ink">Equipe CBMed</p>
               <p className="text-ink-light text-sm leading-relaxed mt-0.5">
-                Conteúdo educativo produzido a partir de estudos indexados no PubMed.{' '}
+                Conteúdo educativo produzido a partir de fontes oficiais e de estudos indexados no PubMed.{' '}
                 <Link href="/artigos/politica-editorial" className="text-brand-600 font-medium underline decoration-brand-300 underline-offset-2 hover:text-brand-500 transition-colors">
                   Conheça nossa política editorial
                 </Link>.

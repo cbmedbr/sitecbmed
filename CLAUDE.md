@@ -77,12 +77,13 @@ O número passou de `(48) 9 9982-2057` para **`(48) 9 9838-3370`** em todo o sit
 
 ## Compliance regulatório (ANVISA)
 
-RDC 327/2019 é estrita sobre comunicação de cannabis medicinal ao público leigo. Nunca:
+A RDC 327/2019 foi **revogada** pela RDC 1.015/2026 (Art. 76), em vigor desde 04/05/2026. A RDC 1.015 (Art. 9º) restringe a publicidade de produtos de cannabis a prescritores e farmacêuticos. A base do modelo da CBMed é a RDC 660/2022 (importação por pessoa física). Associações têm regra própria: RDC 1.014/2026. Nunca:
 - Criar calculadora de doses interativa (foi removida da S06 por esse motivo)
-- Recomendar dosagens específicas a pacientes
-- Sugerir tratamentos para condições específicas sem ressalva médica
+- Recomendar dosagens específicas a pacientes — inclusive faixas de dose por produto (removidas de `/produtos` em 2026-10-26)
+- Sugerir tratamentos para condições específicas sem ressalva médica — inclusive listas de doenças por produto (removidas da home e de `/produtos` em 2026-10-26)
+- Dizer "aprovação ANVISA" para os produtos: o que existe é a autorização de importação do paciente
 
-A linha "Este site não realiza prescrição médica. Produtos sujeitos à prescrição e autorização ANVISA — RDC 327/2019." deve aparecer no footer.
+A linha "Este site não realiza prescrição médica. Produtos sujeitos à prescrição médica e à autorização da ANVISA para importação (RDC 660/2022)." deve aparecer no footer (atualizada a pedido do cliente em 2026-10-26; antes citava a RDC 327/2019, revogada).
 
 ## Regra de visibilidade (obrigatória antes de qualquer edição visual)
 

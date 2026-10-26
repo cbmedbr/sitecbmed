@@ -45,14 +45,14 @@ const beneficios = [
 ]
 
 const indicacoes = [
-  { condicao: 'Epilepsia Refratária',       evidencia: 'Nível A', destaque: true  },
-  { condicao: 'Transtorno de Ansiedade',    evidencia: 'Nível B', destaque: false },
-  { condicao: 'Dor Crônica Neuropática',    evidencia: 'Nível B', destaque: false },
-  { condicao: 'Distúrbios do Sono',         evidencia: 'Nível B', destaque: false },
-  { condicao: 'TDAH',                       evidencia: 'Nível C', destaque: false },
-  { condicao: 'Suporte Oncológico',         evidencia: 'Nível B', destaque: false },
-  { condicao: 'Esclerose Múltipla',         evidencia: 'Nível B', destaque: false },
-  { condicao: 'Autismo (TEA)',              evidencia: 'Nível C', destaque: false },
+  { condicao: 'Epilepsia Refratária',       destaque: true  },
+  { condicao: 'Transtorno de Ansiedade',    destaque: false },
+  { condicao: 'Dor Crônica Neuropática',    destaque: false },
+  { condicao: 'Distúrbios do Sono',         destaque: false },
+  { condicao: 'TDAH',                       destaque: false },
+  { condicao: 'Suporte Oncológico',         destaque: false },
+  { condicao: 'Esclerose Múltipla',         destaque: false },
+  { condicao: 'Autismo (TEA)',              destaque: false },
 ]
 
 export default function ParaMedicos() {
@@ -152,7 +152,7 @@ export default function ParaMedicos() {
 
             {[
               { n:'01', titulo:'Você prescreve', texto:'Emite o receituário conforme a RDC 660. Fornecemos modelo padronizado e orientações.' },
-              { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos toda a documentação e submetemos à ANVISA.' },
+              { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos a documentação e acompanhamos o cadastro na ANVISA, feito em nome do paciente.' },
               { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 20 dias. Você recebe relatório de conclusão.' },
             ].map((item, i) => (
               <div key={i}>
@@ -191,9 +191,9 @@ export default function ParaMedicos() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <span className="badge mb-3">Baseado em Evidências</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Indicações terapêuticas reconhecidas</h2>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Áreas com estudos clínicos publicados</h2>
             <p className="section-subtitle mx-auto text-ink-light">
-              Condições com suporte científico para uso de CBD, conforme literatura revisada por pares.
+              Condições estudadas em ensaios clínicos com canabinoides. A indicação para cada paciente é decisão do médico prescritor.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -203,22 +203,12 @@ export default function ParaMedicos() {
                   ? 'bg-brand-500 border-brand-400'
                   : 'bg-white border-gray-100'
               }`}>
-                <span className={`inline-block font-mono text-xs font-bold rounded-full px-3 py-1 mb-3 select-none ${
-                  item.destaque
-                    ? 'text-white bg-white/20 border border-white/30'
-                    : 'text-brand-600 bg-brand-50 border border-brand-100'
-                }`}>
-                  {item.evidencia} · OCEBM
-                </span>
                 <p className={`text-sm font-medium ${item.destaque ? 'text-white' : 'text-ink'}`}>
                   {item.condicao}
                 </p>
               </div>
             ))}
           </div>
-          <p className="text-center text-xs text-ink-muted mt-6">
-            Nível de evidência baseado no Oxford Centre for Evidence-Based Medicine (OCEBM).
-          </p>
           <div className="text-center mt-6">
             <Link href="/ciencia" className="btn-outline text-sm">
               Acessar base científica completa →

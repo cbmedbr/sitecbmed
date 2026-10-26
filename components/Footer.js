@@ -124,7 +124,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-[11px] text-white/30 mt-8 max-w-2xl mx-auto leading-relaxed">
-          Este site não realiza prescrição médica. Produtos sujeitos à prescrição e autorização ANVISA (RDC 327/2019).
+          Este site não realiza prescrição médica. Produtos sujeitos à prescrição médica e à autorização da ANVISA para importação (RDC 660/2022).
         </p>
       </div>
     </footer>
