@@ -12,7 +12,7 @@ export default function LogoCBMed({ className = '', height = 48 }) {
       style={{ height: `${height}px`, width: `${width}px` }}
     >
       <Image
-        src="/logo-cbmed.avif"
+        src="/logo-cbmed.webp"
         alt="CBMed — CannaBio Medicinal"
         fill
         sizes={`${width}px`}

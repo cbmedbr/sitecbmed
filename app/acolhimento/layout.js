@@ -7,7 +7,7 @@ import { FAQ_ACOLHIMENTO } from '../../lib/faq'
 // deixava o título com três segmentos ("Como Funciona | Acolhimento | CBMed").
 export const metadata = buildMetadata({
   title: 'Como importar óleo de CBD com autorização da ANVISA',
-  description: 'Passo a passo para importar óleo de CBD pela RDC 660: documentos, autorização da ANVISA, prazos e acompanhamento. Assessoria CBMed do início ao fim.',
+  description: 'Passo a passo para importar óleo de CBD pela RDC 660: documentos, autorização da ANVISA e prazos. Assessoria CBMed do início ao fim.',
   path: '/acolhimento',
 })
 

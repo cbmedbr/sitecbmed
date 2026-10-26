@@ -7,7 +7,7 @@ import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
   title: 'Óleos Full Spectrum de CBD importados (RDC 660)',
-  description: 'Conheça os óleos Full Spectrum de CBD disponíveis por importação legal (RDC 660): composição, concentrações e documentos. Uso somente com prescrição médica.',
+  description: 'Óleos Full Spectrum de CBD por importação legal (RDC 660): composição, concentrações e documentos. Uso somente com prescrição médica.',
   path: '/produtos',
 })
 
@@ -17,7 +17,7 @@ const produtos = [
     nome: 'CBD Full Spectrum 1500mg',
     sub: 'Importação Uruguai · Protocolo Inicial',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
-    img: '/produto-1500.avif',
+    img: '/produto-1500.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: false,
     descricao: 'Formulação Full Spectrum indicada para pacientes em início de protocolo terapêutico. Concentração calibrada para alta tolerabilidade, permitindo titulação gradual conforme orientação médica.',
@@ -30,7 +30,7 @@ const produtos = [
     nome: 'CBD Full Spectrum 3000mg',
     sub: 'Importação Uruguai · Protocolo Intermediário',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
-    img: '/produto-3000.avif',
+    img: '/produto-3000.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: true,
     descricao: 'Concentração intermediária, padrão mais prescrito pelos médicos parceiros da CBMed. Evidência clínica robusta em epilepsia, dor neuropática e ansiedade severa.',
@@ -43,7 +43,7 @@ const produtos = [
     nome: 'CBD Full Spectrum 6000mg',
     sub: 'Importação Uruguai · Protocolo Intensivo',
     tipo: 'CBD Full Spectrum · até 0,3% THC',
-    img: '/produto-6000.avif',
+    img: '/produto-6000.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: false,
     descricao: 'Alta concentração para protocolos terapêuticos intensivos. Para condições neurológicas complexas, dores refratárias e suporte oncológico. Exige acompanhamento médico especializado.',
@@ -56,7 +56,7 @@ const produtos = [
     nome: 'CBD + CBG Full Spectrum',
     sub: 'Importação Uruguai · Fórmula Combinada',
     tipo: 'CBD + CBG Full Spectrum · até 0,3% THC',
-    img: '/produto-cbg.avif',
+    img: '/produto-cbg.webp',
     corBadge: 'bg-white/20 text-white',
     destaque: false,
     descricao: 'Combinação sinérgica de 1500 mg de CBD e 1500 mg de CBG em um único frasco. O CBG (canabigero) potencializa os efeitos anti-inflamatórios e neuroprotetores, ampliando o espectro terapêutico.',
@@ -81,7 +81,7 @@ export default function Produtos() {
         eyebrow="NOSSOS PRODUTOS"
         title="Óleos Full Spectrum de Canabinoides"
         subtitle="Quatro produtos Full Spectrum até 0,3% THC. Importados do Uruguai com aprovação ANVISA e acessíveis via RDC 660."
-        image="/hero-produtos.avif"
+        image="/hero-produtos.webp"
       />
 
       {/* Selos de qualidade */}
