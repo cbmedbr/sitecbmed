@@ -149,7 +149,7 @@ export default function RdcSection() {
               <div className="bottle-wrapper">
                 <div className="bottle-float w-64 drop-shadow-[0_32px_48px_rgba(27,168,131,0.25)]">
                   <Image
-                    src="/produto-hero.avif"
+                    src="/produto-hero.webp"
                     alt="Frasco CBMed — produto auditado e rastreável"
                     width={1622}
                     height={2013}
@@ -181,7 +181,7 @@ export default function RdcSection() {
             <div className="bottle-wrapper">
               <div className="bottle-float w-48 drop-shadow-[0_24px_36px_rgba(27,168,131,0.25)] mb-10">
                 <Image
-                  src="/produto-hero.avif"
+                  src="/produto-hero.webp"
                   alt="Frasco CBMed — produto auditado e rastreável"
                   width={1622}
                   height={2013}
