@@ -1,20 +1,19 @@
 import Link from 'next/link'
 import { WHATSAPP_DR } from '../../lib/constants'
 import MagneticButton from '../../components/MagneticButton'
-import SeloRdc660 from '../../components/SeloRdc660'
 import { FileText, Package, BookOpen, Heart, MessageCircle, Shield } from 'lucide-react'
 import { buildMetadata } from '../../lib/seo'
 
 export const metadata = buildMetadata({
   title: 'Prescrição de cannabis medicinal: suporte ao médico',
-  description: 'Suporte a médicos prescritores de cannabis medicinal: modelo de receita para a RDC 660, documentação da ANVISA e acompanhamento do paciente.',
+  description: 'Suporte a médicos prescritores de cannabis medicinal: orientação sobre os requisitos da receita da RDC 660, documentação da ANVISA e acompanhamento do paciente.',
   path: '/para-medicos',
 })
 
 const beneficios = [
   {
-    titulo: 'Prescrição Orientada',
-    texto: 'Modelos de receituário e orientações técnicas para conformidade total com a RDC 660, evitando indeferimentos.',
+    titulo: 'Requisitos da Receita',
+    texto: 'Orientação sobre os requisitos da receita para a importação pela RDC 660, para evitar indeferimentos.',
     icone: <FileText size={24} className="text-brand-500 mb-4" />,
   },
   {
@@ -44,15 +43,10 @@ const beneficios = [
   },
 ]
 
-const indicacoes = [
-  { condicao: 'Epilepsia Refratária',       destaque: true  },
-  { condicao: 'Transtorno de Ansiedade',    destaque: false },
-  { condicao: 'Dor Crônica Neuropática',    destaque: false },
-  { condicao: 'Distúrbios do Sono',         destaque: false },
-  { condicao: 'TDAH',                       destaque: false },
-  { condicao: 'Suporte Oncológico',         destaque: false },
-  { condicao: 'Esclerose Múltipla',         destaque: false },
-  { condicao: 'Autismo (TEA)',              destaque: false },
+const chips = [
+  { label: 'Orientação sobre os requisitos da receita', href: '/artigos/receita-oleo-de-cbd' },
+  { label: 'Suporte jurídico-regulatório' },
+  { label: 'Processo 100% legal' },
 ]
 
 export default function ParaMedicos() {
@@ -60,11 +54,6 @@ export default function ParaMedicos() {
     <>
       {/* Hero editorial premium */}
       <section className="relative bg-navy text-white overflow-hidden">
-        {/* Watermark selo */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-[0.06] pointer-events-none select-none hidden lg:block">
-          <SeloRdc660 size={480} colorStroke="#1ba883" />
-        </div>
-
         {/* Grid de linhas — textura sutil */}
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"
@@ -72,7 +61,7 @@ export default function ParaMedicos() {
         />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="max-w-3xl">
 
             {/* Coluna texto */}
             <div>
@@ -111,23 +100,18 @@ export default function ParaMedicos() {
 
               {/* Trust chips */}
               <div className="flex flex-wrap gap-3">
-                {['Modelo de receita RDC 660', 'Suporte jurídico-regulatório', 'Processo 100% legal'].map(item => (
-                  <span key={item} className="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-semibold px-4 py-2 rounded-full">
-                    <svg className="w-3.5 h-3.5 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
-                    </svg>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Coluna selo — visível lg+ */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="relative">
-                {/* Glow radial */}
-                <div className="absolute inset-0 rounded-full bg-brand-500/10 blur-3xl scale-150 pointer-events-none" />
-                <SeloRdc660 size={320} colorStroke="#1ba883" />
+                {chips.map(({ label, href }) => {
+                  const Chip = href ? Link : 'span'
+                  return (
+                    <Chip key={label} {...(href ? { href } : {})}
+                      className={`inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 text-gray-300 text-sm font-semibold px-4 py-2 rounded-full ${href ? 'underline underline-offset-4 decoration-white/30 hover:bg-white/10 transition-colors' : ''}`}>
+                      <svg className="w-3.5 h-3.5 text-brand-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
+                      </svg>
+                      {label}
+                    </Chip>
+                  )
+                })}
               </div>
             </div>
 
@@ -151,7 +135,7 @@ export default function ParaMedicos() {
             </div>
 
             {[
-              { n:'01', titulo:'Você prescreve', texto:'Emite o receituário conforme a RDC 660. Fornecemos modelo padronizado e orientações.' },
+              { n:'01', titulo:'Você prescreve', texto:'Emite a receita conforme a RDC 660. Orientamos sobre os requisitos da receita.' },
               { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos a documentação e acompanhamos o cadastro na ANVISA, feito em nome do paciente.' },
               { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 20 dias. Você recebe relatório de conclusão.' },
             ].map((item, i) => (
@@ -186,34 +170,17 @@ export default function ParaMedicos() {
         </div>
       </section>
 
-      {/* Indicações terapêuticas */}
-      <section id="indicacoes" className="py-20 bg-surface-base">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="badge mb-3">Baseado em Evidências</span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Áreas com estudos clínicos publicados</h2>
-            <p className="section-subtitle mx-auto text-ink-light">
-              Condições estudadas em ensaios clínicos com canabinoides. A indicação para cada paciente é decisão do médico prescritor.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {indicacoes.map((item, i) => (
-              <div key={i} className={`rounded-xl p-5 border ${
-                item.destaque
-                  ? 'bg-brand-500 border-brand-400'
-                  : 'bg-white border-gray-100'
-              }`}>
-                <p className={`text-sm font-medium ${item.destaque ? 'text-white' : 'text-ink'}`}>
-                  {item.condicao}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-6">
-            <Link href="/ciencia" className="btn-outline text-sm">
-              Acessar base científica completa →
-            </Link>
-          </div>
+      {/* Base científica — só o link, sem lista de condições */}
+      <section className="py-20 bg-surface-base">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="badge mb-3">Baseado em Evidências</span>
+          <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">Base científica</h2>
+          <p className="section-subtitle mx-auto text-ink-light mb-8">
+            Estudos publicados, cada um com a referência completa, o tipo de estudo e a principal limitação. A indicação para cada paciente é decisão do médico prescritor.
+          </p>
+          <Link href="/ciencia" className="btn-outline text-sm">
+            Acessar a base científica →
+          </Link>
         </div>
       </section>
 
