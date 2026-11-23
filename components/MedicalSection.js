@@ -4,7 +4,7 @@ import { WHATSAPP_DR } from '../lib/constants'
 
 const stats = [
   { valor: '6 meses', label: 'validade da receita' },
-  { valor: '20 dias', label: 'prazo de entrega' },
+  { valor: '2 anos', label: 'validade do cadastro' },
   { valor: 'RDC 660', label: 'conformidade ANVISA' },
 ]
 
@@ -53,7 +53,7 @@ export default function MedicalSection() {
               Prescreva com segurança regulatória e suporte em todo o processo
             </h2>
             <p className="text-ink-light leading-relaxed mb-8 max-w-lg">
-              A CBMed cuida de toda a burocracia da RDC 660: documentação, autorização ANVISA, importação e entrega em até 20 dias, para que você foque no que importa: o cuidado clínico.
+              A CBMed cuida de toda a burocracia da RDC 660: documentação, autorização ANVISA, importação e entrega, para que você foque no que importa: o cuidado clínico.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a

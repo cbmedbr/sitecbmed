@@ -137,7 +137,7 @@ export default function ParaMedicos() {
             {[
               { n:'01', titulo:'Você prescreve', texto:'Emite a receita conforme a RDC 660. Orientamos sobre os requisitos da receita.' },
               { n:'02', titulo:'CBMed opera', texto:'Recebemos a prescrição, organizamos a documentação e acompanhamos o cadastro na ANVISA, feito em nome do paciente.' },
-              { n:'03', titulo:'Paciente recebe', texto:'Produto entregue em domicílio em até 20 dias. Você recebe relatório de conclusão.' },
+              { n:'03', titulo:'Paciente recebe', texto:'O paciente recebe o produto em casa, e você recebe um relatório de conclusão.' },
             ].map((item, i) => (
               <div key={i}>
                 <div className="font-serif text-7xl font-semibold text-ink/20 leading-none mb-4">{item.n}</div>

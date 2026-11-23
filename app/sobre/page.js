@@ -15,7 +15,7 @@ export const metadata = buildMetadata({
 
 const pilares = [
   { titulo: 'Legalidade',    texto: 'Operamos exclusivamente dentro do marco regulatório brasileiro, seguindo a RDC 660 da ANVISA e toda a legislação vigente.', icone: <Scale size={28} className="text-brand-500" /> },
-  { titulo: 'Ciência',       texto: 'Nossas indicações são baseadas em evidências científicas e conduzidas por profissionais de saúde habilitados.',              icone: <BookOpen size={28} className="text-brand-500" /> },
+  { titulo: 'Ciência',       texto: 'Nosso conteúdo é baseado em fontes científicas e oficiais.',                                                                  icone: <BookOpen size={28} className="text-brand-500" /> },
   { titulo: 'Empatia',       texto: 'Cada paciente é único. Escutamos, acolhemos e construímos juntos o melhor caminho para o tratamento.',                       icone: <Heart size={28} className="text-brand-500" /> },
   { titulo: 'Transparência', texto: 'Nenhuma surpresa no processo. Informamos cada etapa, custo e prazo antes de qualquer decisão.',                             icone: <Eye size={28} className="text-brand-500" /> },
 ]
@@ -29,7 +29,7 @@ export default function Sobre() {
       <InternalPageHero
         eyebrow="SOBRE A CBMED"
         title="Sobre a CBMed"
-        subtitle="Nascemos da convicção de que o acesso à Cannabis Medicinal deve ser seguro, humanizado e dentro da lei. Nossa missão é remover as barreiras burocráticas e técnicas que separam pacientes de um tratamento eficaz."
+        subtitle="Nascemos da convicção de que o acesso à Cannabis Medicinal deve ser seguro, humanizado e dentro da lei. Nossa missão é remover as barreiras burocráticas e técnicas que separam pacientes de um tratamento prescrito."
         bg="forest"
       />
 
@@ -70,7 +70,7 @@ export default function Sobre() {
                 { valor: '100% online', label: 'Atendimento em todo o Brasil' },
                 { valor: '2 anos',      label: 'Validade do cadastro ANVISA'  },
                 { valor: 'RDC 660',     label: 'Conformidade ANVISA'          },
-                { valor: 'até 20d',     label: 'Prazo de entrega'             },
+                { valor: '6 meses',     label: 'Validade da receita'          },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-7 text-center">
                   <div className="font-mono tabular-nums text-3xl font-bold text-brand-600 mb-1">{item.valor}</div>
