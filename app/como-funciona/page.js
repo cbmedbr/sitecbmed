@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { Check, X } from 'lucide-react'
+import { Check } from 'lucide-react'
 import InternalPageHero from '../../components/InternalPageHero'
 import MagneticButton from '../../components/MagneticButton'
 import JsonLd from '../../components/JsonLd'
@@ -22,10 +22,10 @@ const faz = [
   'Acompanha a importação até a entrega.',
 ]
 
-const naoFaz = [
-  'Não prescreve.',
-  'Não vende produto.',
-  'Não indica produto, concentração nem dose.',
+const bomSaber = [
+  'Quem receita é o médico. Sem receita, não dá para importar.',
+  'É o médico quem escolhe o produto e a dose.',
+  'O produto chega por importação, com autorização da Anvisa no seu nome. A gente cuida desse processo com você.',
 ]
 
 // Só prazos que já constam nos artigos de 26/10/2026, com a mesma referência.
@@ -45,10 +45,15 @@ export default function ComoFunciona() {
 
       <InternalPageHero
         eyebrow="COMO FUNCIONA"
-        title="Como funciona a assessoria da CBMed"
-        subtitle="A CBMed é uma assessoria de importação. Ajudamos o paciente com receita a importar o produto prescrito pela RDC 660/2022, do cadastro na Anvisa até a entrega."
+        title="Quer começar o tratamento com cannabis medicinal?"
+        subtitle="A gente te ajuda em cada passo, da receita médica até a entrega na sua casa. Tudo dentro da lei."
         bg="forest"
-      />
+      >
+        <MagneticButton href={WHATSAPP} target="_blank" rel="noopener noreferrer"
+          className="btn-primary text-base py-4 px-8 inline-flex items-center gap-2.5">
+          Falar com a equipe no WhatsApp
+        </MagneticButton>
+      </InternalPageHero>
 
       {/* 1 e 2 — O que faz e o que não faz */}
       <section className="py-20 bg-cream">
@@ -65,11 +70,11 @@ export default function ComoFunciona() {
             </ul>
           </div>
           <div className="bg-white rounded-2xl p-8 shadow-sm border border-ink/10">
-            <h2 className="font-serif text-2xl font-semibold text-ink mb-5">O que a CBMed não faz</h2>
+            <h2 className="font-serif text-2xl font-semibold text-ink mb-5">Bom saber antes de começar</h2>
             <ul className="space-y-3">
-              {naoFaz.map(t => (
+              {bomSaber.map(t => (
                 <li key={t} className="flex items-start gap-3 text-ink-light leading-relaxed">
-                  <X size={20} className="text-ink-muted shrink-0 mt-0.5" aria-hidden />
+                  <Check size={20} className="text-brand-500 shrink-0 mt-0.5" aria-hidden />
                   {t}
                 </li>
               ))}
