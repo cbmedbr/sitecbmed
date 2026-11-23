@@ -38,7 +38,7 @@ const beneficios = [
   },
   {
     titulo: 'Segurança Jurídica',
-    texto: 'Nossa equipe regulatória garante conformidade com a legislação vigente em cada etapa, protegendo médico e paciente.',
+    texto: 'Nossa equipe regulatória orienta cada etapa conforme a legislação vigente.',
     icone: <Shield size={24} className="text-brand-500 mb-4" />,
   },
 ]

@@ -8,7 +8,7 @@ import { WHATSAPP, WHATSAPP_NUMBER, PHONE_DISPLAY, EMAIL } from '../../lib/const
 // Rótulos legíveis para o texto que vai no WhatsApp — o select guarda só a chave.
 const ASSUNTOS = {
   acolhimento: 'Quero iniciar meu acolhimento',
-  produto:     'Dúvida sobre os produtos',
+  produto:     'Dúvida sobre a importação',
   processo:    'Como funciona o processo?',
   anvisa:      'Questões regulatórias (ANVISA / RDC 660)',
   medico:      'Sou médico prescritor',
@@ -169,7 +169,7 @@ export default function Contato() {
                       className="w-full px-4 py-3 rounded-xl border border-ink/15 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent text-ink text-sm bg-white">
                       <option value="">Selecione um assunto</option>
                       <option value="acolhimento">Quero iniciar meu acolhimento</option>
-                      <option value="produto">Dúvida sobre os produtos</option>
+                      <option value="produto">Dúvida sobre a importação</option>
                       <option value="processo">Como funciona o processo?</option>
                       <option value="anvisa">Questões regulatórias (ANVISA / RDC 660)</option>
                       <option value="medico">Sou médico prescritor</option>
