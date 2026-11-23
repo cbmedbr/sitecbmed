@@ -31,7 +31,7 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               {[
                 { href: '/para-medicos', label: 'Para Médicos' },
-                { href: '/produtos',     label: 'Produtos' },
+                { href: '/como-funciona', label: 'Como funciona' },
                 { href: '/acolhimento',  label: 'Acolhimento' },
                 { href: '/ciencia',      label: 'Ciência' },
                 { href: '/sobre',        label: 'Sobre' },

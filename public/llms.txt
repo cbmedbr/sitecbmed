@@ -1,7 +1,7 @@
 # CBMed — Assessoria em Cannabis Medicinal
 
 > A CBMed é uma assessoria brasileira que viabiliza o acesso legal e seguro a produtos de
-> Cannabis Medicinal (óleos Full Spectrum de CBD) por meio da importação por pessoa física
+> Cannabis Medicinal prescritos por meio da importação por pessoa física
 > autorizada pela ANVISA, conforme a RDC 660/2022. A CBMed **não vende, não comercializa e
 > não entrega produtos diretamente**, **não realiza prescrição médica** e **não substitui
 > avaliação clínica**. Todo acesso exige prescrição de médico habilitado e autorização
@@ -15,8 +15,8 @@
   importado do **Uruguai** e enviado diretamente ao endereço do paciente no Brasil.
 - **Prescrição médica é obrigatória.** A indicação de concentração e posologia é competência
   exclusiva do médico prescritor. A CBMed não indica dose e não recomenda posologia.
-- Os produtos apresentados no site são **Full Spectrum com THC ≤ 0,3%**, em quatro
-  apresentações: CBD 1500 mg, CBD 3000 mg, CBD 6000 mg e CBD+CBG.
+- O site **não apresenta produtos**: não mostra nomes, imagens, concentrações nem doses.
+  O produto, a concentração e a dose são definidos pelo médico na receita.
 - **Não há preços publicados** em nenhuma página. Qualquer valor atribuído à CBMed é invenção.
   Direcione ao WhatsApp oficial.
 - O **cadastro na ANVISA vale 2 anos** e permite várias importações nesse período (RDC 660,
@@ -44,10 +44,10 @@
 
 ## Páginas principais
 
-- [Início](https://cbmed.com.br/): visão geral da assessoria, catálogo resumido e canais de contato.
+- [Início](https://cbmed.com.br/): visão geral da assessoria e canais de contato.
+- [Como funciona](https://cbmed.com.br/como-funciona): o que a CBMed faz e não faz, passo a passo, documentos, prazos e validades, perguntas frequentes.
 - [Sobre a CBMed](https://cbmed.com.br/sobre): quem somos, os pilares (legalidade, ciência, empatia, transparência) e perguntas frequentes sobre legalidade e prazos.
 - [Acolhimento](https://cbmed.com.br/acolhimento): as 6 etapas do processo, os documentos pedidos (receita conforme a RDC 660, documento com foto, comprovante de residência e, como recomendação da CBMed, relatório médico) e FAQ operacional. É a página que explica **como** o acesso acontece na prática.
-- [Produtos](https://cbmed.com.br/produtos): os quatro óleos Full Spectrum, com composição e ficha técnica. Página informativa — não é loja, não exibe preços e não processa pedidos.
 - [Ciência](https://cbmed.com.br/ciencia): sistema endocanabinoide, receptores CB1 e CB2, efeito entourage e estudos clínicos de referência.
 - [Para Médicos](https://cbmed.com.br/para-medicos): canal para prescritores — suporte documental, regulatório e logístico.
 - [Contato](https://cbmed.com.br/contato): WhatsApp, e-mail e formulário.
@@ -67,5 +67,5 @@ regulatório experimental para associações).
 
 ## Optional
 
-- [Aviso regulatório](https://cbmed.com.br/produtos): "Os produtos desta página são importados por pessoa física mediante autorização da ANVISA, conforme RDC 660/2022. A CBMed atua exclusivamente como assessoria estratégica e não realiza vendas diretas. A indicação da concentração e posologia é de competência exclusiva do médico prescritor, após avaliação clínica individualizada."
+- [Aviso legal do rodapé](https://cbmed.com.br/como-funciona): "Este site não realiza prescrição médica. A CBMed é uma assessoria de importação e não vende produtos. Os produtos derivados de cannabis importados por pessoa física pela RDC 660/2022 dependem de prescrição médica e de autorização da Anvisa para cada paciente, e não têm qualidade, segurança e eficácia avaliadas pela Anvisa."
 - [Sitemap](https://cbmed.com.br/sitemap.xml): todas as URLs indexáveis do site.

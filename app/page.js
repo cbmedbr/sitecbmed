@@ -1,10 +1,8 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { WHATSAPP, WHATSAPP_DR, PHONE_DISPLAY } from '../lib/constants'
 import MagneticButton from '../components/MagneticButton'
 import { Shield } from 'lucide-react'
 import StatItem from '../components/StatItem'
-import ProductCard from '../components/ProductCard'
 import ScienceSection from '../components/ScienceSection'
 import MedicalSection from '../components/MedicalSection'
 import RdcSection from '../components/RdcSection'
@@ -17,43 +15,6 @@ export const metadata = buildMetadata({
   description: SITE_DESCRIPTION,
   path: '/',
 })
-
-// ─── Dados ───────────────────────────────────────────────────────────────────
-const produtos = [
-  {
-    mg: '1500 mg',
-    sub: 'Importação Uruguai',
-    tipo: 'CBD Full Spectrum',
-    descricao: 'Óleo Full Spectrum com 1500 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
-    destaque: false,
-    img: '/produto-1500.webp',
-  },
-  {
-    mg: '3000 mg',
-    sub: 'Importação Uruguai',
-    tipo: 'CBD Full Spectrum',
-    descricao: 'Óleo Full Spectrum com 3000 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
-    destaque: true,
-    img: '/produto-3000.webp',
-  },
-  {
-    mg: '6000 mg',
-    sub: 'Importação Uruguai',
-    tipo: 'CBD Full Spectrum',
-    descricao: 'Óleo Full Spectrum com 6000 mg de CBD por frasco. A escolha da concentração é do médico prescritor.',
-    destaque: false,
-    img: '/produto-6000.webp',
-  },
-  {
-    mg: 'CBD 5% + CBG 5%',
-    sub: 'Importação Uruguai',
-    tipo: 'CBD + CBG Full Spectrum',
-    descricao: 'Óleo Full Spectrum com 1500 mg de CBD e 1500 mg de CBG por frasco. A escolha da concentração é do médico prescritor.',
-    destaque: false,
-    img: '/produto-cbg.webp',
-  },
-]
-
 
 // ─── Ícones inline reutilizáveis ─────────────────────────────────────────────
 const IconWA = () => (
@@ -81,7 +42,7 @@ export default function Home() {
       <section className="relative overflow-hidden h-screen flex items-center bg-gray-950">
         {/* Background image fullscreen */}
         <Image
-          src="/hero-products.webp"
+          src="/hero-acolhimento.webp"
           alt=""
           fill
           priority
@@ -152,58 +113,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ══════════════════════════════════════════════════════
-          PRODUTOS — cards brancos com imagem âmbar
-      ══════════════════════════════════════════════════════ */}
-      <section id="produtos" className="py-20 bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <span className="section-label block mb-3">Full Spectrum até 0,3% THC · Importação Uruguai</span>
-            <h2 className="section-title mb-4">Nosso Catálogo</h2>
-            <p className="section-subtitle max-w-xl mx-auto">
-              Produtos aprovados pela ANVISA, importados do Uruguai via RDC 660. A indicação é sempre do médico prescritor.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {produtos.map((p, i) => (
-              <ProductCard key={i} {...p} />
-            ))}
-          </div>
-
-          <p className="text-center text-sm text-ink-muted mt-6">
-            * A concentração é determinada pelo médico prescritor após avaliação clínica individualizada.
-          </p>
-          <div className="text-center mt-5">
-            <Link href="/produtos" className="btn-ghost">
-              Ver fichas técnicas completas →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════
-          BANNER MACRO — gota de óleo dourado (w-full)
-      ══════════════════════════════════════════════════════ */}
-      <div className="relative w-full h-64 md:h-80 overflow-hidden">
-        {/* Foto Macro: conta-gotas de vidro com gota de óleo dourado translúcido */}
-        <Image
-          src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1600&q=80"
-          alt="Frasco âmbar de óleo de CBD com conta-gotas em luz natural quente"
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 via-ink/30 to-transparent flex items-center">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <span className="section-label text-brand-300 block mb-2">Entrega acompanhada</span>
-            <h3 className="text-2xl md:text-3xl font-bold text-white max-w-sm leading-tight">
-              Entrega em até 20 dias após autorização ANVISA
-            </h3>
-          </div>
-        </div>
-      </div>
 
       {/* ══════════════════════════════════════════════════════
           SEÇÃO 06 — Base Científica + molécula CBD

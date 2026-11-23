@@ -46,7 +46,7 @@ export default function Sobre() {
                 Nossa equipe é composta por profissionais com formação nas áreas de saúde, direito regulatório e consultoria de acesso a tratamentos inovadores. Cada membro é capacitado para orientar com precisão técnica e cuidado humano.
               </p>
               <p className="text-ink-light leading-relaxed">
-                Desde a nossa fundação, auxiliamos pacientes de todo o Brasil a obterem acesso legal ao Óleo de CBD por importação do Uruguai, nas concentrações de 1500 mg, 3000 mg e 6000 mg, com autorização da ANVISA conforme a RDC 660.
+                Desde a nossa fundação, auxiliamos pacientes de todo o Brasil a obterem acesso legal ao óleo de CBD prescrito, por importação do Uruguai, com autorização da ANVISA conforme a RDC 660.
               </p>
 
               {/* RDC 660 destaque */}
