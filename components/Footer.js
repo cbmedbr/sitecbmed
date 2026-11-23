@@ -125,7 +125,7 @@ export default function Footer() {
         </div>
 
         <p className="text-center text-[11px] text-white/30 mt-8 max-w-2xl mx-auto leading-relaxed">
-          Este site não realiza prescrição médica. Produtos sujeitos à prescrição médica e à autorização da ANVISA para importação (RDC 660/2022).
+          Este site não realiza prescrição médica. A CBMed é uma assessoria de importação e não vende produtos. Os produtos derivados de cannabis importados por pessoa física pela RDC 660/2022 dependem de prescrição médica e de autorização da Anvisa para cada paciente, e não têm qualidade, segurança e eficácia avaliadas pela Anvisa.
         </p>
       </div>
     </footer>
