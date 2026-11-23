@@ -46,7 +46,8 @@ Glassmorphism em seções escuras: `bg-white/8 backdrop-blur-sm border border-wh
 
 Nunca alterar sem aprovação explícita do cliente:
 
-- `até 20d` — prazo de entrega (era `até 30d`; alterado a pedido do cliente em 2026-10-23; sem a palavra "garantida"). Desde 2026-11-23 aparece numa frase só, em `/como-funciona` ("Em até 20 dias após a autorização da ANVISA."); saiu da home, de `/sobre`, de `/para-medicos`, das FAQs e do `llms.txt`. Número pendente de confirmação do cliente
+- Prazo de entrega: "Em até 15 dias úteis após a autorização da Anvisa." (alterado a pedido do cliente em 2026-11-23; antes `até 20d` e, antes, `até 30d`; sem a palavra "garantida"). Aparece em `/como-funciona` e no artigo `o-que-e-a-rdc-660`; não repetir na home, em `/sobre`, em `/para-medicos`, nas FAQs nem no `llms.txt`. Os prazos do gov.br (10 dias corridos, estimativa de 20) são outra coisa e não mudam
+- Não citar o Uruguai (nem outro país) para descrever a operação da CBMed
 - `RDC 660` — base regulatória do serviço
 - Links WhatsApp em `lib/constants.js` — nunca hardcodar URLs
 - Citações científicas: só com referência completa e link do PubMed ou DOI, conferidas no resumo publicado; jamais inventar. As citações da home (NEJM, Lancet Neurology, JAMA) saíram em 2026-11-23
@@ -149,7 +150,7 @@ Limpeza profunda (`rm -rf .next node_modules + npm install`) é necessária entr
 | S09 — Artigos | refresh/09-articles | ✅ merged |
 | S10 — CTA + Footer | refresh/10-footer | 🔄 em andamento |
 | S11 — Páginas internas | refresh/11-internal | ⏳ planejada |
-| Compliance Anvisa | refresh/26-compliance-anvisa | 🔄 em revisão (PR) |
+| Compliance Anvisa | refresh/26-compliance-anvisa | ✅ merged (PR #29) |
 | Polish Pass | refresh/polish | ⏳ final |
 
 ## Polish Pass (pendências para o final do projeto)

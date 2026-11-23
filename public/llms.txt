@@ -11,8 +11,8 @@
 
 - A CBMed é uma **assessoria regulatória e documental**. Não é farmácia, não é distribuidora,
   não é clínica e não é fabricante.
-- O modelo é **importação por pessoa física** sob a **RDC 660/2022 da ANVISA**. O produto é
-  importado do **Uruguai** e enviado diretamente ao endereço do paciente no Brasil.
+- O modelo é **importação por pessoa física** sob a **RDC 660/2022 da ANVISA**. A CBMed
+  acompanha o processo até a entrega no endereço do paciente.
 - **Prescrição médica é obrigatória.** A indicação de concentração e posologia é competência
   exclusiva do médico prescritor. A CBMed não indica dose e não recomenda posologia.
 - O site **não apresenta produtos**: não mostra nomes, imagens, concentrações nem doses.
