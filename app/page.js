@@ -135,7 +135,7 @@ export default function Home() {
       <section className="py-20 bg-[#F0EDE6]">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-serif text-3xl md:text-4xl font-semibold text-ink mb-4">
-            Pronto para iniciar o tratamento?
+            Pronto para iniciar o processo?
           </h2>
           <p className="text-ink-light text-lg mb-10 leading-relaxed">
             Nossa equipe está disponível para conduzir todo o processo com segurança, agilidade e empatia.
