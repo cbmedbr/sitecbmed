@@ -6,7 +6,7 @@ const bgs = {
   forest:   'bg-forest',
 }
 
-export default function InternalPageHero({ eyebrow, title, subtitle, bg = 'caramelo', image }) {
+export default function InternalPageHero({ eyebrow, title, subtitle, bg = 'caramelo', image, children }) {
   if (image) {
     return (
       <section className="relative overflow-hidden min-h-[60vh] flex items-center bg-gray-950">
@@ -57,6 +57,7 @@ export default function InternalPageHero({ eyebrow, title, subtitle, bg = 'caram
             {subtitle}
           </p>
         )}
+        {children && <div className="mt-8">{children}</div>}
       </div>
     </section>
   )
