@@ -21,7 +21,9 @@ export default function StatItem({ valor, label }) {
 
   const { num, suffix, hasCount } = parseStat(valor)
 
-  const [displayed, setDisplayed] = useState(hasCount ? '0' : valor)
+  // O HTML do servidor já sai com o valor final ("100% online", não "0% online"):
+  // é o que robôs e quem está sem JS leem. O count-up só roda no navegador.
+  const [displayed, setDisplayed] = useState(hasCount ? num.toLocaleString('pt-BR') : valor)
   const [bouncing, setBouncing] = useState(false)
   const [hasAnimated, setHasAnimated] = useState(false)
 

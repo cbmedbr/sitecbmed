@@ -27,7 +27,7 @@ const beneficios = [
   {
     icon: MessageCircle,
     titulo: 'Canal direto',
-    texto: 'Linha exclusiva médico–CBMed para dúvidas clínicas e protocolos.',
+    texto: 'Linha exclusiva entre o médico e a CBMed para dúvidas sobre o processo.',
   },
 ]
 
@@ -50,7 +50,7 @@ export default function MedicalSection() {
               CANAL DO PRESCRITOR
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-ink mb-5 leading-tight">
-              Prescreva com segurança regulatória e suporte clínico completo
+              Prescreva com segurança regulatória e suporte em todo o processo
             </h2>
             <p className="text-ink-light leading-relaxed mb-8 max-w-lg">
               A CBMed cuida de toda a burocracia da RDC 660: documentação, autorização ANVISA, importação e entrega em até 20 dias, para que você foque no que importa: o cuidado clínico.

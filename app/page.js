@@ -59,15 +59,14 @@ export default function Home() {
 
 
             <h1 className="font-serif text-display-lg font-semibold text-white mb-4 select-none">
-              Proporcionamos{' '}
-              <span className="text-brand-400">Qualidade de Vida</span>
-              {' '}através da Cannabis Medicinal
+              Onde o cuidado{' '}
+              <span className="text-brand-400">encontra o caminho.</span>
             </h1>
 
             <p className="text-lg text-white/80 leading-relaxed max-w-lg mb-10">
-              Assessoria estratégica especializada, do primeiro contato ao recebimento em domicílio.
-              Acesso legal via RDC 660 para pacientes e suporte a médicos prescritores
-              em todo o Brasil.
+              Assessoria para a importação legal de produtos de cannabis prescritos, conforme a RDC 660/2022.
+              Cuidamos dos documentos, do cadastro na Anvisa e do acompanhamento até a entrega,
+              para pacientes e médicos de todo o Brasil.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
@@ -101,12 +100,11 @@ export default function Home() {
       ══════════════════════════════════════════════════════ */}
       <section className="bg-brand-500 py-7">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 text-white text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-white text-center">
             {[
               { valor: '100% online', label: 'Atendimento em todo o Brasil' },
               { valor: '2 anos',      label: 'Validade do cadastro ANVISA'  },
-              { valor: 'até 20d', label: 'Prazo de entrega'       },
-              { valor: 'RDC 660', label: 'Conformidade ANVISA'    },
+              { valor: 'RDC 660',     label: 'Importação regular'           },
             ].map((item, i) => (
               <StatItem key={i} valor={item.valor} label={item.label} />
             ))}
