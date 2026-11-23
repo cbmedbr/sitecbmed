@@ -4,15 +4,15 @@ import { WHATSAPP_DR } from '../lib/constants'
 
 const stats = [
   { valor: '6 meses', label: 'validade da receita' },
-  { valor: '20 dias', label: 'prazo de entrega' },
+  { valor: '2 anos', label: 'validade do cadastro' },
   { valor: 'RDC 660', label: 'conformidade ANVISA' },
 ]
 
 const beneficios = [
   {
     icon: FileCheck,
-    titulo: 'Laudos COA por lote',
-    texto: 'Acesse o certificado de análise de cada lote com rastreabilidade completa.',
+    titulo: 'Requisitos da receita',
+    texto: 'Orientação sobre o que a receita precisa ter para a importação pela RDC 660.',
   },
   {
     icon: Shield,
@@ -27,7 +27,7 @@ const beneficios = [
   {
     icon: MessageCircle,
     titulo: 'Canal direto',
-    texto: 'Linha exclusiva médico–CBMed para dúvidas clínicas e protocolos.',
+    texto: 'Linha exclusiva entre o médico e a CBMed para dúvidas sobre o processo.',
   },
 ]
 
@@ -50,10 +50,10 @@ export default function MedicalSection() {
               CANAL DO PRESCRITOR
             </span>
             <h2 className="font-serif text-3xl md:text-5xl font-semibold text-ink mb-5 leading-tight">
-              Prescreva com segurança regulatória e suporte clínico completo
+              Prescreva com segurança regulatória e suporte em todo o processo
             </h2>
             <p className="text-ink-light leading-relaxed mb-8 max-w-lg">
-              A CBMed cuida de toda a burocracia da RDC 660: documentação, autorização ANVISA, importação e entrega em até 20 dias, para que você foque no que importa: o cuidado clínico.
+              A CBMed cuida de toda a burocracia da RDC 660: documentação, autorização ANVISA, importação e entrega, para que você foque no que importa: o cuidado clínico.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a

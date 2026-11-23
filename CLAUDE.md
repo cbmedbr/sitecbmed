@@ -34,10 +34,9 @@ Fontes:
 | Seção | Background | Cor |
 |-------|------------|-----|
 | Hero + Stats | `bg-surface-base` | caramelo `#CCB38B` |
-| Catálogo | `bg-[#f0ede6]` | creme off-white |
 | Base Científica | `bg-[#0d2d1f]` | verde escuro + textos brancos |
 | Canal Médico | `bg-[#f0ede6]` | creme off-white |
-| RDC / Anatomia | `bg-[#0a1628]` | tinta escura + card glass |
+| RDC / Importação regular | `bg-[#0a1628]` | tinta escura + card glass |
 | Artigos | `bg-surface-base` | caramelo (volta) |
 | CTA + Footer | `bg-[#0d2d1f]` | verde escuro |
 
@@ -47,10 +46,10 @@ Glassmorphism em seções escuras: `bg-white/8 backdrop-blur-sm border border-wh
 
 Nunca alterar sem aprovação explícita do cliente:
 
-- `até 20d` — prazo de entrega (era `até 30d`; alterado a pedido do cliente em 2026-10-23 e unificado no site inteiro, inclusive na FAQ, que dizia 15 dias; sem a palavra "garantida")
-- `RDC 660` — conformidade ANVISA
+- `até 20d` — prazo de entrega (era `até 30d`; alterado a pedido do cliente em 2026-10-23; sem a palavra "garantida"). Desde 2026-11-23 aparece numa frase só, em `/como-funciona` ("Em até 20 dias após a autorização da ANVISA."); saiu da home, de `/sobre`, de `/para-medicos`, das FAQs e do `llms.txt`. Número pendente de confirmação do cliente
+- `RDC 660` — base regulatória do serviço
 - Links WhatsApp em `lib/constants.js` — nunca hardcodar URLs
-- Citações científicas: NEJM 2021, Lancet Neurology 2019, JAMA 2019 — fontes reais, jamais inventar
+- Citações científicas: só com referência completa e link do PubMed ou DOI, conferidas no resumo publicado; jamais inventar. As citações da home (NEJM, Lancet Neurology, JAMA) saíram em 2026-11-23
 
 ### Removidos a pedido do cliente (2026-08-12)
 
@@ -83,7 +82,20 @@ A RDC 327/2019 foi **revogada** pela RDC 1.015/2026 (Art. 76), em vigor desde 04
 - Sugerir tratamentos para condições específicas sem ressalva médica — inclusive listas de doenças por produto (removidas da home e de `/produtos` em 2026-10-26)
 - Dizer "aprovação ANVISA" para os produtos: o que existe é a autorização de importação do paciente
 
-A linha "Este site não realiza prescrição médica. Produtos sujeitos à prescrição médica e à autorização da ANVISA para importação (RDC 660/2022)." deve aparecer no footer (atualizada a pedido do cliente em 2026-10-26; antes citava a RDC 327/2019, revogada).
+### Regras de publicidade (refresh/26-compliance-anvisa, 2026-11-23)
+
+A CBMed não vende produto. Produto importado pela RDC 660 não é regularizado nem aprovado pela Anvisa, e a Anvisa já multou assessorias por publicidade. Por isso o site não pode ter nada que pareça oferta ou propaganda de produto:
+
+- Sem nome, imagem, concentração, composição ou dose de produto. Não há catálogo: `/produtos` redireciona (308) para `/como-funciona`. As imagens `public/produto-*` e `public/hero-produtos*` continuam no repo, sem uso; não apagar nem voltar a referenciar.
+- Sem "aprovado", "registro", "autorizado", "certificação" ou "rastreabilidade" ligados a produto. O selo é só "RDC 660/2022 · IMPORTAÇÃO REGULAR" (`components/SeloRdc660.js`).
+- Sem lista de doenças ou condições por produto ou na área médica, e sem resultado numérico de estudo na home.
+- Em `/ciencia`, cada estudo tem referência completa, link do PubMed ou DOI, tipo de estudo e limitação principal, conforme o resumo publicado. Estudo que não se confirma, sai.
+- Fato regulatório, prazo ou número novo só se já estiver nos artigos de 26/10/2026 (`o-que-e-a-rdc-660`, `receita-oleo-de-cbd`, `acesso-legal-oleo-de-cbd-brasil`), com a mesma referência de artigo da norma. Na dúvida, deixar de fora.
+- Texto novo em português simples, sem travessão no meio de frase.
+
+O aviso legal do footer (atualizado em 2026-11-23; versões anteriores citaram a RDC 327/2019, revogada) é:
+
+"Este site não realiza prescrição médica. A CBMed é uma assessoria de importação e não vende produtos. Os produtos derivados de cannabis importados por pessoa física pela RDC 660/2022 dependem de prescrição médica e de autorização da Anvisa para cada paciente, e não têm qualidade, segurança e eficácia avaliadas pela Anvisa."
 
 ## Regra de visibilidade (obrigatória antes de qualquer edição visual)
 
@@ -137,11 +149,12 @@ Limpeza profunda (`rm -rf .next node_modules + npm install`) é necessária entr
 | S09 — Artigos | refresh/09-articles | ✅ merged |
 | S10 — CTA + Footer | refresh/10-footer | 🔄 em andamento |
 | S11 — Páginas internas | refresh/11-internal | ⏳ planejada |
+| Compliance Anvisa | refresh/26-compliance-anvisa | 🔄 em revisão (PR) |
 | Polish Pass | refresh/polish | ⏳ final |
 
 ## Polish Pass (pendências para o final do projeto)
 
-- Substituir PNGs dos produtos por versões com fundo realmente transparente (Photoroom)
+- ~~Substituir PNGs dos produtos por versões com fundo transparente~~ (suspenso: produtos saíram do site em 2026-11-23)
 - Substituir átomo SVG genérico da S06 por molécula real de CBD (3dmol.js, MolView, ou estrutural 2D estilizada)
 - Refinamentos finos de timing de animações
 - Micro-interações finais
@@ -150,7 +163,7 @@ Limpeza profunda (`rm -rf .next node_modules + npm install`) é necessária entr
 
 - `lib/constants.js` — WhatsApp links, telefone, email
 - `lib/artigos.js` — conteúdo dos artigos (não alterar textos sem aprovação)
-- `public/produto-*.png` — PNGs com fundo transparente (não sobrescrever com versões antigas)
+- `public/produto-*` — imagens de produto, sem uso desde 2026-11-23 (não apagar e não voltar a referenciar)
 - `app/globals.css` — tokens de design (alterações impactam todo o site)
 - `next.config.js` — `remotePatterns` deve incluir `images.unsplash.com`
 
@@ -158,13 +171,15 @@ Limpeza profunda (`rm -rf .next node_modules + npm install`) é necessária entr
 
 - `Header.js` — sticky com glassmorphism
 - `MagneticButton.js` — botões com magnetic hover (S03)
-- `HeroFlask.js` — frasco com float + parallax (S03)
-- `StatItem.js` — count-up animado (S04)
-- `ProductCard.js` — card horizontal do catálogo (S05)
-- `ScienceSection.js` — seção ciência com átomo SVG (S06)
+- `StatItem.js` — count-up animado (S04); o HTML do servidor já traz o valor final
+- `ScienceSection.js` — chamada para /ciencia com a molécula de CBD (S06), sem resultado de estudo
 - `MedicalSection.js` — canal médico (S07)
-- `RdcSection.js` — anatomia do produto regulado (S08)
+- `RdcSection.js` — importação regular com o selo RDC 660 (S08), sem produto
+- `SeloRdc660.js` — selo "RDC 660/2022 · IMPORTAÇÃO REGULAR"
 - `ArticlesSection.js` — blog editorial (S09)
+- `lib/processo.js` — etapas e documentos, fonte única de /acolhimento e /como-funciona
+
+`HeroFlask.js` e `ProductCard.js` foram removidos em 2026-11-23 junto com o catálogo.
 
 ## Comandos úteis
 

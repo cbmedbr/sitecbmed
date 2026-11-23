@@ -9,8 +9,8 @@ import LogoCBMed from './LogoCBMed'
 
 // ── Links de cada universo ─────────────────────────────────────────────────
 const pacienteLinks = [
-  { href: '/acolhimento', label: 'Como funciona' },
-  { href: '/produtos',    label: 'Nossos Produtos' },
+  { href: '/como-funciona', label: 'Como funciona' },
+  { href: '/acolhimento',   label: 'Acolhimento' },
   { href: '/artigos',     label: 'Artigos & Ciência' },
 ]
 const prescritoresLinks = [

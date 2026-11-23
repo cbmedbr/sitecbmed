@@ -1,30 +1,8 @@
 import Link from 'next/link'
 import MoleculeCBD from './MoleculeCBD'
 
-const citacoes = [
-  {
-    num: '¹',
-    texto: 'O canabidiol reduziu significativamente a frequência de crises em pacientes com síndrome de Dravet, com redução mediana de 38,9% vs 13,3% no placebo.',
-    fonte: 'New England Journal of Medicine, 2017',
-  },
-  {
-    num: '²',
-    texto: 'A terapia adjuvante com CBD resultou em maior redução na frequência de crises atônicas do que o placebo em pacientes com síndrome de Lennox-Gastaut.',
-    fonte: 'Lancet Neurology, 2019',
-  },
-  {
-    num: '³',
-    texto: 'O canabidiol foi associado a redução significativa nos escores de ansiedade em pacientes com transtorno de ansiedade social em ensaio clínico randomizado.',
-    fonte: 'JAMA, 2019',
-  },
-]
-
-const IconCheck = ({ className = 'w-4 h-4' }) => (
-  <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7"/>
-  </svg>
-)
-
+// Só a chamada para /ciencia: resultado de estudo com número não aparece na
+// home (orientação da Anvisa sobre publicidade de cannabis).
 export default function ScienceSection() {
   return (
     <section className="py-20 bg-forest">
@@ -36,31 +14,20 @@ export default function ScienceSection() {
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-brand-400 block mb-4">
               BASE CIENTÍFICA
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-8 leading-tight">
-              A ciência por trás do tratamento
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold text-white mb-6 leading-tight">
+              Ciência com fonte e com limites
             </h2>
-
-            <div className="space-y-4 mb-6">
-              {citacoes.map((c, i) => (
-                <blockquote key={i} className="bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] rounded-2xl p-5">
-                  <p className="text-sm text-white/75 leading-relaxed font-mono">
-                    <span className="text-brand-400 font-bold mr-1">{c.num}</span>
-                    {c.texto}
-                  </p>
-                  <cite className="block mt-2 font-mono text-[10px] font-bold uppercase tracking-widest text-brand-400 not-italic">
-                    {c.fonte}
-                  </cite>
-                </blockquote>
-              ))}
-            </div>
+            <p className="text-white/75 leading-relaxed mb-8 max-w-lg">
+              Reunimos estudos publicados sobre o canabidiol, cada um com a referência completa, o tipo de estudo e a principal limitação.
+            </p>
 
             <Link href="/ciencia" className="text-brand-400 hover:text-brand-300 text-sm font-semibold inline-flex items-center gap-1 transition-colors">
-              Ver estudos completos →
+              Ver a base científica →
             </Link>
           </div>
 
           {/* Coluna direita: molécula CBD interativa */}
-          <div className="flex flex-col items-center justify-center h-full -mt-60 gap-2">
+          <div className="flex flex-col items-center justify-center gap-2">
             <MoleculeCBD size={400} />
             <div className="text-center select-none cursor-default">
               <p className="font-mono text-xs text-white/40 uppercase tracking-widest mb-1">Canabidiol</p>
