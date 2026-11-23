@@ -35,7 +35,7 @@ const prazos = [
   { item: 'Cadastro na Anvisa',     texto: 'Vale 2 anos e permite várias importações nesse período.',            fonte: 'RDC 660/2022, Arts. 8º e 10' },
   { item: 'Renovação do cadastro',  texto: 'Exige uma nova receita.',                                             fonte: 'RDC 660/2022, Art. 9º' },
   { item: 'Autorização da Anvisa',  texto: 'Segundo o gov.br, a etapa de receber a autorização leva até 10 dias corridos, e o tempo estimado do serviço é de até 20 dias corridos.', fonte: 'gov.br, serviço oficial' },
-  { item: 'Entrega',                texto: 'Em até 20 dias após a autorização da ANVISA.',                       fonte: 'Prazo informado pela CBMed' },
+  { item: 'Entrega',                texto: 'Em até 15 dias úteis após a autorização da Anvisa.',                  fonte: 'Prazo informado pela CBMed' },
 ]
 
 export default function ComoFunciona() {
