@@ -84,7 +84,7 @@ export default function Home() {
 
             {/* Trust chips */}
             <div className="flex flex-wrap gap-3">
-              {['Autorização ANVISA', 'Importação Estrangeira', 'Entrega em até 20 dias'].map(item => (
+              {['Importação regular · RDC 660/2022', 'Autorização em nome do paciente', 'Prescrição médica obrigatória'].map(item => (
                 <span key={item} className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-brand-300 text-sm font-semibold px-4 py-2 rounded-full select-none">
                   <IconCheck className="w-4 h-4 shrink-0"/>
                   {item}

@@ -11,8 +11,8 @@ const stats = [
 const beneficios = [
   {
     icon: FileCheck,
-    titulo: 'Laudos COA por lote',
-    texto: 'Acesse o certificado de análise de cada lote com rastreabilidade completa.',
+    titulo: 'Requisitos da receita',
+    texto: 'Orientação sobre o que a receita precisa ter para a importação pela RDC 660.',
   },
   {
     icon: Shield,

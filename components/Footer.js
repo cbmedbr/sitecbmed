@@ -16,12 +16,12 @@ export default function Footer() {
             </div>
 
             <p className="font-serif text-base text-white/70 leading-relaxed max-w-xs mb-6 italic">
-              Assessoria estratégica para acesso seguro e legal ao Óleo de CBD via RDC 660 ANVISA.
+              Assessoria para importação legal de produtos de cannabis prescritos, conforme a RDC 660/2022.
             </p>
 
             <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-3 py-2 text-xs mb-5">
               <Shield size={14} className="text-brand-400 shrink-0" />
-              <span className="text-white/60">Aprovado <span className="text-white font-semibold">ANVISA · RDC 660</span></span>
+              <span className="text-white/60">Importação regular · <span className="text-white font-semibold">RDC 660/2022</span></span>
             </div>
           </div>
 
@@ -74,15 +74,16 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Certificações — 3 colunas */}
+          {/* Como atuamos — 3 colunas. Não são certificações: nada aqui
+              pode sugerir produto aprovado ou registrado pela Anvisa. */}
           <div className="lg:col-span-3">
-            <h3 className="font-mono text-xs font-bold text-white uppercase tracking-widest mb-5">Certificações</h3>
+            <h3 className="font-mono text-xs font-bold text-white uppercase tracking-widest mb-5">Como atuamos</h3>
             <div className="space-y-3">
               {[
-                { label: 'ANVISA',             sub: 'Produtos aprovados'   },
-                { label: 'RDC 660/2022',       sub: 'Conformidade total'   },
-                { label: 'Importação Uruguai', sub: 'Padrão internacional' },
-                { label: 'Full Spectrum',      sub: 'Formulação premium'   },
+                { label: 'RDC 660/2022',      sub: 'Importação por pessoa física' },
+                { label: 'Anvisa',            sub: 'Autorização em nome do paciente' },
+                { label: 'Prescrição médica', sub: 'Sempre obrigatória' },
+                { label: 'Assessoria',        sub: 'Do cadastro à entrega' },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-2.5">
                   <CheckCircle size={14} className="text-brand-400 shrink-0 mt-0.5" />

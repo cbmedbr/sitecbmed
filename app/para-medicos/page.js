@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { WHATSAPP_DR } from '../../lib/constants'
 import MagneticButton from '../../components/MagneticButton'
-import SeloAnvisa from '../../components/SeloAnvisa'
+import SeloRdc660 from '../../components/SeloRdc660'
 import { FileText, Package, BookOpen, Heart, MessageCircle, Shield } from 'lucide-react'
 import { buildMetadata } from '../../lib/seo'
 
@@ -62,7 +62,7 @@ export default function ParaMedicos() {
       <section className="relative bg-navy text-white overflow-hidden">
         {/* Watermark selo */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/4 opacity-[0.06] pointer-events-none select-none hidden lg:block">
-          <SeloAnvisa size={480} colorStroke="#1ba883" />
+          <SeloRdc660 size={480} colorStroke="#1ba883" />
         </div>
 
         {/* Grid de linhas — textura sutil */}
@@ -127,7 +127,7 @@ export default function ParaMedicos() {
               <div className="relative">
                 {/* Glow radial */}
                 <div className="absolute inset-0 rounded-full bg-brand-500/10 blur-3xl scale-150 pointer-events-none" />
-                <SeloAnvisa size={320} colorStroke="#1ba883" />
+                <SeloRdc660 size={320} colorStroke="#1ba883" />
               </div>
             </div>
 
