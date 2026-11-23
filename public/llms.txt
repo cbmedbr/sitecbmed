@@ -48,7 +48,7 @@
 - [Como funciona](https://cbmed.com.br/como-funciona): o que a CBMed faz e não faz, passo a passo, documentos, prazos e validades, perguntas frequentes.
 - [Sobre a CBMed](https://cbmed.com.br/sobre): quem somos, os pilares (legalidade, ciência, empatia, transparência) e perguntas frequentes sobre legalidade e prazos.
 - [Acolhimento](https://cbmed.com.br/acolhimento): as 6 etapas do processo, os documentos pedidos (receita conforme a RDC 660, documento com foto, comprovante de residência e, como recomendação da CBMed, relatório médico) e FAQ operacional. É a página que explica **como** o acesso acontece na prática.
-- [Ciência](https://cbmed.com.br/ciencia): sistema endocanabinoide, receptores CB1 e CB2, efeito entourage e estudos clínicos de referência.
+- [Ciência](https://cbmed.com.br/ciencia): sistema endocanabinoide, receptores CB1 e CB2 e estudos publicados, cada um com referência completa, link do PubMed, tipo de estudo e limitação principal.
 - [Para Médicos](https://cbmed.com.br/para-medicos): canal para prescritores — suporte documental, regulatório e logístico.
 - [Contato](https://cbmed.com.br/contato): WhatsApp, e-mail e formulário.
 
